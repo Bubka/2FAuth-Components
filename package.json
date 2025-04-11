@@ -5,7 +5,8 @@
   "type": "module",
   "private": true,
   "scripts": {
-
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix ."
   },
   "repository": {
     "type": "git",
@@ -17,5 +18,10 @@
   "bugs": {
     "url": "https://github.com/Bubka/2FAuth-Components/issues"
   },
-  "homepage": "https://github.com/Bubka/2FAuth-Components#readme"
+  "homepage": "https://github.com/Bubka/2FAuth-Components#readme",
+  "devDependencies": {
+    "@eslint/js": "^9.24.0",
+    "eslint-plugin-vue": "^10.0.0",
+    "typescript": "^5.8.3"
+  }
 }
