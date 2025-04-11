@@ -1,0 +1,9 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`button > color > should render a custom color button 1`] = `"<button type="button" class="button is-success">[[label]]</button>"`;
+
+exports[`button > color > should render a is-link button by default 1`] = `"<button type="button" class="button is-link">[[label]]</button>"`;
+
+exports[`button > label > should render a default label with bracket 1`] = `"<button type="button" class="button is-link">[[label]]</button>"`;
+
+exports[`button > label > should render passed label 1`] = `"<button type="button" class="button is-link">label</button>"`;
