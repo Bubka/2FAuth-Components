@@ -6,6 +6,12 @@
         "build": "vite build",
         "watch": "vite build --watch"
     },
+    "exports": {
+        ".": {
+            "import": "./dist/index.mjs"
+        }
+    },
+    "main": "./dist/index.mjs",
     "devDependencies": {
         "@types/node": "^22.14.0",
         "@vitejs/plugin-vue": "^5.2.3",
