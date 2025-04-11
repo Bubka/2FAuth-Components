@@ -1,5 +1,9 @@
 <script setup>
     const props = defineProps({
+        label: {
+            type: String,
+            default: '[[label]]'
+        },
         color: {
             type: String,
             default: 'is-link'
@@ -24,6 +28,8 @@
             [`${color}`]: true,
             'is-loading': isLoading,
         }">
-        <slot />
+        <slot>
+            {{ label }}
+        </slot>
     </button>
 </template>
