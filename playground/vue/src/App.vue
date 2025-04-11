@@ -3,5 +3,7 @@
 </script>
 
 <template>
-    <VueButton label="Hello World" />
+    <main class="main-section">
+        <VueButton label="Hello World" />
+    </main>
 </template>
