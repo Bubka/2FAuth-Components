@@ -1,7 +1,11 @@
-import { createElementBlock as o, openBlock as a, normalizeClass as l, renderSlot as n } from "vue";
-const s = ["disabled"], u = {
+import { createElementBlock as l, openBlock as a, normalizeClass as o, renderSlot as n, createTextVNode as i, toDisplayString as s } from "vue";
+const d = ["disabled"], c = {
   __name: "VueButton",
   props: {
+    label: {
+      type: String,
+      default: "[[label]]"
+    },
     color: {
       type: String,
       default: "is-link"
@@ -16,19 +20,21 @@ const s = ["disabled"], u = {
     }
   },
   setup(e) {
-    return (t, i) => (a(), o("button", {
+    return (t, u) => (a(), l("button", {
       type: "button",
       disabled: e.isLoading || e.isDisabled,
-      class: l({
+      class: o({
         button: !0,
         [`${e.color}`]: !0,
         "is-loading": e.isLoading
       })
     }, [
-      n(t.$slots, "default")
-    ], 10, s));
+      n(t.$slots, "default", {}, () => [
+        i(s(e.label), 1)
+      ])
+    ], 10, d));
   }
 };
 export {
-  u as VueButton
+  c as VueButton
 };
