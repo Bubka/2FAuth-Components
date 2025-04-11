@@ -1,0 +1,21 @@
+{
+  "name": "2fauth-components",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "private": true,
+  "scripts": {
+
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Bubka/2FAuth-Components.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "AGPL-3.0-only",
+  "bugs": {
+    "url": "https://github.com/Bubka/2FAuth-Components/issues"
+  },
+  "homepage": "https://github.com/Bubka/2FAuth-Components#readme"
+}
