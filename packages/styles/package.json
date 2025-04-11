@@ -1,0 +1,16 @@
+{
+    "name": "@2fauth/styles",
+    "type": "module",
+    "version": "0.1.0",
+    "scripts": {},
+    "exports": {
+        ".": {
+            "import": "./src/app.scss"
+        }
+    },
+    "main": "./src/app.scss",
+    "devDependencies": {
+        "bulma": "0.9.4",
+        "bulma-checkradio": "2.1.3"
+    }
+}
