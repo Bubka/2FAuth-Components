@@ -1,0 +1,14 @@
+{
+    "name": "@2fauth/components-histoire",
+    "private": true,
+    "scripts": {
+        "dev": "histoire dev --open",
+        "build": "histoire build",
+        "preview": "histoire preview"
+    },
+    "devDependencies": {
+        "@histoire/plugin-vue": "1.0.0-alpha.2",
+        "@vitejs/plugin-vue": "^5.2.3",
+        "histoire": "1.0.0-alpha.2",
+    }
+}
