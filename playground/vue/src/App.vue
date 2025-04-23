@@ -1,5 +1,5 @@
 <script setup>
-    import { VueButton, VueFormButtons } from '@2fauth/vue-formcontrols'
+    import { VueButton, FormButtons } from '@2fauth/vue-formcontrols'
 </script>
 
 <template>
@@ -9,7 +9,7 @@
             <VueButton label="Hello World" color="is-text" />
         </div>
         <div>
-            <VueFormButtons submitLabel="Submit" cancelLabel="Cancel" showCancelButton="true" />
+            <FormButtons submitLabel="Submit" cancelLabel="Cancel" showCancelButton="true" />
         </div>
     </main>
 </template>

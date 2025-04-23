@@ -1,2 +1,2 @@
 export * from './VueButton'
-export * from './VueFormButtons'
+export * from './FormButtons'

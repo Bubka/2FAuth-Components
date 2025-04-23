@@ -1,6 +1,6 @@
 <script lang="ts" setup>
     import { logEvent } from 'histoire/client'
-    import VueFormButtons from './VueFormButtons.vue'
+    import FormButtons from './FormButtons.vue'
 
     function initState() {
         return {
@@ -14,7 +14,7 @@
 <template>
     <Story :init-state="initState">
         <template #default="{ state }">
-            <VueFormButtons
+            <FormButtons
                 :submitLabel="state.submitLabel"
                 :cancelLabel="state.cancelLabel"
                 :showCancelButton="state.showCancelButton"
