@@ -18,7 +18,8 @@
                 :submitLabel="state.submitLabel"
                 :cancelLabel="state.cancelLabel"
                 :showCancelButton="state.showCancelButton"
-                @click="logEvent('Click',$event)" />
+                @submit="logEvent('submit', $event)"
+                @cancel="logEvent('cancel', $event)" />
         </template>
     </Story>
 </template>

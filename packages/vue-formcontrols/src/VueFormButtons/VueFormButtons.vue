@@ -42,12 +42,12 @@
 <template>
     <div class="field is-grouped">
         <div class="control">
-            <VueButton @click="emit('ok')" :id="submitId" :type="'submit'" :color="color" :isLoading="isBusy" :disabled="isDisabled" >
+            <VueButton @click="emit('submit')" :id="submitId" :type="'submit'" :color="color" :isLoading="isBusy" :disabled="isDisabled" >
                 {{ submitLabel }}
             </VueButton>
         </div>
         <div class="control" v-if="showCancelButton">
-            <VueButton @click="emit('ko')" :id="cancelId" :color="'is-text'" >
+            <VueButton @click="emit('cancel')" :id="cancelId" :color="'is-text'" >
                 {{ cancelLabel }}
             </VueButton>
         </div>
