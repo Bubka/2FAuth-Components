@@ -17,6 +17,23 @@ export default defineConfig({
     theme: {
         title: 'histoire @2FAuth',
     },
+    backgroundPresets: [
+        {
+            label: 'Dark gray',
+            color: '#242424',
+            contrastColor: '#ccc'
+        },
+        {
+          label: 'Light gray',
+          color: '#f5f5f5',
+          contrastColor: '#eee'
+        },
+        {
+          label: 'Transparent',
+          color: 'transparent',
+          contrastColor: '#333'
+        }
+    ],
     vite: {
         plugins: [
             Vue(),
