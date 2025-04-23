@@ -15,13 +15,17 @@
         isDisabled: {
             type: Boolean,
             default: false
+        },
+        nativeType: {
+            type: String,
+            default: 'submit'
         }
     })
 </script>
 
 <template>
     <button 
-        type="button"
+        :type="nativeType"
         :disabled="isLoading || isDisabled"
         :class="{
             'button': true,
