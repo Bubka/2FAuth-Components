@@ -1472,3 +1472,27 @@ footer.menu {
 .width-1-5x {
   width: 1.5em;
 }
+
+.lucide {
+  // stroke-width: 1.25;
+  width: 1.25rem;
+  height: 1.25rem;
+}
+.lucide-default-size {
+  // stroke-width: 1.25;
+  width: auto;
+  height: auto;
+}
+
+.icon-size-1 {
+  width: 1rem;
+  height: 1rem;
+}
+.icon-size-3 {
+  width: 3rem;
+  height: 3rem;
+}
+
+.rotate-135 {
+  transform: rotate(135deg);
+}
