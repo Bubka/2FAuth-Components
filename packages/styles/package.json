@@ -12,5 +12,8 @@
     "devDependencies": {
         "bulma": "0.9.4",
         "bulma-checkradio": "2.1.3"
+    },
+    "peerDependencies": {
+        "sass": "1.67.0"
     }
 }
