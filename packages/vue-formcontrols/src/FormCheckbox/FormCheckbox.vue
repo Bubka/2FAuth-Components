@@ -53,7 +53,7 @@
 <template>
     <div class="field is-flex">
         <div v-if="isIndented" class="pr-1" :class="{ 'is-opacity-5' : isDisabled || isLocked }">
-            <LucideChevronRight class="has-text-grey rotated-chevron" />
+            <LucideChevronRight class="has-text-grey rotate-135" />
         </div>
         <div>
             <input
