@@ -9,6 +9,7 @@
             help: 'This is where comes the help text',
             fieldname: 'MyFieldName',
             isIndented: false,
+            isLocked: false,
         }
     }
 </script>
@@ -22,7 +23,8 @@
                 :fieldName="state.fieldname"
                 :label="state.label"
                 :help="state.help"
-                :isIndented="state.isIndented" />
+                :isIndented="state.isIndented"
+                :isLocked="state.isLocked" />
         </template>
     </Story>
 </template>

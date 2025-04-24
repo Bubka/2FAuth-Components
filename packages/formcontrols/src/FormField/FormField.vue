@@ -84,7 +84,12 @@
         </div>
         <div class="field">
             <label :for="inputId" class="label" :class="{ 'is-opacity-5' : isDisabled || isLocked }">
-                {{ label }}<LucideLock v-if="isLocked" class="ml-2 icon-size-1" />
+                <span class="icon-text">
+                    <span>{{ label }}</span>
+                    <span v-if="isLocked" class="icon">
+                        <LucideLock class="icon-size-1" />
+                    </span>
+                </span>
             </label>
             <div class="control" :class="{ 'has-icons-left' : leftIcon, 'has-icons-right': rightIcon }">
                 <input 

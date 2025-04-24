@@ -66,7 +66,12 @@
                 :aria-describedby="help ? legendId : undefined"
             />
             <label tabindex="0" :for="fieldName" class="label" :class="labelClass" v-on:keypress.space.prevent="toggleModel">
-                {{ label }}<LucideLock v-if="isLocked" class="ml-2 icon-size-1" />
+                <span class="icon-text">
+                    <span>{{ label }}</span>
+                    <span v-if="isLocked" class="icon">
+                        <LucideLock class="icon-size-1" />
+                    </span>
+                </span>
             </label>
             <p :id="legendId" class="help" v-html="help" v-if="help" />
         </div>
