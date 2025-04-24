@@ -1,5 +1,5 @@
 <script setup>
-    import { VueButton, FormButtons } from '@2fauth/vue-formcontrols'
+    import { VueButton, FormButtons } from '@2fauth/formcontrols'
 </script>
 
 <template>

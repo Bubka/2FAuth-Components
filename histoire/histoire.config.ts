@@ -9,9 +9,9 @@ export default defineConfig({
         HstVue()
     ],
     storyMatch: [
-        // resolve(__dirname,'../packages/vue-formcontrols/src/**/*.story.vue'),
+        // resolve(__dirname,'../packages/formcontrols/src/**/*.story.vue'),
         // resolve(__dirname, './../test/*.story.vue'),
-        './../packages/vue-formcontrols/src/**/*.story.vue'
+        './../packages/formcontrols/src/**/*.story.vue'
     ],
     setupFile: './setup.ts',
     theme: {

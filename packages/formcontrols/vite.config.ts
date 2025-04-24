@@ -15,7 +15,7 @@ export default defineConfig({
     build: {
         lib: {
             formats: ['es'],
-            name: 'vue-formcontrols',
+            name: 'formcontrols',
             fileName: (_,name) => `${name}.mjs`,
             entry: {
                 index: resolve(__dirname,'src/index.js'),

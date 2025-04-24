@@ -1,5 +1,5 @@
 {
-    "name": "@2fauth/vue-formcontrols",
+    "name": "@2fauth/formcontrols",
     "type": "module",
     "version": "0.1.0",
     "scripts": {
