@@ -1,7 +1,9 @@
 import { resolve } from 'node:path'
 import { HstVue } from '@histoire/plugin-vue'
 import Vue from '@vitejs/plugin-vue'
+import VueI18nPlugin from '@intlify/unplugin-vue-i18n/vite'
 import { defineConfig } from 'histoire'
+import path from 'path'
 
 export default defineConfig({
     outDir: './dist',
@@ -37,6 +39,10 @@ export default defineConfig({
     vite: {
         plugins: [
             Vue(),
+            VueI18nPlugin({
+                include: [path.resolve(__dirname, '../resources/lang/*.json')],
+    
+            })
         ],
         server: {
             fs: {

@@ -1,0 +1,17 @@
+{
+    "srv.resource_not_found": "Resource not found",
+    "ui.save" : "Save",
+    
+    "ui.formcontrols.reveal_password": "Reveal password",
+    "ui.formcontrols.hide_password": "Hide password",
+    "ui.formcontrols.caps_lock_is_on": "Caps lock is On",
+    "ui.formcontrols.is_long_enough": "8 characters min.",
+    "ui.formcontrols.has_lower_case": "Has lower case",
+    "ui.formcontrols.has_upper_case": "Has upper case",
+    "ui.formcontrols.has_special_char": "Has special char",
+    "ui.formcontrols.has_number": "Has number",
+    "ui.formcontrols.mandatory_rules": "Mandatory",
+    "ui.formcontrols.optional_rules_you_should_follow": "Recommandé (fortement)",
+
+    "ext.unlock": "Unlock"
+}
