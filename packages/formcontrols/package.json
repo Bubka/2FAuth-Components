@@ -15,7 +15,7 @@
     },
     "main": "./dist/index.mjs",
     "dependencies": {
-      "@2fauth/ui": "link:../ui"
+        "@2fauth/ui": "link:../ui"
     },
     "devDependencies": {
         "@histoire/plugin-vue": "1.0.0-alpha.2",
