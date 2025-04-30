@@ -1,4 +1,6 @@
-<script setup>    
+<script setup>
+    import { computed } from 'vue'
+
     const props = defineProps({
         targetPagetitle: {
             type: String,
@@ -30,11 +32,13 @@
         },
     })
 
-    const classes = 'button'
-        + (props.darkMode == true && ! props.isText && ! props.isCapture ? ' is-dark' : '')
-        + (props.isText ? ' is-text' : '')
-        + (props.isCapture ? ' is-large is-warning' : '')
-        + (props.isRounded ? ' is-rounded' : '')
+    const classes = computed(() => {
+        return 'button'
+            + ((props.darkMode == true && props.isText == false && props.isCapture == false) ? ' is-dark' : '')
+            + (props.isText == true ? ' is-text' : '')
+            + (props.isCapture == true ? ' is-large is-warning' : '')
+            + (props.isRounded == true ? ' is-rounded' : '')
+    })
 </script>
 
 <template>
