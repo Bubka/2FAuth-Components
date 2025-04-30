@@ -13,7 +13,6 @@
             help: 'This is the help text',
             isIndented: false,
             isLocked: false,
-            showRules: true,
         }
     }
 </script>
