@@ -1,10 +1,11 @@
 <script lang="ts" setup>
     import { logEvent } from 'histoire/client'
     import FormToggle from './FormToggle.vue'
+    import { isDark } from 'histoire/client'
 
     function initStateIcon() {
         return {
-            model: 'dark',
+            model: isDark() ? 'dark' : 'light',
             choices: [
                 { text: 'message.light', value: 'light', icon: 'Sun' },
                 { text: 'message.dark', value: 'dark', icon: 'Moon' },
@@ -16,7 +17,7 @@
             help: 'This is the help text',
             isIndented: false,
             isLocked: false,
-            darkMode: true,
+            darkMode: isDark(),
         }
     }
     function initStateText() {
@@ -35,7 +36,7 @@
 
 <template>
     <Story>
-        <Variant title="With icons" :init-state="initStateIcon">
+        <Variant title="default" :init-state="initStateIcon">
             <template #default="{ state }">
                 <FormToggle
                     v-model="state.model"
