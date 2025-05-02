@@ -9,7 +9,6 @@
             fieldname: 'MyFieldName',
             errorMessage: 'This is the validation error text',
             help: 'This is the help text',
-            isIndented: false,
             isLocked: false,
             showRules: true,
         }
@@ -26,7 +25,6 @@
                 :fieldName="state.fieldname"
                 :errorMessage="state.errorMessage"
                 :help="state.help"
-                :is-indented="state.isIndented"
                 :is-locked="state.isLocked"
                 :showRules="state.showRules"
             />
