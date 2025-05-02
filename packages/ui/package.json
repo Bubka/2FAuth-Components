@@ -6,6 +6,7 @@
         "build": "vite build",
         "watch": "vite build --watch",
         "typecheck": "vue-tsc -p tsconfig.app.json --noEmit",
+        "prepack": "pnpm run build"
     },
     "exports": {
         ".": {
