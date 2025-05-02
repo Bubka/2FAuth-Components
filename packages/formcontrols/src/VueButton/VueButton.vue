@@ -18,7 +18,8 @@
         },
         nativeType: {
             type: String,
-            default: 'submit'
+            default: 'submit',
+            required: true
         }
     })
 </script>
