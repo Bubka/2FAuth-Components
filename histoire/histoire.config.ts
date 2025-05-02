@@ -13,7 +13,8 @@ export default defineConfig({
     storyMatch: [
         // resolve(__dirname,'../packages/formcontrols/src/**/*.story.vue'),
         // resolve(__dirname, './../test/*.story.vue'),
-        './../packages/formcontrols/src/**/*.story.vue'
+        './../packages/formcontrols/src/**/*.story.vue',
+        './../packages/ui/src/**/*.story.vue'
     ],
     setupFile: './setup.ts',
     theme: {
@@ -51,5 +52,19 @@ export default defineConfig({
                 ],
             },
         },
+    },
+    tree: {
+        groups: [
+            {
+                id: 'formcontrols',
+                title: '@2FAuth/formcontrols',
+                include: file => file.path.includes('packages/formcontrols'),
+            },
+            {
+                id: 'ui',
+                title: '@2FAuth/ui',
+                include: file => file.path.includes('packages/ui'),
+            },
+        ],
     },
 })
