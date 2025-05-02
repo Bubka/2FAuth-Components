@@ -8,6 +8,7 @@
     "lint": "eslint .",
     "lint:fix": "eslint --fix .",
     "test": "pnpm --filter \"./packages/**\" run test",
+    "typecheck": "pnpm --filter \"./packages/**\" run typecheck"
   },
   "repository": {
     "type": "git",

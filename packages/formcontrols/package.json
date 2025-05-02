@@ -6,7 +6,8 @@
         "build": "vite build",
         "watch": "vite build --watch",
         "test": "vitest run",
-        "test:watch": "vitest"
+        "test:watch": "vitest",
+        "typecheck": "vue-tsc -p tsconfig.app.json --noEmit",
     },
     "exports": {
         ".": {
@@ -28,7 +29,8 @@
         "typescript": "^5.8.3",
         "vite": "^6.2.6",
         "vitest": "^3.1.1",
-        "vue": "^3.5.13"
+        "vue": "^3.5.13",
+        "vue-tsc": "^2.2.4"
     },
     "peerDependencies": {
         "vue": "^3.5.13",
