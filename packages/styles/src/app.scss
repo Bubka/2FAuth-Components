@@ -1174,13 +1174,13 @@ footer.menu {
 .spinner-container {
     background-color: $white-ter;
     .spinner {
-        color: $dark;
+        color: $grey-light;
     }
 }
 :root.dark .spinner-container {
     background-color: $black-ter;
     .spinner {
-        color: $light;
+        color: $grey-dark;
     }
 }
 .spinner-overlay-container {
