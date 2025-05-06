@@ -1,3 +1,5 @@
 export * from './Dots'
+export * from './DotsController'
+export * from './Kicker'
 export * from './LucideGenericIcon'
 export * from './Spinner'

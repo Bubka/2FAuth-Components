@@ -7,7 +7,7 @@
             type: Number,
             default: 10
         },
-        period: { // Used only to identify the dots component in Accounts.vue
+        period: { // Used only to identify the dots component when accessed using refs
             type: Number,
             default: null
         },
