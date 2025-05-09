@@ -22,7 +22,11 @@ export default defineConfig({
             },
         },
         rollupOptions: {
-            external: ['vue'],
+            external: [
+                'vue',
+                'lucide-vue-next',
+                '@2fauth/ui',
+            ],
         },
     },
 })

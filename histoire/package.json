@@ -7,7 +7,8 @@
         "preview": "histoire preview"
     },
     "dependencies": {
-        "@2fauth/styles": "link:../packages/styles"
+        "@2fauth/styles": "link:../packages/styles",
+        "@2fauth/ui": "link:../packages/ui"
     },
     "devDependencies": {
         "@histoire/plugin-vue": "1.0.0-alpha.2",
