@@ -22,6 +22,8 @@
         "@types/node": "^22.14.0",
         "@vitejs/plugin-vue": "^5.2.3",
         "@vue/tsconfig": "^0.7.0",
+        "@vueuse/components": "^13.1.0",
+        "@vueuse/core": "^13.1.0",
         "jsdom": "^26.0.0",
         "lucide-vue-next": "^0.503.0",
         "typescript": "^5.8.3",
@@ -32,6 +34,9 @@
     },
     "peerDependencies": {
         "@kyvg/vue3-notification": "^3.4.1",
+        "@vueuse/components": "^13.1.0",
+        "@vueuse/core": "^13.1.0",
+        "lucide-vue-next": "^0.503.0",
         "vue": "^3.5.13",
         "vue-i18n": "^11.1.3"
     }

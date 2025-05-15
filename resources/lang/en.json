@@ -17,5 +17,11 @@
     "ui.formcontrols.mandatory_rules": "Mandatory",
     "ui.formcontrols.optional_rules_you_should_follow": "Recommanded (highly)",
 
-    "ext.unlock": "Unlock"
+    "ext.unlock": "Unlock",
+
+    "error.invalid_or_unknown_token": "invalid or unknown token",
+    "message.counter": "counter",
+    "message.copy_to_clipboard": "Copy to clipboard",
+    "message.copy_next_password": "Copy next password",
+    "alt.icon_to_illustrate_the_account": "icon"
 }
