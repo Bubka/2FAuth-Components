@@ -3,14 +3,14 @@
 
     function initState() {
         return {
-            activeStep: 7,
+            activeStepIndex: 7,
             stepCount: 10,
             period: 30,
         }
     }
     function initStateCondensed() {
         return {
-            activeStep: 7,
+            activeStepIndex: 7,
             stepCount: 10,
             period: 30,
             isCondensed: true
@@ -23,7 +23,7 @@
         <Variant title="Standard" :init-state="initState">
             <template #default="{ state }">
                 <Dots
-                    v-model="state.activeStep"
+                    :activeStepIndex="state.activeStepIndex"
                     :stepCount="state.stepCount"
                     :period="state.period"
                 />
@@ -32,7 +32,7 @@
         <Variant title="Condensed" :init-state="initStateCondensed">
             <template #default="{ state }">
                 <Dots
-                    v-model="state.activeStep"
+                    :activeStepIndex="state.activeStepIndex"
                     :stepCount="state.stepCount"
                     :period="state.period"
                     :isCondensed="state.isCondensed"

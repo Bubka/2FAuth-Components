@@ -74,7 +74,7 @@
         // Main timeout that runs until the end of the period
         remainingTimeout.value = setTimeout(function() {
             reset()
-            emit('stepping-ended', 0)
+            emit('stepping-ended')
         }, remainingTimeBeforeEndOfPeriod.value * 1000);
 
         // During the remainingTimeout countdown we emit an event every durationBetweenTwoSteps seconds,

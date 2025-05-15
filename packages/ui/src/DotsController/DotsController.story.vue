@@ -4,12 +4,13 @@
     import DotsController from './DotsController.vue'
     import Dots from '../Dots/Dots.vue'
 
-    const controller = useTemplateRef('controller')
+    const dotsController = useTemplateRef('dotsController')
     const state = reactive({
             period: 30,
-            generated_at: Date.now(),
+            generated_at: Math.floor(Date.now() / 1000),
             isStarted: false,
-            activeStep: -1
+            activeStepIndex: -1,
+            reset: true
     })
 
     watch(
@@ -22,36 +23,44 @@
         }
     )
 
+    watch(
+        () => state.reset,
+        () => {
+            state.isStarted = false
+            state.activeStepIndex = -1
+            stopStepping()
+        }
+    )
+
     function startStepping() {
-        state.generated_at = Date.now()
-        controller.value?.startStepping(state.generated_at)
+        state.generated_at = Math.floor(Date.now() / 1000)
+        dotsController.value?.startStepping(state.generated_at)
     }
 
     function stopStepping() {
-        controller.value?.reset()
+        dotsController.value?.reset()
     }
 
     function onSteppingStart(eventArg: any) {
         logEvent('stepping-started', { eventArg })
-        state.activeStep = eventArg
+        state.activeStepIndex = eventArg
     }
 
     function onStepUp(eventArg: any) {
         logEvent('stepped-up', { eventArg })
-        state.activeStep = eventArg
+        state.activeStepIndex = eventArg
     }
 
-    function onSteppingEnd(eventArg: any) {
-        logEvent('stepping-ended', { eventArg })
+    function onSteppingEnd() {
+        logEvent('stepping-ended', null)
         state.isStarted = false
-        state.activeStep = eventArg
     }
 </script>
 
 <template>
     <Story auto-props-disabled>
         <DotsController
-            ref="controller"
+            ref="dotsController"
             :autostart="false"
             :period="state.period"
             :generated_at="state.generated_at"
@@ -61,7 +70,7 @@
         >
         </DotsController>
         <Dots
-            v-model="state.activeStep"
+            :activeStepIndex="state.activeStepIndex"
             :period="state.period"
         />
         <template #controls>
@@ -70,10 +79,13 @@
             <HstButton color="primary" class="htw-p-2" @click="state.isStarted = true" :style="'margin: 15px 7px;'" v-if="state.isStarted == false">
                 Start stepping
             </HstButton>
-            <HstButton color="primary" class="htw-p-2" @click="state.isStarted = false" :style="'margin: 0 7px;'" v-if="state.isStarted == true">
-                Stop stepping
+            <HstButton class="htw-p-2" @click="state.isStarted = false" :style="'margin: 15px 7px;'" v-if="state.isStarted == true">
+                Pause stepping
             </HstButton>
-            <span>Active step: {{ state.activeStep }}</span>
+            <span style="padding-left: 7px">Active step index: {{ state.activeStepIndex }}</span>
+            <HstButton class="htw-p-2" @click="state.reset = !state.reset" :style="'margin: 15px 7px;'" v-if="state.activeStepIndex >= 0">
+                Reset
+            </HstButton>
       </template>
     </Story>
 </template>

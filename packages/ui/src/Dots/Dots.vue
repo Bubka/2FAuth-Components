@@ -1,8 +1,12 @@
 <script setup>
     import { computed } from 'vue'
 
-    const activeStep = defineModel()
     const props = defineProps({
+        activeStepIndex: {
+            type: Number,
+            default: -1,
+            required: true
+        },
         stepCount: {
             type: Number,
             default: 10
@@ -16,13 +20,17 @@
         }
     })
 
+    const activeDot = computed(() => {
+        return props.activeStepIndex < props.stepCount ? props.activeStepIndex + 1 : 1
+    })
+
     const isOff = computed(() => {
-        return activeStep.value == -1
+        return props.activeStepIndex == -1
     })
 </script>
 
 <template>
     <ul class="dots" :class="{'off' : isOff, 'condensed': isCondensed}">
-        <li v-for="n in stepCount" :key="n" :data-is-active="n == activeStep ? true : null"></li>
+        <li v-for="n in stepCount" :key="n" :data-is-active="n == activeDot ? true : null"></li>
     </ul>
 </template>
