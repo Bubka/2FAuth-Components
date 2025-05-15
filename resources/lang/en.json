@@ -1,7 +1,11 @@
 {
     "srv.resource_not_found": "Resource not found",
     "ui.save" : "Save",
-    
+    "notify.success": "This is a success",
+    "notify.info": "This is an info",
+    "notify.warn": "This is a warn",
+    "notify.alert": "This is an alert",
+    "notify.action": "This is an action",
     "ui.formcontrols.reveal_password": "Reveal password",
     "ui.formcontrols.hide_password": "Hide password",
     "ui.formcontrols.caps_lock_is_on": "Caps lock is On",

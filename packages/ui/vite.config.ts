@@ -2,11 +2,17 @@
 
 import { resolve } from 'node:path'
 import Vue from '@vitejs/plugin-vue'
+import VueI18nPlugin from '@intlify/unplugin-vue-i18n/vite'
 import { defineConfig } from 'vite'
+import path from 'path'
 
 export default defineConfig({
     plugins: [
-        Vue()
+        Vue(),
+        VueI18nPlugin({
+            include: [path.resolve(__dirname, '../../resources/lang/*.json')],
+
+        })
     ],
     test: {
         globals: true,
@@ -22,7 +28,14 @@ export default defineConfig({
             },
         },
         rollupOptions: {
-            external: ['vue'],
+            external: [
+                'vue',
+                'vue-i18n',
+                '@vueuse/core',
+                '@vueuse/components',
+                'lucide-vue-next',
+                '@kyvg/vue3-notification'
+            ],
         },
     },
 })

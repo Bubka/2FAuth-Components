@@ -16,6 +16,8 @@
     "main": "./dist/index.mjs",
     "devDependencies": {
         "@histoire/plugin-vue": "1.0.0-alpha.2",
+        "@intlify/unplugin-vue-i18n": "^6.0.8",
+        "@kyvg/vue3-notification": "^3.4.1",
         "@testing-library/vue": "^8.1.0",
         "@types/node": "^22.14.0",
         "@vitejs/plugin-vue": "^5.2.3",
@@ -29,7 +31,8 @@
         "vue-tsc": "^2.2.4"
     },
     "peerDependencies": {
+        "@kyvg/vue3-notification": "^3.4.1",
         "vue": "^3.5.13",
-        "vue-i18n": "^11.1.3",
+        "vue-i18n": "^11.1.3"
     }
 }
