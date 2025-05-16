@@ -111,27 +111,27 @@
                 :aria-invalid="errorMessage != undefined"
                 :aria-errormessage="errorMessage != undefined ? valErrorId : undefined" 
             />
-            <span v-if="currentType == 'password'" role="button" id="btnTogglePassword" tabindex="0" class="icon is-small is-right is-clickable" @keyup.enter="setFieldType('text')" @click="setFieldType('text')" :title="$t('ui.formcontrols.reveal_password')">
+            <span v-if="currentType == 'password'" role="button" id="btnTogglePassword" tabindex="0" class="icon is-small is-right is-clickable" @keyup.enter="setFieldType('text')" @click="setFieldType('text')" :title="$t('message.reveal_password')">
                 <LucideEyeOff />
             </span>
-            <span v-else role="button" id="btnTogglePassword" tabindex="0" class="icon is-small is-right is-clickable" @keyup.enter="setFieldType('password')" @click="setFieldType('password')" :title="$t('ui.formcontrols.hide_password')">
+            <span v-else role="button" id="btnTogglePassword" tabindex="0" class="icon is-small is-right is-clickable" @keyup.enter="setFieldType('password')" @click="setFieldType('password')" :title="$t('message.hide_password')">
                 <LucideEye />
             </span>
         </div>
-        <p class="help is-warning" v-if="hasCapsLockOn" v-html="$t('ui.formcontrols.caps_lock_is_on')" />
+        <p class="help is-warning" v-if="hasCapsLockOn" v-html="$t('message.caps_lock_is_on')" />
         <FormFieldError v-if="errorMessage != undefined" :error="errorMessage" :field="fieldName" />
         <p class="help" v-html="help" v-if="help" />
         <div v-if="showRules" :id="legendId" class="columns is-mobile is-size-7 mt-0">
             <div class="column is-one-third">
-                <span class="has-text-weight-semibold">{{ $t('ui.formcontrols.mandatory_rules') }}</span><br />
-                <span class="is-underscored" id="valPwdIsLongEnough" :class="{'is-dot' : IsLongEnough}"></span>{{ $t('ui.formcontrols.is_long_enough') }}<br/>
+                <span class="has-text-weight-semibold">{{ $t('message.mandatory_rules') }}</span><br />
+                <span class="is-underscored" id="valPwdIsLongEnough" :class="{'is-dot' : IsLongEnough}"></span>{{ $t('message.is_long_enough') }}<br/>
             </div>
             <div class="column">
-                <span class="has-text-weight-semibold">{{ $t('ui.formcontrols.optional_rules_you_should_follow') }}</span><br />
-                <span class="is-underscored" id="valPwdHasLowerCase" :class="{'is-dot' : hasLowerCase}"></span>{{ $t('ui.formcontrols.has_lower_case') }}<br/>
-                <span class="is-underscored" id="valPwdHasUpperCase" :class="{'is-dot' : hasUpperCase}"></span>{{ $t('ui.formcontrols.has_upper_case') }}<br/>
-                <span class="is-underscored" id="valPwdHasSpecialChar" :class="{'is-dot' : hasSpecialChar}"></span>{{ $t('ui.formcontrols.has_special_char') }}<br/>
-                <span class="is-underscored" id="valPwdHasNumber" :class="{'is-dot' : hasNumber}"></span>{{ $t('ui.formcontrols.has_number') }}
+                <span class="has-text-weight-semibold">{{ $t('message.optional_rules_you_should_follow') }}</span><br />
+                <span class="is-underscored" id="valPwdHasLowerCase" :class="{'is-dot' : hasLowerCase}"></span>{{ $t('message.has_lower_case') }}<br/>
+                <span class="is-underscored" id="valPwdHasUpperCase" :class="{'is-dot' : hasUpperCase}"></span>{{ $t('message.has_upper_case') }}<br/>
+                <span class="is-underscored" id="valPwdHasSpecialChar" :class="{'is-dot' : hasSpecialChar}"></span>{{ $t('message.has_special_char') }}<br/>
+                <span class="is-underscored" id="valPwdHasNumber" :class="{'is-dot' : hasNumber}"></span>{{ $t('message.has_number') }}
             </div>
         </div>
     </div> 

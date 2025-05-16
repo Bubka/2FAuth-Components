@@ -133,14 +133,14 @@
                 </div>
                 <template v-if="enableProtection && ! isLocked">
                     <div class="control" v-if="isProtected">
-                        <button type="button" class="button field-lock" :class="{'is-dark' : darkMode}" @click.stop="isProtected = false" :title="$t('message.unlock.title')">
+                        <button type="button" class="button field-lock" :class="{'is-dark' : darkMode}" @click.stop="isProtected = false" :title="$t('tooltip.unlock')">
                             <span class="icon">
                                 <LucideLock />
                             </span>
                         </button>
                     </div>
                     <div class="control" v-else>
-                        <button type="button" class="button field-unlock" :class="{'is-dark' : darkMode}" @click.stop="isProtected = true" :title="$t('message.lock.title')">
+                        <button type="button" class="button field-unlock" :class="{'is-dark' : darkMode}" @click.stop="isProtected = true" :title="$t('tooltip.lock')">
                             <span class="icon has-text-danger">
                                 <LucideLockOpen />
                             </span>

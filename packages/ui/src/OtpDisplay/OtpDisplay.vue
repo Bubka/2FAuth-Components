@@ -381,7 +381,7 @@
 <template>
     <div>
         <figure class="image is-64x64" :class="{ 'no-icon': !otpauthParams.icon }" style="display: inline-flex">
-            <img :src="iconPathPrefix + '/storage/icons/' + otpauthParams.icon" v-if="otpauthParams.icon" :alt="$t('alt.icon_to_illustrate_the_account')">
+            <img :src="iconPathPrefix + '/storage/icons/' + otpauthParams.icon" v-if="otpauthParams.icon" :alt="$t('alttext.icon_to_illustrate_the_account')">
         </figure>
         <UseColorMode v-slot="{ mode }">
             <p class="is-size-4 has-ellipsis" :class="mode == 'dark' ? 'has-text-grey-light' : 'has-text-grey'">{{ otpauthParams.service }}</p>

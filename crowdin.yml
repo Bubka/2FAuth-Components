@@ -19,7 +19,7 @@ files: [
   # Source files filter
   # e.g. "/resources/en/*.json"
   #
-    "source" : "/resources/lang/*.json",
+    "source" : "/resources/lang/en.json",
 
   #
   # Where translations will be placed

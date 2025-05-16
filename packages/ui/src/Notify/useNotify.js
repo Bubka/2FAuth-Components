@@ -28,12 +28,12 @@ export const useNotify = (error) => {
         // Hnalde axios response error
         if (error.response) {
             if (error.response.status === 407) {
-                notifyState.message = t('errors.auth_proxy_failed'),
-                notifyState.originalMessage = t('errors.auth_proxy_failed_legend')
+                notifyState.message = t('error.auth_proxy_failed'),
+                notifyState.originalMessage = t('error.auth_proxy_failed.legend')
             }
             else if (error.response.status === 403) {
-                notifyState.message = t('errors.unauthorized'),
-                notifyState.originalMessage = t('errors.unauthorized_legend')
+                notifyState.message = t('error.unauthorized'),
+                notifyState.originalMessage = t('error.unauthorized.legend')
             }
             else if(error.response.data) {
                 notifyState.message = error.response.data.message,
