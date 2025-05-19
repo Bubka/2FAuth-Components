@@ -111,10 +111,10 @@
                 :aria-invalid="errorMessage != undefined"
                 :aria-errormessage="errorMessage != undefined ? valErrorId : undefined" 
             />
-            <span v-if="currentType == 'password'" role="button" id="btnTogglePassword" tabindex="0" class="icon is-small is-right is-clickable" @keyup.enter="setFieldType('text')" @click="setFieldType('text')" :title="$t('message.reveal_password')">
+            <span v-if="currentType == 'password'" role="button" id="btnTogglePassword" tabindex="0" class="icon is-small is-right is-clickable" @keyup.enter="setFieldType('text')" @click="setFieldType('text')" :title="$t('tooltip.reveal_password')">
                 <LucideEyeOff />
             </span>
-            <span v-else role="button" id="btnTogglePassword" tabindex="0" class="icon is-small is-right is-clickable" @keyup.enter="setFieldType('password')" @click="setFieldType('password')" :title="$t('message.hide_password')">
+            <span v-else role="button" id="btnTogglePassword" tabindex="0" class="icon is-small is-right is-clickable" @keyup.enter="setFieldType('password')" @click="setFieldType('password')" :title="$t('tooltip.hide_password')">
                 <LucideEye />
             </span>
         </div>
