@@ -1,5 +1,6 @@
 <script setup>
     import { ref, computed } from 'vue'
+    import { UseColorMode } from '@vueuse/components'
     import { useIdGenerator, useValidationErrorIdGenerator } from '../helpers'
     import { LucideChevronRight, LucideLock, LucideLockOpen } from 'lucide-vue-next'
     import { FormFieldError } from '../FormFieldError'
@@ -59,10 +60,6 @@
         },
         isIndented: Boolean,
         isLocked: Boolean,
-        darkMode:  {
-            type: Boolean,
-            default: true
-        },
     })
 
     const { inputId } = useIdGenerator(props.inputType, props.fieldName + props.idSuffix)
@@ -132,20 +129,22 @@
                     />
                 </div>
                 <template v-if="enableProtection && ! isLocked">
+                <UseColorMode v-slot="{ mode }">
                     <div class="control" v-if="isProtected">
-                        <button type="button" class="button field-lock" :class="{'is-dark' : darkMode}" @click.stop="isProtected = false" :title="$t('tooltip.unlock')">
+                        <button type="button" class="button field-lock" :class="{'is-dark' : mode == 'dark'}" @click.stop="isProtected = false" :title="$t('tooltip.unlock')">
                             <span class="icon">
                                 <LucideLock />
                             </span>
                         </button>
                     </div>
                     <div class="control" v-else>
-                        <button type="button" class="button field-unlock" :class="{'is-dark' : darkMode}" @click.stop="isProtected = true" :title="$t('tooltip.lock')">
+                        <button type="button" class="button field-unlock" :class="{'is-dark' : mode == 'dark'}" @click.stop="isProtected = true" :title="$t('tooltip.lock')">
                             <span class="icon has-text-danger">
                                 <LucideLockOpen />
                             </span>
                         </button>
                     </div>
+                </UseColorMode>
                 </template>
             </div>
             <FormFieldError v-if="hasBeenTrimmed" :error="$t('message.spaces_are_ignored')" :field="'spaces'" :alertType="'is-warning'" />

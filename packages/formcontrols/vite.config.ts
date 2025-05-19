@@ -24,8 +24,10 @@ export default defineConfig({
         rollupOptions: {
             external: [
                 'vue',
-                'lucide-vue-next',
+                '@vueuse/core',
+                '@vueuse/components',
                 '@2fauth/ui',
+                'lucide-vue-next',
             ],
         },
     },

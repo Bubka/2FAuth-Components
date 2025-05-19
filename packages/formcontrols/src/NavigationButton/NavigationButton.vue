@@ -1,5 +1,8 @@
 <script setup>
     import { computed } from 'vue'
+    import { useColorMode } from '@vueuse/core'
+
+    const mode = useColorMode()
 
     const props = defineProps({
         targetPagetitle: {
@@ -26,15 +29,11 @@
             type: Boolean,
             default: true
         },
-        darkMode:  {
-            type: Boolean,
-            default: true
-        },
     })
 
     const classes = computed(() => {
         return 'button'
-            + ((props.darkMode == true && props.isText == false && props.isCapture == false) ? ' is-dark' : '')
+            + ((mode.value === 'dark' && props.isText == false && props.isCapture == false) ? ' is-dark' : '')
             + (props.isText == true ? ' is-text' : '')
             + (props.isCapture == true ? ' is-large is-warning' : '')
             + (props.isRounded == true ? ' is-rounded' : '')

@@ -1,7 +1,6 @@
 <script lang="ts" setup>
     import { logEvent } from 'histoire/client'
     import FormProtectedField from './FormProtectedField.vue'
-    import { isDark } from 'histoire/client'
 
     function initStateDefault() {
         return {
@@ -13,7 +12,6 @@
             isIndented: false,
             isLocked: false,
             enableProtection: true,
-            darkMode: isDark()
         }
     }
 </script>

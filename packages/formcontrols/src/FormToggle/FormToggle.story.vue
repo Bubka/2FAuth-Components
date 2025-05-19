@@ -17,7 +17,6 @@
             help: 'This is the help text',
             isIndented: false,
             isLocked: false,
-            darkMode: isDark(),
         }
     }
     function initStateText() {
@@ -48,7 +47,6 @@
                     :help="state.help"
                     :is-indented="state.isIndented"
                     :is-locked="state.isLocked"
-                    :darkMode="state.darkMode"
                 />
             </template>
         </Variant>
@@ -64,7 +62,6 @@
                     :help="state.help"
                     :is-indented="state.isIndented"
                     :is-locked="state.isLocked"
-                    :darkMode="state.darkMode"
                 />
             </template>
         </Variant>

@@ -1,4 +1,5 @@
 <script setup>
+    import { UseColorMode } from '@vueuse/components'
     import { useIdGenerator, useValidationErrorIdGenerator } from '../helpers'
     import { FormFieldError } from '../FormFieldError'
     import { LucideLock } from 'lucide-vue-next'
@@ -26,10 +27,6 @@
             type: String,
             default: ''
         },
-        darkMode:  {
-            type: Boolean,
-            required: true
-        },
     })
 
     // defines what events our component emits
@@ -56,6 +53,7 @@
             :aria-errormessage="errorMessage != undefined ? valErrorId : undefined" 
             class="is-toggle buttons"
         >
+            <UseColorMode v-slot="{ mode }">
             <button
                 v-for="choice in choices"
                 :key="choice.value"
@@ -67,7 +65,7 @@
                 :disabled="isDisabled || isLocked"
                 :class="{
                     'is-link': modelValue===choice.value,
-                    'is-dark': darkMode,
+                    'is-dark': mode == 'dark',
                     'is-multiline': choice.legend,
                 }"
                 v-on:click.stop="setRadio(choice.value)">
@@ -86,6 +84,7 @@
                     {{ $t(choice.text) }}
                 </label>
             </button>
+            </UseColorMode>
         </div>
         <FormFieldError v-if="errorMessage != undefined" :error="errorMessage" :field="fieldName" />
         <p :id="legendId" class="help" v-if="help">{{ help }}</p>
