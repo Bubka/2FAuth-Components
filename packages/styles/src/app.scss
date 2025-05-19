@@ -1170,22 +1170,62 @@ footer.menu {
   filter: none;
 }
 
-// Themed Spinner
+// Spinner
+.spinner {
+    display: block;
+}
+
+.spinner-container,
+.spinner-overlay-container {
+  text-align: center;
+  z-index: 100000;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.spinner-container,
+.spinner-overlay-container {
+  top: 25%;
+  height: 50%;
+}
+
 .spinner-container {
-    background-color: $white-ter;
-    .spinner {
-        color: $grey-light;
-    }
+  background-color: $white-ter;
+  .spinner {
+    color: $grey-light;
+  }
 }
 :root.dark .spinner-container {
-    background-color: $black-ter;
-    .spinner {
-        color: $grey-dark;
-    }
+  background-color: $black-ter;
+  .spinner {
+    color: $grey-dark;
+  }
 }
 .spinner-overlay-container {
-    background-color: none;
+  background-color: none;
 }
+
+.spinning {
+  animation-name: spin;
+  animation-duration: 1000ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear; 
+}
+@keyframes spin {
+  from {
+    transform:rotate(0deg);
+  }
+  to {
+    transform:rotate(360deg);
+  }
+}
+// end Spinner
+
 
 .fadeInOut-enter-active {
   animation: fadeIn 500ms
