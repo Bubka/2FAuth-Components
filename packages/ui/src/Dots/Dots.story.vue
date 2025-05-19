@@ -1,16 +1,37 @@
 <script lang="ts" setup>
+    import { reactive, useTemplateRef, watch } from 'vue'
     import Dots from './Dots.vue'
+
+    const dots = useTemplateRef('dots')
+    const internalState = reactive({
+        turnOn: false,
+        turnOff: false
+    })
+
+    watch(
+        () => internalState.turnOn,
+        () => {
+            dots.value?.turnOn(4)
+        }
+    )
+
+    watch(
+        () => internalState.turnOff,
+        () => {
+            dots.value?.turnOff()
+        }
+    )
 
     function initState() {
         return {
-            activeStepIndex: 7,
+            initialIndex: 7,
             stepCount: 10,
             period: 30,
         }
     }
     function initStateCondensed() {
         return {
-            activeStepIndex: 7,
+            initialIndex: 7,
             stepCount: 10,
             period: 30,
             isCondensed: true
@@ -23,7 +44,8 @@
         <Variant title="Standard" :init-state="initState">
             <template #default="{ state }">
                 <Dots
-                    :activeStepIndex="state.activeStepIndex"
+                    ref="dots"
+                    :initialIndex="state.initialIndex"
                     :stepCount="state.stepCount"
                     :period="state.period"
                 />
@@ -32,12 +54,21 @@
         <Variant title="Condensed" :init-state="initStateCondensed">
             <template #default="{ state }">
                 <Dots
-                    :activeStepIndex="state.activeStepIndex"
+                    ref="dots"
+                    :initialIndex="state.initialIndex"
                     :stepCount="state.stepCount"
                     :period="state.period"
                     :isCondensed="state.isCondensed"
                 />
             </template>
         </Variant>
+        <template #controls>
+            <HstButton color="primary" class="htw-p-2" @click="internalState.turnOn = !internalState.turnOn" :style="'margin: 15px 7px;'" >
+                turnOn(4)
+            </HstButton>
+            <HstButton class="htw-p-2" @click="internalState.turnOff = !internalState.turnOff" :style="'margin: 7px;'" >
+                turnOff()
+            </HstButton>
+      </template>
     </Story>
 </template>

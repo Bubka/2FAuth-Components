@@ -100,10 +100,10 @@
     const hasTOTP = ref(false)
     const showMainSpinner = ref(false)
     const opacity = ref('0')
-    const activeDot = ref(-1)
     const autoCloseTimeout = ref(null)
 
     const dotsController = useTemplateRef('dotsController')
+    const dots = useTemplateRef('dots')
     const otpSpanTag = useTemplateRef('otpSpanTag')
 
     watch(
@@ -198,7 +198,7 @@
         if (props.can_showNextOtp && next_password.value) {
             password.value = next_password.value
             next_password.value = ''
-            turnDotsOff()
+            dots.value.turnOff()
             turnDotOn(0)
         }
         else {
@@ -246,7 +246,7 @@
      */
     function setLoadingState() {
         showMainSpinner.value = true
-        turnDotsOff()
+        dots.value.turnOff()
     }
 
     /**
@@ -349,15 +349,8 @@
      * Turns dots On from the first one to the provided one
      */
     function turnDotOn(dotIndex) {
-        activeDot.value = dotIndex
+        dots.value.turnOn(dotIndex)
         opacity.value = 'is-opacity-' + dotIndex
-    }
-    
-    /**
-     * Turns dots On from the first one to the provided one
-     */
-    function turnDotsOff() {
-        activeDot.value = -1
     }
 
     defineExpose({
@@ -406,10 +399,7 @@
                 </span>
             </p>
         </UseColorMode>
-        <Dots 
-            :activeStepIndex="activeDot"
-            v-show="isTimeBased(otpauthParams.otp_type)"
-        ></Dots>
+        <Dots ref="dots" v-show="isTimeBased(otpauthParams.otp_type)" />
         <p v-show="isHMacBased(otpauthParams.otp_type)">
             {{ $t('message.counter') }}: {{ otpauthParams.counter }}
         </p>

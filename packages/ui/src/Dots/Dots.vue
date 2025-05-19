@@ -1,15 +1,14 @@
 <script setup>
-    import { computed } from 'vue'
+    import { ref, computed, onMounted } from 'vue'
 
     const props = defineProps({
-        activeStepIndex: {
-            type: Number,
-            default: -1,
-            required: true
-        },
         stepCount: {
             type: Number,
             default: 10
+        },
+        initialIndex: {
+            type: Number,
+            default: null
         },
         period: { // Used only to identify the dots component when accessed using refs
             type: Number,
@@ -20,13 +19,38 @@
         }
     })
 
-    const activeDot = computed(() => {
-        return props.activeStepIndex < props.stepCount ? props.activeStepIndex + 1 : 1
+    const activeDot = ref(0)
+    
+    const isOff = computed(() => {
+        return activeDot.value == -1
     })
 
-    const isOff = computed(() => {
-        return props.activeStepIndex == -1
+    /**
+     * Turns On dots
+     */
+    function turnOn(index) {
+        activeDot.value = index < props.stepCount ? index + 1 : 1
+    }
+
+    /**
+     * Turns Off all dots
+     */
+    function turnOff() {
+        activeDot.value = -1
+    }
+
+    onMounted(() => {
+        if (! isNaN(props.initialIndex)) {
+            turnOn(props.initialIndex)
+        }
     })
+
+    defineExpose({
+        turnOn,
+        turnOff,
+        props
+    })
+
 </script>
 
 <template>
