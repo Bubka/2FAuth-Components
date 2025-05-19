@@ -4,8 +4,8 @@
     "version": "0.1.0",
     "scripts": {},
     "exports": {
-        ".": {
-            "import": "./src/app.scss"
+        "./src/*.scss": {
+            "import": "./src/*.scss"
         }
     },
     "main": "./src/app.scss",

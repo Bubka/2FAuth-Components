@@ -1,4 +1,4 @@
-import '@2fauth/styles'
+import '@2fauth/styles/src/app.scss'
 
 import { defineSetupVue3 } from '@histoire/plugin-vue'
 import WrapperGlobal from './Wrapper.vue'
