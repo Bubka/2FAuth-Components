@@ -5,13 +5,13 @@
     function initStateClose() {
         return {
             action: 'close',
-            targetPagetitle: 'MyPage',
+            currentPagetitle: 'MyPage',
         }
     }
     function initStateBack() {
         return {
             action: 'back',
-            targetPagetitle: 'MyPage',
+            previousPagetitle: 'MyPage',
         }
     }
     function initStateCancel() {
@@ -47,6 +47,7 @@
                 <NavigationButton
                     :action="state.action"
                     @closed="logEvent('closed', $event)"
+                    :current-page-title="state.currentPagetitle"
                 />
             </template>
         </Variant>
@@ -55,6 +56,7 @@
                 <NavigationButton
                     :action="state.action"
                     @goback="logEvent('goback', $event)"
+                    :previous-page-title="state.previousPagetitle"
                 />
             </template>
         </Variant>

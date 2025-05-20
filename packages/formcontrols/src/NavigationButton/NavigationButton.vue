@@ -5,7 +5,11 @@
     const mode = useColorMode()
 
     const props = defineProps({
-        targetPagetitle: {
+        currentPageTitle: {
+            type: String,
+            default: ''
+        },
+        previousPageTitle: {
             type: String,
             default: ''
         },
@@ -50,7 +54,7 @@
             :class="classes"
             tabindex="0"
             role="button"
-            :aria-label="$t('message.close_the_x_page', { pagetitle: targetPagetitle })"
+            :aria-label="$t('message.close_the_x_page', { pagetitle: currentPageTitle })"
         >
             {{ $t('message.close') }}
         </a>
@@ -59,7 +63,7 @@
             id="lnkBack"
             @click.prevent="$emit('goback')"
             :class="classes"
-            :aria-label="$t('message.close_the_x_page', { pagetitle: targetPagetitle })"
+            :aria-label="$t('message.go_back_to_the_x_page', { pagetitle: previousPageTitle })"
         >
             {{ $t('message.back') }}
         </a>
