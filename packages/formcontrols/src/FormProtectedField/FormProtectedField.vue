@@ -106,7 +106,7 @@
         </div>
         <div>
             <label :for="inputId" class="label" :class="{ 'is-opacity-5' : isDisabled || isLocked }">
-                {{ label }}<LucideLock v-if="isLocked" class="ml-2 icon-size-1" />
+                {{ $t(props.label) }}<LucideLock v-if="isLocked" class="ml-2 icon-size-1" />
             </label>
             <div class="field has-addons mb-0" :class="{ 'pt-3' : hasOffset }">
                 <div class="control" :class="{ 'is-expanded': isExpanded }">
@@ -149,7 +149,7 @@
             </div>
             <FormFieldError v-if="hasBeenTrimmed" :error="$t('message.spaces_are_ignored')" :field="'spaces'" :alertType="'is-warning'" />
             <FormFieldError v-if="errorMessage != undefined" :error="errorMessage" :field="fieldName" />
-            <p :id="legendId" class="help" v-html="help" v-if="help"></p>
+            <p :id="legendId" class="help" v-html="$t(help)" v-if="help"></p>
         </div>
     </div>
 </template>

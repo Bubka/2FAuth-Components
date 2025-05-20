@@ -34,7 +34,7 @@
             'is-loading': isLoading,
         }">
         <slot>
-            {{ label }}
+            {{ $t(props.label) }}
         </slot>
     </button>
 </template>

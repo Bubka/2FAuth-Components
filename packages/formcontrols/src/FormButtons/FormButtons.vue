@@ -16,11 +16,11 @@
             },
             submitLabel: {
                 type: String,
-                default: '[[submit]]'
+                default: 'message.submit'
             },
             cancelLabel: {
                 type: String,
-                default: '[[cancel]]'
+                default: 'message.cancel'
             },
             color: {
                 type: String,
@@ -43,12 +43,12 @@
     <div class="field is-grouped">
         <div class="control">
             <VueButton @click="emit('submit')" :id="submitId" nativeType="submit" :color="color" :isLoading="isBusy" :disabled="isDisabled" >
-                {{ submitLabel }}
+                {{ $t(submitLabel) }}
             </VueButton>
         </div>
         <div class="control" v-if="showCancelButton">
             <VueButton @click="emit('cancel')" :id="cancelId" nativeType="button" :color="'is-text'" >
-                {{ cancelLabel }}
+                {{ $t(cancelLabel) }}
             </VueButton>
         </div>
     </div>

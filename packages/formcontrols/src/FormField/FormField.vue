@@ -85,7 +85,7 @@
         <div class="field">
             <label :for="inputId" class="label" :class="{ 'is-opacity-5' : isDisabled || isLocked }">
                 <span class="icon-text">
-                    <span>{{ label }}</span>
+                    <span>{{ $t(props.label) }}</span>
                     <span v-if="isLocked" class="icon">
                         <LucideLock class="icon-size-1" />
                     </span>
@@ -115,7 +115,7 @@
                 </span>
             </div>
             <FormFieldError v-if="errorMessage != undefined" :error="errorMessage" :field="fieldName" />
-            <p :id="legendId" class="help" v-html="help" v-if="help"></p>
+            <p :id="legendId" class="help" v-html="$t(help)" v-if="help"></p>
         </div>
     </div> 
 </template>

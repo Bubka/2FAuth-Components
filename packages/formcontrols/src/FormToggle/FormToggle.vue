@@ -43,7 +43,7 @@
 <template>
     <div class="field" :class="{ 'pt-3': hasOffset }">
         <span v-if="label" class="label" :class="{ 'is-opacity-5' : isDisabled || isLocked }">
-            {{ label }}<LucideLock v-if="isLocked" class="ml-2 icon-size-1" />
+            {{ $t(props.label) }}<LucideLock v-if="isLocked" class="ml-2 icon-size-1" />
         </span>
         <div
             id="rdoGroup"
@@ -87,6 +87,6 @@
             </UseColorMode>
         </div>
         <FormFieldError v-if="errorMessage != undefined" :error="errorMessage" :field="fieldName" />
-        <p :id="legendId" class="help" v-if="help">{{ help }}</p>
+        <p :id="legendId" class="help" v-if="help">{{ $t(props.help) }}</p>
     </div>
 </template>

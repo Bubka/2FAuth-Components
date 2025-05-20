@@ -71,7 +71,7 @@
         </div>
         <div class="field" :class="{ 'is-flex-grow-5' : isIndented }">
             <label v-if="label" :for="inputId" class="label">
-                {{ label }}<LucideLock v-if="isLocked" class="ml-2 icon-size-1" />
+                {{ $t(props.label) }}<LucideLock v-if="isLocked" class="ml-2 icon-size-1" />
             </label>
             <div class="control" :class="{ 'has-icons-left' : leftIcon, 'has-icons-right': rightIcon }">
                 <textarea 
@@ -91,7 +91,7 @@
                 />
             </div>
             <FormFieldError v-if="errorMessage != undefined" :error="errorMessage" :field="fieldName" />
-            <p :id="legendId" class="help" v-html="help" v-if="help"></p>
+            <p :id="legendId" class="help" v-html="$t(help)" v-if="help"></p>
         </div>
     </div> 
 </template>

@@ -46,7 +46,7 @@
         </div>
         <div>
             <label :for="inputId" class="label" :class="{ 'is-opacity-5' : isDisabled || isLocked }">
-                {{ label }}<LucideLock v-if="isLocked" class="ml-2 icon-size-1" />
+                {{ $t(props.label) }}<LucideLock v-if="isLocked" class="ml-2 icon-size-1" />
             </label>
             <div class="control">
                 <div class="select">

@@ -90,7 +90,7 @@
     <div class="field" :class="{ 'pt-3' : hasOffset }">
         <label :for="inputId" class="label">
             <span class="icon-text">
-                <span>{{ label }}</span>
+                <span>{{ $t(props.label) }}</span>
                 <span v-if="isLocked" class="icon">
                     <LucideLock class="icon-size-1" />
                 </span>
@@ -120,7 +120,7 @@
         </div>
         <p class="help is-warning" v-if="hasCapsLockOn" v-html="$t('message.caps_lock_is_on')" />
         <FormFieldError v-if="errorMessage != undefined" :error="errorMessage" :field="fieldName" />
-        <p class="help" v-html="help" v-if="help" />
+        <p class="help" v-html="$t(help)" v-if="help" />
         <div v-if="showRules" :id="legendId" class="columns is-mobile is-size-7 mt-0">
             <div class="column is-one-third">
                 <span class="has-text-weight-semibold">{{ $t('message.mandatory_rules') }}</span><br />

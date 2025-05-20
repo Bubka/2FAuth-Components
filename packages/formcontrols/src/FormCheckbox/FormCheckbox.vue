@@ -67,13 +67,13 @@
             />
             <label tabindex="0" :for="fieldName" class="label" :class="labelClass" v-on:keypress.space.prevent="toggleModel">
                 <span class="icon-text">
-                    <span>{{ label }}</span>
+                    <span>{{ $t(props.label) }}</span>
                     <span v-if="isLocked" class="icon">
                         <LucideLock class="icon-size-1" />
                     </span>
                 </span>
             </label>
-            <p :id="legendId" class="help" v-html="help" v-if="help" />
+            <p :id="legendId" class="help" v-html="$t(help)" v-if="help" />
         </div>
     </div>
 </template>
