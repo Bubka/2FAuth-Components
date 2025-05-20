@@ -42,6 +42,8 @@
             + (props.isCapture == true ? ' is-large is-warning' : '')
             + (props.isRounded == true ? ' is-rounded' : '')
     })
+
+    const emit = defineEmits(['closed', 'goback', 'canceled'])
 </script>
 
 <template>
