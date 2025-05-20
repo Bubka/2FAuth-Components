@@ -4,7 +4,7 @@
     import OtpDisplay from './OtpDisplay.vue'
     import twofaccountServiceStub from './twofaccountServiceStub'
 
-    const otpDisplay = useTemplateRef('otpDisplay')
+    const otpDisplayRef = useTemplateRef('otpDisplay')
     const state = reactive({
         accountParams: {
             otp_type: 'totp',
@@ -47,7 +47,7 @@
     watch(
         () => state.showUsingId,
         () => {
-            otpDisplay.value?.show(1)
+            otpDisplayRef.value?.show(1)
         }
     )
     watch(
@@ -55,7 +55,7 @@
         () => {
             state.uri = 'otpauth://totp/service:account?secret=A4GRFHVVRBGY7UIW'
             nextTick().then(() => {
-                otpDisplay.value?.show()
+                otpDisplayRef.value?.show()
             })
         }
     )
@@ -64,14 +64,14 @@
         () => {
             state.uri = ''
             nextTick().then(() => {
-                otpDisplay.value?.show()
+                otpDisplayRef.value?.show()
             })
         }
     )
     watch(
         () => state.clearOTP,
         () => {
-            otpDisplay.value?.clearOTP()
+            otpDisplayRef.value?.clearOTP()
         }
     )
 

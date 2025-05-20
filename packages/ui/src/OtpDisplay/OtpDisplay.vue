@@ -102,9 +102,9 @@
     const opacity = ref('0')
     const autoCloseTimeout = ref(null)
 
-    const dotsController = useTemplateRef('dotsController')
-    const dots = useTemplateRef('dots')
-    const otpSpanTag = useTemplateRef('otpSpanTag')
+    const dotsControllerRef = useTemplateRef('dotsController')
+    const dotsRef = useTemplateRef('dots')
+    const otpSpanTagRef = useTemplateRef('otpSpanTag')
 
     watch(
         () => props.icon,
@@ -198,7 +198,7 @@
         if (props.can_showNextOtp && next_password.value) {
             password.value = next_password.value
             next_password.value = ''
-            dots.value.turnOff()
+            dotsRef.value.turnOff()
             turnDotOn(0)
         }
         else {
@@ -220,7 +220,7 @@
                 hasTOTP.value = true
 
                 nextTick().then(() => {
-                    dotsController.value.startStepping()
+                    dotsControllerRef.value.startStepping()
                 })
             }
             else if (isHMacBased(otp.otp_type)) {
@@ -246,7 +246,7 @@
      */
     function setLoadingState() {
         showMainSpinner.value = true
-        dots.value.turnOff()
+        dotsRef.value.turnOff()
     }
 
     /**
@@ -284,7 +284,7 @@
         hasTOTP.value = false
         clearTimeout(autoCloseTimeout.value)
 
-        dotsController.value?.reset();
+        dotsControllerRef.value?.reset();
     }
 
     /**
@@ -292,7 +292,7 @@
      */
     function focusOnOTP() {
         nextTick().then(() => {
-            otpSpanTag.value?.focus()
+            otpSpanTagRef.value?.focus()
         })
     }
 
@@ -349,7 +349,7 @@
      * Turns dots On from the first one to the provided one
      */
     function turnDotOn(dotIndex) {
-        dots.value.turnOn(dotIndex)
+        dotsRef.value.turnOn(dotIndex)
         opacity.value = 'is-opacity-' + dotIndex
     }
 

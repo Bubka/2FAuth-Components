@@ -4,8 +4,8 @@
     import DotsController from './DotsController.vue'
     import Dots from '../Dots/Dots.vue'
 
-    const dotsController = useTemplateRef('dotsController')
-    const dots = useTemplateRef('dots')
+    const dotsControllerRef = useTemplateRef('dotsController')
+    const dotsRef = useTemplateRef('dots')
 
     const state = reactive({
             period: 30,
@@ -31,29 +31,29 @@
         () => {
             state.isStarted = false
             state.activeStepIndex = -1
-            dots.value?.turnOff()
+            dotsRef.value?.turnOff()
             stopStepping()
         }
     )
 
     function startStepping() {
         state.generated_at = Math.floor(Date.now() / 1000)
-        dotsController.value?.startStepping(state.generated_at)
+        dotsControllerRef.value?.startStepping(state.generated_at)
     }
 
     function stopStepping() {
-        dotsController.value?.reset()
+        dotsControllerRef.value?.reset()
     }
 
     function onSteppingStart(eventArg: any) {
         logEvent('stepping-started', { eventArg })
-        dots.value?.turnOn(eventArg)
+        dotsRef.value?.turnOn(eventArg)
         state.activeStepIndex = eventArg
     }
 
     function onStepUp(eventArg: any) {
         logEvent('stepped-up', { eventArg })
-        dots.value?.turnOn(eventArg)
+        dotsRef.value?.turnOn(eventArg)
         state.activeStepIndex = eventArg
     }
 

@@ -2,7 +2,7 @@
     import { reactive, useTemplateRef, watch } from 'vue'
     import Dots from './Dots.vue'
 
-    const dots = useTemplateRef('dots')
+    const dotsRef = useTemplateRef('dots')
     const internalState = reactive({
         turnOn: false,
         turnOff: false
@@ -11,14 +11,14 @@
     watch(
         () => internalState.turnOn,
         () => {
-            dots.value?.turnOn(4)
+            dotsRef.value?.turnOn(4)
         }
     )
 
     watch(
         () => internalState.turnOff,
         () => {
-            dots.value?.turnOff()
+            dotsRef.value?.turnOff()
         }
     )
 
