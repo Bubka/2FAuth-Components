@@ -92,11 +92,11 @@
                     @otp-copied-to-clipboard="logEvent('otp-copied-to-clipboard', $event)"
                     @please-close-me="logEvent('please-close-me', $event)"
                     @please-clear-search="logEvent('please-clear-search', $event)"
-                    @please-update-activeGroup="logEvent('please-update-activeGroup', $event)"
+                    @please-update-activeGroup="(newActiveGroupId) => logEvent('please-update-activeGroup', { newActiveGroupId })"
                     @kickme="logEvent('kickme', $event)"
-                    @increment-hotp="logEvent('increment-hotp', $event)"
-                    @validation-error="logEvent('validation-error', $event)"
-                    @error="logEvent('error', $event)"
+                    @increment-hotp="(newParams) => logEvent('increment-hotp', newParams)"
+                    @validation-error="(valError) => logEvent('validation-error', valError)"
+                    @error="(err) => logEvent('error', err)"
                 />
             <!-- </template> -->
             <template #controls>
