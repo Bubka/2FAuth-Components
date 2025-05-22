@@ -5,10 +5,6 @@
     
     const { t } = useI18n()
 
-    // const state = reactive({
-    //     message: 'This is my message'
-    // })
-
     const state = reactive({
         message: 'This is my message',
         notify: ''
@@ -29,9 +25,6 @@
                     break
                 case 'alert':
                     useNotify().alert({ text: t('test.alert') })
-                    break
-                case 'forbidden':
-                    useNotify().forbidden()
                     break
                 case 'action':
                     useNotify().action({ text: t('test.action') })
@@ -67,9 +60,6 @@
             </HstButton>
             <HstButton color="primary" class="htw-p-2" @click="state.notify = 'alert'" :style="'margin: 7px 7px;'">
                 Alert
-            </HstButton>
-            <HstButton color="primary" class="htw-p-2" @click="state.notify = 'forbidden'" :style="'margin: 7px 7px;'">
-                Forbidden
             </HstButton>
             <HstButton color="primary" class="htw-p-2" @click="state.notify = 'action'" :style="'margin: 7px 7px;'">
                 Action
