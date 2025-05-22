@@ -1,4 +1,4 @@
-import { ref, watchEffect, toValue } from 'vue'
+import { toValue } from 'vue'
 
 export function useVisiblePassword(rawPassword, formatPassword, formatPasswordBy, showOtpAsDot, discloseDottedPwd) {
     if (! rawPassword) {
