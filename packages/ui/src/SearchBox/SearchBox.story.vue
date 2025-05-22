@@ -1,6 +1,6 @@
 <script lang="ts" setup>
     import { logEvent } from 'histoire/client'
-    import SearchBox from '../SearchBox/SearchBox.vue'
+    import SearchBox from './SearchBox.vue'
 
     function initState() {
         return {
