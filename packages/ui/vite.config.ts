@@ -29,6 +29,7 @@ export default defineConfig({
         },
         rollupOptions: {
             external: [
+                '@2fauth/formcontrols',
                 'vue',
                 'vue-i18n',
                 '@vueuse/core',

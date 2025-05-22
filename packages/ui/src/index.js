@@ -1,5 +1,6 @@
 export * from './Dots'
 export * from './DotsController'
+export * from './GroupSwitch'
 export * from './Kicker'
 export * from './LucideGenericIcon'
 export * from './Notify'
