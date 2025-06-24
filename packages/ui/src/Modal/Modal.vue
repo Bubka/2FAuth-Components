@@ -37,8 +37,15 @@
                 </div>
             </section>
         </div>
-        <VueFooter :showButtons="true">
-            <NavigationButton action="close" :useLinkTag="false" @closed="closeModal" />
+        <VueFooter>
+            <template #default>
+                <NavigationButton action="close" :useLinkTag="false" @closed="closeModal" />
+            </template>
+            <template #subpart>
+                <router-link v-if="$route.name != 'accounts'" id="lnkBackToHome" :to="{ name: 'accounts' }" class="has-text-grey">{{ $t('message.back_to_home') }}</router-link>
+                <span v-else>&nbsp;</span>
+            </template>
+            
         </VueFooter>
     </div>
 </template>

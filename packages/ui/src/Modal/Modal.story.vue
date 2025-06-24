@@ -1,4 +1,6 @@
 <script lang="ts" setup>
+    import { reactive } from 'vue'
+    import { createRouter, createMemoryHistory } from 'vue-router'
     import Modal from './Modal.vue'
 
     function initState() {
@@ -8,10 +10,20 @@
         }
     }
 
+    function setupApp ({ app }) {
+        // Router mock
+        app.use(createRouter({
+            history: createMemoryHistory(),
+            routes: [
+                { path: '/accounts', name: 'accounts', component: { render: () => null }, meta: { showAbout: false }},
+                { path: '/', name: 'home', component: { render: () => null }, meta: { showAbout: false }},
+            ],
+        }))
+    }
 </script>
 
 <template>
-    <Story :init-state="initState">
+    <Story :init-state="initState" :setup-app="setupApp">
         <template #default="{ state }">
             <Modal
                 v-model="state.isVisible"

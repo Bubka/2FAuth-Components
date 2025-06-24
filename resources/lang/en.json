@@ -1,4 +1,5 @@
 {
+    "message.about": "About",
     "message.reveal_password": "Reveal password",
     "message.hide_password": "Hide password",
     "message.caps_lock_is_on": "Caps lock is On",
@@ -17,6 +18,12 @@
     "message.copy_to_clipboard": "Copy to clipboard",
     "message.copy_next_password": "Copy next password to clipboard",
     "message.counter": "Counter",
+    "message.settings.settings": "Settings",
+    "message.admin.admin": "Admin",
+    "message.admin.admin_panel": "Admin panel",
+    "message.auth.confirm.logout": "Are you sure you want to log out?",
+    "message.auth.sign_out": "Sign out",
+    "message.back_to_home": "Back to home",
 
     "tooltip.lock": "Lock it",
     "tooltip.unlock": "Unlock it (at your own risk)",
