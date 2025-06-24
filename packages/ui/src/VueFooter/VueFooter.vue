@@ -123,7 +123,6 @@
                         <span v-if="user.isAdmin && showReleaseFlag" class="release-flag"></span>
                         <span class="mx-2 has-ellipsis">{{ user.email }}</span>
                         <LucideMenu v-if="!showMenu" class="mr-2" />
-                        <!-- <button v-else class="delete ml-3"></button> -->
                         <LucideX v-else class="mr-2" />
                     </button>
                 </div>
