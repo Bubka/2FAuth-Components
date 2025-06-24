@@ -1,11 +1,10 @@
 <script setup>
-    import { ref } from 'vue'
     import { FormFieldError } from '../FormFieldError'
     import { useIdGenerator, useValidationErrorIdGenerator } from '../helpers'
     import { LucideChevronRight, LucideLock } from 'lucide-vue-next'
 
+    const model = defineModel()
     const props = defineProps({
-        modelValue: [String, Number, Boolean],
         label: {
             type: String,
             default: ''
@@ -33,7 +32,6 @@
         },
     })
 
-    const selected = ref(props.modelValue)
     const { inputId } = useIdGenerator('select', props.fieldName + props.idSuffix)
     const { valErrorId } = useValidationErrorIdGenerator(props.fieldName)
     const legendId = useIdGenerator('legend', props.fieldName + props.idSuffix).inputId
@@ -52,8 +50,7 @@
                 <div class="select">
                     <select
                         :id="inputId"
-                        v-model="selected"
-                        v-on:change="$emit('update:modelValue', $event.target.value)"
+                        v-model="model"
                         :disabled="isDisabled || isLocked"
                         :aria-describedby="help ? legendId : undefined"
                         :aria-invalid="errorMessage != undefined"
