@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+    import { createRouter, createMemoryHistory } from 'vue-router'
     import GroupSwitch from './GroupSwitch.vue'
     import { logEvent } from 'histoire/client'
 
@@ -19,10 +20,21 @@
         }
     }
 
+    function setupApp ({ app }) {
+        // Router mock
+        app.use(createRouter({
+            history: createMemoryHistory(),
+            routes: [
+                { path: '/about', name: 'about', component: { render: () => null }, meta: { showAbout: true }},
+                { path: '/', name: 'home', component: { render: () => null }, meta: { showAbout: true }},
+            ],
+        }))
+    }
+
 </script>
 
 <template>
-    <Story>
+    <Story :setup-app="setupApp">
         <Variant title="No slot content" :init-state="initState">
             <template #default="{ state }">
                 <GroupSwitch
