@@ -31,7 +31,9 @@
                 <div class="columns is-multiline">
                     <UseColorMode v-slot="{ mode }">
                         <div class="column is-full" v-for="group in groups" :key="group.id">
-                            <button type="button" class="button is-fullwidth" :class="{'is-dark has-text-light is-outlined': mode == 'dark'}" @click="setActiveGroup(group.id)">{{ group.name }}</button>
+                            <button type="button" class="button is-fullwidth" :class="{'is-dark has-text-light is-outlined': mode == 'dark'}" @click="setActiveGroup(group.id)">
+                                {{ group.id == 0 ? $t('message.all') : group.name }}
+                            </button>
                         </div>
                     </UseColorMode>
                 </div>
