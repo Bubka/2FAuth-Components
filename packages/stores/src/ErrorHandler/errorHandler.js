@@ -19,19 +19,22 @@ export const useErrorHandler = defineStore('errorHandler', () => {
         debug.value = null;
     }
 
+    /**
+     * 
+     */
     function parse(error) {
         $reset
         lastError.value = error
 
-        // Hanlde axios response error
+        // Handle axios response error
         if (error.response) {
             if (error.response.status === 407) {
-                message.value = this.$i18n.t('error.auth_proxy_failed'),
-                originalMessage.value = this.$i18n.t('error.auth_proxy_failed.legend')
+                message.value = this.$i18n.global.t('error.auth_proxy_failed'),
+                originalMessage.value = this.$i18n.global.t('error.auth_proxy_failed.legend')
             }
             else if (error.response.status === 403) {
-                message.value = this.$i18n.t('error.unauthorized'),
-                originalMessage.value = this.$i18n.t('error.unauthorized.legend')
+                message.value = this.$i18n.global.t('error.unauthorized'),
+                originalMessage.value = this.$i18n.global.t('error.unauthorized.legend')
             }
             else if(error.response.data) {
                 message.value = error.response.data.message,
@@ -43,6 +46,14 @@ export const useErrorHandler = defineStore('errorHandler', () => {
             debug.value = error.stack ?? null
         }
     }
+    
+    /**
+     * 
+     */
+    function show(error) {
+        parse(error)
+        this.$router.push({ name: 'genericError' })
+    }
 
     return {
         lastError,
@@ -50,5 +61,6 @@ export const useErrorHandler = defineStore('errorHandler', () => {
         originalMessage,
         debug,
         parse,
+        show,
     }
 })
