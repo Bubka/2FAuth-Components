@@ -6,7 +6,10 @@
         type: {
             type: String,
             default: 'raw',
-            required: true
+            required: true,
+            validator(value, props) {
+                return ['raw', 'list-loading', 'fullscreen', 'fullscreen-overlay'].includes(value)
+            }
         },
         message: {
             type: String,
@@ -39,8 +42,8 @@
         </div>
         <LucideLoaderCircle v-else-if="type == 'raw'" class="spinning lucide-default-size" :size="rawSize"  />
         <div v-else-if="type == 'list-loading'" class="has-text-centered mt-6">
-            <span id="icnSpinner" class="is-size-4">
-                <LucideLoaderCircle class="spinning" />
+            <span id="icnSpinner">
+                <LucideLoaderCircle class="spinning icon-size-2" />
             </span>
         </div>
     </div>
