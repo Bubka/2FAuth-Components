@@ -55,12 +55,23 @@ export const useErrorHandler = defineStore('errorHandler', () => {
         this.$router.push({ name: 'genericError' })
     }
 
+    /**
+     * Push the user to the notFound error page
+     */
+    function notFound() {
+        this.$router.push({ name: '404' })
+    }
+
     return {
+        // STATE
         lastError,
         message,
         originalMessage,
         debug,
+
+        // ACTIONS
         parse,
         show,
+        notFound,
     }
 })
