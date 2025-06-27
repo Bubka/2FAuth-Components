@@ -1,7 +1,7 @@
-import { ref as g, computed as R, onMounted as K, createElementBlock as a, openBlock as s, normalizeClass as x, Fragment as te, renderList as se, onUnmounted as oe, resolveComponent as ne, createBlock as O, withCtx as $, createCommentVNode as b, renderSlot as P, toDisplayString as y, inject as J, unref as h, createElementVNode as u, createVNode as k, createTextVNode as U, mergeModels as L, useModel as W, watch as me, resolveDynamicComponent as Se, withModifiers as M, toValue as z, useTemplateRef as H, withDirectives as Z, withKeys as j, vShow as pe, nextTick as ve, vModelText as xe } from "vue";
+import { ref as g, computed as R, onMounted as K, createElementBlock as a, openBlock as s, normalizeClass as x, Fragment as te, renderList as se, onUnmounted as oe, resolveComponent as ne, createBlock as O, withCtx as $, createCommentVNode as b, renderSlot as P, toDisplayString as y, inject as J, unref as h, createElementVNode as u, createVNode as k, createTextVNode as U, mergeModels as L, useModel as W, watch as me, resolveDynamicComponent as Se, withModifiers as M, toValue as z, useTemplateRef as G, withDirectives as Z, withKeys as j, vShow as pe, nextTick as ve, vModelText as xe } from "vue";
 import { UseColorMode as ae } from "@vueuse/components";
 import { NavigationButton as _e } from "@2fauth/formcontrols";
-import { LucideMenu as Ce, LucideX as Te, Slash as Oe, MonitorCheck as Re, List as Pe, Grid3X3 as Ae, Moon as Be, Sun as Ue, LucideLoaderCircle as G, LucideEye as Ne, LucideEyeOff as ze, LucideSearch as Me } from "lucide-vue-next";
+import { LucideMenu as Ce, LucideX as Te, Slash as Oe, MonitorCheck as Re, List as Pe, Grid3X3 as Ae, Moon as Be, Sun as Ue, LucideLoaderCircle as H, LucideEye as Ne, LucideEyeOff as ze, LucideSearch as Me } from "lucide-vue-next";
 import { useNotification as Le } from "@kyvg/vue3-notification";
 import { useClipboard as De } from "@vueuse/core";
 import { createI18n as Ee } from "vue-i18n";
@@ -93,10 +93,10 @@ const Ie = ["data-is-active"], Ve = {
       props: o
     }), (A, B) => (s(), a("div"));
   }
-}, Ge = {
+}, He = {
   key: 0,
   class: "title has-text-grey-dark"
-}, He = {
+}, Ge = {
   key: 1,
   id: "punchline",
   class: "block"
@@ -117,8 +117,8 @@ const Ie = ["data-is-active"], Ve = {
       const o = ne("ResponsiveWidthWrapper");
       return s(), O(o, null, {
         default: $(() => [
-          e.title ? (s(), a("h1", Ge, y(d.$t(e.title)), 1)) : b("", !0),
-          e.punchline ? (s(), a("div", He, y(d.$t(e.punchline)), 1)) : b("", !0),
+          e.title ? (s(), a("h1", He, y(d.$t(e.title)), 1)) : b("", !0),
+          e.punchline ? (s(), a("div", Ge, y(d.$t(e.punchline)), 1)) : b("", !0),
           P(d.$slots, "default")
         ]),
         _: 3
@@ -736,7 +736,7 @@ const Nt = { key: 0 }, zt = {
 }, Vt = {
   key: 3,
   class: "has-text-centered mt-6"
-}, Ft = { id: "icnSpinner" }, Gt = {
+}, Ft = { id: "icnSpinner" }, Ht = {
   __name: "Spinner",
   props: {
     isVisible: Boolean,
@@ -762,29 +762,29 @@ const Nt = { key: 0 }, zt = {
       e.type == "fullscreen" ? (s(), a("div", zt, [
         u("div", Mt, [
           u("span", Lt, [
-            k(h(G), { class: "spinning icon-size-3" })
+            k(h(H), { class: "spinning icon-size-3" })
           ]),
           u("span", null, y(d.$t(e.message)), 1)
         ])
       ])) : e.type == "fullscreen-overlay" ? (s(), a("div", Dt, [
         u("div", Et, [
           u("span", It, [
-            k(h(G), { class: "spinning icon-size-3" })
+            k(h(H), { class: "spinning icon-size-3" })
           ]),
           u("span", null, y(d.$t(e.message)), 1)
         ])
-      ])) : e.type == "raw" ? (s(), O(h(G), {
+      ])) : e.type == "raw" ? (s(), O(h(H), {
         key: 2,
         class: "spinning lucide-default-size",
         size: e.rawSize
       }, null, 8, ["size"])) : e.type == "list-loading" ? (s(), a("div", Vt, [
         u("span", Ft, [
-          k(h(G), { class: "spinning icon-size-2" })
+          k(h(H), { class: "spinning icon-size-2" })
         ])
       ])) : b("", !0)
     ])) : b("", !0);
   }
-}, Ht = ["src", "alt"], Wt = ["title"], jt = {
+}, Gt = ["src", "alt"], Wt = ["title"], jt = {
   key: 1,
   tabindex: "0",
   class: "otp is-size-1"
@@ -805,6 +805,10 @@ const Nt = { key: 0 }, zt = {
       required: !0
     },
     can_showNextOtp: {
+      type: Boolean,
+      default: !0
+    },
+    can_autoCloseTimeout: {
       type: Boolean,
       default: !0
     },
@@ -831,7 +835,7 @@ const Nt = { key: 0 }, zt = {
   emits: [
     "please-close-me",
     "please-clear-search",
-    "please-update-activeGroup",
+    "please-update-active-group",
     "kickme",
     "increment-hotp",
     "error",
@@ -862,7 +866,7 @@ const Nt = { key: 0 }, zt = {
       t.preferences.formatPasswordBy,
       t.preferences.showOtpAsDot,
       C
-    )), B = g(null), E = g(!1), I = g(!1), ie = g("0"), re = g(null), le = H("dotsController"), q = H("dots"), ye = H("otpSpanTag");
+    )), B = g(null), E = g(!1), I = g(!1), ie = g("0"), re = g(null), le = G("dotsController"), q = G("dots"), ye = G("otpSpanTag");
     me(
       () => t.icon,
       (f) => {
@@ -876,7 +880,7 @@ const Nt = { key: 0 }, zt = {
         l.value.service = c.service, l.value.account = c.account, l.value.icon = c.icon, l.value.otp_type = c.otp_type, F(c.otp_type) && c.counter && (l.value.counter = c.counter);
       } else t.uri ? (_.value = t.uri, l.value.otp_type = t.uri.slice(0, 15).toLowerCase() === "otpauth://totp/" ? "totp" : "hotp") : (t.accountParams.secret ? !V(l.value.otp_type) && !F(l.value.otp_type) && p("error", new Error(o("error.not_a_supported_otp_type"))) : p("error", new Error(o("error.cannot_create_otp_without_secret"))), V(l.value.otp_type) && (E.value = !0));
       try {
-        await ue(), ke(), t.preferences.getOtpOnRequest && parseInt(t.preferences.autoCloseTimeout) > 0 && we();
+        await ue(), ke(), t.preferences.getOtpOnRequest && t.can_autoCloseTimeout && parseInt(t.preferences.autoCloseTimeout) > 0 && we();
       } catch {
         X();
       }
@@ -916,7 +920,7 @@ const Nt = { key: 0 }, zt = {
       if (m(f.replace(/ /g, "")), v) {
         if (t.preferences.kickUserAfter == -1 && (c || !1) === !0 ? p("kickme") : t.preferences.closeOtpOnCopy && (c || !1) === !0 && de(), t.preferences.clearSearchOnCopy && p("please-clear-search"), t.preferences.viewDefaultGroupOnCopy) {
           const S = t.preferences.defaultGroup == -1 ? t.preferences.activeGroup : t.preferences.defaultGroup;
-          p("please-update-activeGroup", S);
+          p("please-update-active-group", S);
         }
         p("otp-copied-to-clipboard");
       }
@@ -949,7 +953,7 @@ const Nt = { key: 0 }, zt = {
           key: 0,
           src: e.iconPathPrefix + "/storage/icons/" + l.value.icon,
           alt: f.$t("alttext.icon_to_illustrate_the_account")
-        }, null, 8, Ht)) : b("", !0)
+        }, null, 8, Gt)) : b("", !0)
       ], 2),
       k(h(ae), null, {
         default: $(({ mode: S }) => [
@@ -961,7 +965,7 @@ const Nt = { key: 0 }, zt = {
           }, y(l.value.account), 3),
           u("p", null, [
             I.value ? (s(), a("span", jt, [
-              k(Gt, {
+              k(Ht, {
                 isVisible: I.value,
                 type: "raw"
               }, null, 8, ["isVisible"])
@@ -1055,7 +1059,7 @@ const Nt = { key: 0 }, zt = {
   }),
   emits: /* @__PURE__ */ L(["cleared"], ["update:keyword"]),
   setup(e, { emit: d }) {
-    const r = W(e, "keyword"), o = H("searchInput"), m = d;
+    const r = W(e, "keyword"), o = G("searchInput"), m = d;
     K(() => {
       document.addEventListener("keydown", v), document.addEventListener("keypress", t);
     }), oe(() => {
@@ -1163,7 +1167,7 @@ export {
   ks as OtpDisplay,
   Zt as ResponsiveWidthWrapper,
   ws as SearchBox,
-  Gt as Spinner,
+  Ht as Spinner,
   $s as TabBar,
   he as VueFooter,
   $t as useNotify,

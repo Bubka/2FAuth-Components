@@ -92,7 +92,7 @@
                     @otp-copied-to-clipboard="logEvent('otp-copied-to-clipboard', $event)"
                     @please-close-me="logEvent('please-close-me', $event)"
                     @please-clear-search="logEvent('please-clear-search', $event)"
-                    @please-update-activeGroup="(newActiveGroupId) => logEvent('please-update-activeGroup', { newActiveGroupId })"
+                    @please-update-active-group="(newActiveGroupId) => logEvent('please-update-active-group', { newActiveGroupId })"
                     @kickme="logEvent('kickme', $event)"
                     @increment-hotp="(newParams) => logEvent('increment-hotp', newParams)"
                     @validation-error="(valError) => logEvent('validation-error', valError)"

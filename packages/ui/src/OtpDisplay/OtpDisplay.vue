@@ -18,7 +18,7 @@
     const emit = defineEmits([
         'please-close-me',
         'please-clear-search',
-        'please-update-activeGroup',
+        'please-update-active-group',
         'kickme',
         'increment-hotp',
         'error',
@@ -35,6 +35,10 @@
             required: true,
         },
         can_showNextOtp: {
+            type: Boolean,
+            default: true,
+        },
+        can_autoCloseTimeout: {
             type: Boolean,
             default: true,
         },
@@ -127,7 +131,8 @@
         //     from db but without the uri. This prevent the uri (a sensitive data) to transit via http request unnecessarily.
         //     In this case this.otp_type is sent by the backend.
         //
-        //   Case 2 : When user uses the Quick Uploader and preview the account: No ID but we have an URI.
+        //   # NO LONGER USED : The uri should be parsed and its values passed via the otpauthParams prop.
+        //   # Case 2 : When user uses the Quick Uploader and preview the account: No ID but we have an URI.
         //
         //   Case 3 : When user uses the Advanced form and preview the account: We should have all OTP parameters
         //     (in props.accountParams) to obtain an otp, including Secret and otp_type which are required
@@ -180,7 +185,7 @@
             await getOtp()
             focusOnOTP()
 
-            if (props.preferences.getOtpOnRequest && parseInt(props.preferences.autoCloseTimeout) > 0) {
+            if (props.preferences.getOtpOnRequest && props.can_autoCloseTimeout && parseInt(props.preferences.autoCloseTimeout) > 0) {
                 startAutoCloseTimer()
             }
         }
@@ -306,7 +311,7 @@
         copy(otp.replace(/ /g, ''))
 
         if (copied) {
-            if (props.preferences.kickUserAfter == -1) {
+            if (props.preferences.kickUserAfter == -1 && (permit_closing || false) === true) {
                 emit('kickme')
             } else if(props.preferences.closeOtpOnCopy && (permit_closing || false) === true) {
                 closeMe()
@@ -320,7 +325,7 @@
                     props.preferences.activeGroup
                     : props.preferences.defaultGroup
 
-                emit('please-update-activeGroup', newActiveGroup);
+                emit('please-update-active-group', newActiveGroup);
             }
 
             emit('otp-copied-to-clipboard')
