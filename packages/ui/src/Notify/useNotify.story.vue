@@ -15,19 +15,19 @@
         (newNotification) => {
             switch (newNotification) {
                 case 'success':
-                    useNotify().success({ text: t('test.success') })
+                    useNotify().success({ text: t('This is a success') })
                     break
                 case 'info':
-                    useNotify().info({ text: t('test.info') })
+                    useNotify().info({ text: t('This is an Info') })
                     break
                 case 'warn':
-                    useNotify().warn({ text: t('test.warn') })
+                    useNotify().warn({ text: t('This is a warn') })
                     break
                 case 'alert':
-                    useNotify().alert({ text: t('test.alert') })
+                    useNotify().alert({ text: t('This is an alert') })
                     break
                 case 'action':
-                    useNotify().action({ text: t('test.action') })
+                    useNotify().action({ text: t('This is an action') })
                     break
                 case 'clear':
                     useNotify().clear()

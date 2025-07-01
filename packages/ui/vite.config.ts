@@ -2,23 +2,18 @@
 
 import { resolve } from 'node:path'
 import Vue from '@vitejs/plugin-vue'
-import VueI18nPlugin from '@intlify/unplugin-vue-i18n/vite'
 import { defineConfig } from 'vite'
-import path from 'path'
 
 export default defineConfig({
     plugins: [
         Vue(),
-        VueI18nPlugin({
-            include: [path.resolve(__dirname, '../../resources/lang/*.json')],
-
-        })
     ],
     test: {
         globals: true,
         environment: 'jsdom',
     },
     build: {
+        // sourcemap: 'inline',
         lib: {
             formats: ['es'],
             name: 'ui',
