@@ -7,16 +7,18 @@ export const useErrorHandler = defineStore('errorHandler', () => {
 
     const lastError = ref(null)
     const message = ref(null)
+    const reasons = ref(null)
     const originalMessage = ref(null)
     const debug = ref(null)
 
     // ACTIONS
 
     function $reset() {
-        lastError.value = null;
-        message.value = null;
-        originalMessage.value = null;
-        debug.value = null;
+        lastError.value = null
+        message.value = null
+        reasons.value = null
+        originalMessage.value = null
+        debug.value = null
     }
 
     /**
@@ -28,6 +30,13 @@ export const useErrorHandler = defineStore('errorHandler', () => {
 
         // Handle axios response error
         if (error.response) {
+            if (error.response.data) {
+                message.value = error.response.data.message ?? null,
+                originalMessage.value = error.response.data.originalMessage ?? null
+                reasons.value = error.response.data.reason ?? null
+                debug.value = error.response.data.debug ?? null
+            }
+
             if (error.response.status === 407) {
                 message.value = this.$i18n.global.t('error.auth_proxy_failed'),
                 originalMessage.value = this.$i18n.global.t('error.auth_proxy_failed.legend')
@@ -36,14 +45,13 @@ export const useErrorHandler = defineStore('errorHandler', () => {
                 message.value = this.$i18n.global.t('error.unauthorized'),
                 originalMessage.value = this.$i18n.global.t('error.unauthorized.legend')
             }
-            else if(error.response.data) {
-                message.value = error.response.data.message,
-                originalMessage.value = error.response.data.originalMessage ?? null
-                debug.value = error.response.data.debug ?? null
-            }
         } else {
             message.value = error.message
             debug.value = error.stack ?? null
+        }
+
+        if (reasons.value && ! Array.isArray(reasons.value)) {
+            reasons.value = new Array(reasons.value)
         }
     }
     
@@ -66,6 +74,7 @@ export const useErrorHandler = defineStore('errorHandler', () => {
         // STATE
         lastError,
         message,
+        reasons,
         originalMessage,
         debug,
 
