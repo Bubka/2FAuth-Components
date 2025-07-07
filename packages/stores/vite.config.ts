@@ -13,6 +13,7 @@ export default defineConfig({
         environment: 'jsdom',
     },
     build: {
+        // sourcemap: 'inline',
         lib: {
             formats: ['es'],
             name: 'stores',
