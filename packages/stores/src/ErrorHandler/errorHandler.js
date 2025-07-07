@@ -38,12 +38,12 @@ export const useErrorHandler = defineStore('errorHandler', () => {
             }
 
             if (error.response.status === 407) {
-                message.value = this.$i18n.global.t('error.auth_proxy_failed'),
-                originalMessage.value = this.$i18n.global.t('error.auth_proxy_failed.legend')
+                message.value = 'error.auth_proxy_failed',
+                originalMessage.value = 'error.auth_proxy_failed.legend'
             }
             else if (error.response.status === 403) {
-                message.value = this.$i18n.global.t('error.unauthorized'),
-                originalMessage.value = this.$i18n.global.t('error.unauthorized.legend')
+                message.value = 'error.unauthorized',
+                originalMessage.value = 'error.unauthorized.legend'
             }
         } else {
             message.value = error.message
