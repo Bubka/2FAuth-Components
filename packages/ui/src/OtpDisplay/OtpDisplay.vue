@@ -111,7 +111,7 @@
     const otpSpanTagRef = useTemplateRef('otpSpanTag')
 
     watch(
-        () => props.icon,
+        () => props.accountParams.icon,
         (val) => {
             if (val != undefined) {
                 otpauthParams.value.icon = val

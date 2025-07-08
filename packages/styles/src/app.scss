@@ -428,6 +428,16 @@ img.qrcode {
   margin-left: -32px;
   z-index: 40;
 }
+.add-icon-button:focus svg,
+.add-icon-button:focus-visible svg,
+.add-icon-button:focus-within svg {
+  border-color: transparent;
+  border-radius: 3px;
+  outline-offset: 3px;
+  outline-style: solid;
+  outline-width: 2px;
+  outline-color: $black;
+}
 
 .delete-icon-button {
   position: absolute;

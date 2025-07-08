@@ -706,7 +706,7 @@ const At = { key: 0 }, Nt = {
       C
     )), N = _(null), I = _(!1), F = _(!1), ne = _("0"), ae = _(null), ie = K("dotsController"), j = K("dots"), he = K("otpSpanTag");
     ve(
-      () => e.icon,
+      () => e.accountParams.icon,
       (f) => {
         f != null && (l.value.icon = f);
       }
