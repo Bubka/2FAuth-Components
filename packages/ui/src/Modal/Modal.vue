@@ -42,7 +42,7 @@
                 <NavigationButton action="close" :useLinkTag="false" @closed="closeModal" />
             </template>
             <template #subpart>
-                <router-link v-if="$route.name != 'accounts'" id="lnkBackToHome" :to="{ name: 'accounts' }" class="has-text-grey">{{ $t('message.back_to_home') }}</router-link>
+                <router-link v-if="$route.name != 'accounts'" id="lnkBackToHome" :to="{ name: 'accounts' }" class="has-text-grey">{{ $t('link.back_to_home') }}</router-link>
                 <span v-else>&nbsp;</span>
             </template>
             

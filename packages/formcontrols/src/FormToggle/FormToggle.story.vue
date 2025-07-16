@@ -25,9 +25,9 @@
             model: 2,
             fieldname: 'MyOtherFieldName',
             choices: [
-                { text: '12 34 56', value: 2, legend: 'message.pair', title: 'message.pair_legend' },
-                { text: '123 456', value: 3, legend: 'message.trio', title: 'message.trio_legend' },
-                { text: '1234 5678', value: 0.5, legend: 'message.half', title: 'message.half_legend' },
+                { text: 'label.pair_digit', value: 2, legend: 'label.pair', title: 'label.pair.legend' },
+                { text: 'label.trio_digit', value: 3, legend: 'label.trio', title: 'label.trio.legend' },
+                { text: 'label.half_digit', value: 0.5, legend: 'label.half', title: 'label.half.legend' },
             ]
         }
     }

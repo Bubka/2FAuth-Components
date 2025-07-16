@@ -72,7 +72,7 @@
                     <!-- about link -->
                     <router-link v-if="$route.name != 'about'" id="lnkAbout" :to="{ name: 'about' }" class="has-text-grey">
                         <span v-if="user.isAuthenticated && $route.meta.watchedByKicker" class="has-text-weight-bold">2FAuth – v{{ $2fauth.version }}</span>
-                        <span v-else class="">{{ $t('message.about') }}</span>
+                        <span v-else class="">{{ $t('link.about') }}</span>
                     </router-link>
                     <span v-else>&nbsp;</span>
                 </div>
@@ -80,17 +80,17 @@
                 <div v-else-if="user.preferences.showEmailInFooter == false">
                     <!-- settings link -->
                     <router-link id="lnkSettings" :to="{ name: 'settings.options' }" class="has-text-grey">
-                        {{ $t('message.settings.settings') }}
+                        {{ $t('link.settings') }}
                     </router-link>
                     <!-- admin link -->
                     <span v-if="user.isAdmin"> -
                         <router-link id="lnkAdmin" :to="{ name: 'admin.appSetup' }" class="has-text-grey">
-                            {{ $t('message.admin.admin') }}<span v-if="showReleaseFlag" class="release-flag"></span>
+                            {{ $t('link.admin_panel') }}<span v-if="showReleaseFlag" class="release-flag"></span>
                         </router-link>
                     </span>
                     <!-- sign-out button -->
                     <span v-if="showLogout">
-                        - <button type="button" id="lnkSignOut" class="button is-text is-like-text has-text-grey" @click="logout($t('message.auth.confirm.logout'))">{{ $t('message.auth.sign_out') }}</button>
+                        - <button type="button" id="lnkSignOut" class="button is-text is-like-text has-text-grey" @click="logout($t('confirmation.logout'))">{{ $t('label.sign_out') }}</button>
                     </span>
                 </div>
                 <!-- email + menu links -->
@@ -99,21 +99,21 @@
                         <!-- settings link -->
                         <li class="column">
                             <router-link id="lnkSettings" :to="{ name: 'settings.options' }">
-                                {{ $t('message.settings.settings') }}
+                                {{ $t('link.settings') }}
                             </router-link>
                         </li>
                         <!-- admin link -->
                         <li v-if="user.isAdmin" class="column">
                             <router-link id="lnkAdmin" :to="{ name: 'admin.appSetup' }" >
                                 <span v-if="showReleaseFlag" class="release-flag"></span>
-                                {{ $t('message.admin.admin_panel') }}
+                                {{ $t('link.admin_panel') }}
                             </router-link>
                         </li>
                         <!-- sign-out button -->
                         <li v-if="showLogout" class="column">
                             <UseColorMode v-slot="{ mode }">
-                                <button type="button" id="lnkSignOut" class="button is-text is-like-text" :class="mode == 'dark' ? 'has-text-grey-lighter' : 'has-text-grey-darker'" @click="logout($t('message.auth.confirm.logout'))">
-                                    {{ $t('message.auth.sign_out') }}
+                                <button type="button" id="lnkSignOut" class="button is-text is-like-text" :class="mode == 'dark' ? 'has-text-grey-lighter' : 'has-text-grey-darker'" @click="logout($t('confirmation.logout'))">
+                                    {{ $t('label.sign_out') }}
                                 </button>
                             </UseColorMode>
                         </li>

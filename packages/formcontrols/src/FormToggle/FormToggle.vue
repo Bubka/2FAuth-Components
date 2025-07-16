@@ -61,6 +61,7 @@
                 role="radio"
                 type="button"
                 class="button"
+                :title="choice.title ? $t(choice.title) : $t(choice.text)"
                 :aria-checked="modelValue===choice.value"
                 :disabled="isDisabled || isLocked"
                 :class="{

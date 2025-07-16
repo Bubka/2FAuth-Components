@@ -56,18 +56,18 @@
             :class="classes"
             tabindex="0"
             role="button"
-            :aria-label="$t('message.close_the_x_page', { pagetitle: currentPageTitle })"
+            :aria-label="$t('tooltip.close_the_x_page', { pagetitle: currentPageTitle })"
         >
-            {{ $t('message.close') }}
+            {{ $t('label.close') }}
         </a>
         <a
             v-else-if="action == 'back'"
             id="lnkBack"
             @click.prevent="$emit('goback')"
             :class="classes"
-            :aria-label="$t('message.go_back_to_the_x_page', { pagetitle: previousPageTitle })"
+            :aria-label="$t('tooltip.go_back_to_the_x_page', { pagetitle: previousPageTitle })"
         >
-            {{ $t('message.back') }}
+            {{ $t('label.back') }}
         </a>
         <a
             v-else-if="action == 'cancel'"
@@ -75,7 +75,7 @@
             @click.prevent="$emit('canceled')"
             :class="classes"
         >
-            {{ $t('message.cancel') }}
+            {{ $t('label.cancel') }}
         </a>
     </p>
     <p v-else class="control">
@@ -86,7 +86,7 @@
             @click="$emit('closed')"
             type="button"
         >
-            {{ $t('message.close') }}
+            {{ $t('label.close') }}
         </button>
         <button
             v-if="action == 'cancel'"
@@ -95,7 +95,7 @@
             @click="$emit('canceled')"
             type="button"
         >
-            {{ $t('message.cancel') }}
+            {{ $t('label.cancel') }}
         </button>
     </p>
 </template>

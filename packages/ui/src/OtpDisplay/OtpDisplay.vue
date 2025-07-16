@@ -395,7 +395,7 @@
                     :class="mode == 'dark' ? 'has-text-white' : 'has-text-grey-dark'"
                     @click="copyOTP(password, true)"
                     @keyup.enter="copyOTP(password, true)"
-                    :title="$t('message.copy_to_clipboard')"
+                    :title="$t('tooltip.copy_to_clipboard')"
                 >
                     {{ visiblePassword }}
                 </span>
@@ -406,7 +406,7 @@
         </UseColorMode>
         <Dots ref="dots" v-show="isTimeBased(otpauthParams.otp_type)" />
         <p v-show="isHMacBased(otpauthParams.otp_type)">
-            {{ $t('message.counter') }}: {{ otpauthParams.counter }}
+            {{ $t('field.counter') }}: {{ otpauthParams.counter }}
         </p>
         <p v-if="props.can_showNextOtp && props.preferences.showNextOtp" class="mt-3 is-size-4">
             <span
@@ -415,7 +415,7 @@
                 :class="opacity"
                 @click="copyOTP(next_password, true)"
                 @keyup.enter="copyOTP(next_password, true)"
-                :title="$t('message.copy_next_password')"
+                :title="$t('tooltip.copy_next_password')"
             >
                 {{ visible_next_password }}
             </span>

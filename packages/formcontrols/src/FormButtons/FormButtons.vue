@@ -16,11 +16,11 @@
             },
             submitLabel: {
                 type: String,
-                default: 'message.submit'
+                default: 'label.submit'
             },
             cancelLabel: {
                 type: String,
-                default: 'message.cancel'
+                default: 'label.cancel'
             },
             color: {
                 type: String,

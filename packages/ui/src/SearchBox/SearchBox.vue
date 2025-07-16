@@ -73,13 +73,13 @@
                 id="txtSearch"
                 type="search"
                 tabindex="1"
-                :aria-label="$t('message.search')"
-                :title="$t('message.search')"
+                :aria-label="$t('label.search')"
+                :title="$t('tooltip.search')"
                 :placeholder="placeholder"
                 class="input is-rounded is-search"
                 :class="{ 'has-no-background': hasNoBackground, 'is-small': isSmall }">
             <span class="icon is-small is-right">
-                <button type="button" v-if="keyword != ''" id="btnClearSearch" tabindex="1" :title="$t('message.clear_search')" class="clear-selection delete" @click="clearSearch"></button>
+                <button type="button" v-if="keyword != ''" id="btnClearSearch" tabindex="1" :title="$t('tooltip.clear_search')" class="clear-selection delete" @click="clearSearch"></button>
                  <LucideSearch v-else class="mr-2 icon-size-1" />
             </span>
         </div>
