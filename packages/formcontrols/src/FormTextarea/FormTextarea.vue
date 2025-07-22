@@ -91,7 +91,7 @@
                 />
             </div>
             <FormFieldError v-if="errorMessage != undefined" :error="errorMessage" :field="fieldName" />
-            <p :id="legendId" class="help" v-html="$t(help)" v-if="help"></p>
+            <p :id="legendId" class="help" v-if="help">{{ $t(help) }}</p>
         </div>
     </div> 
 </template>

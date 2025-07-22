@@ -73,7 +73,7 @@
                     </span>
                 </span>
             </label>
-            <p :id="legendId" class="help" v-html="$t(help)" v-if="help" />
+            <p :id="legendId" class="help" v-if="help">{{ $t(help) }}</p>
         </div>
     </div>
 </template>

@@ -118,9 +118,9 @@
                 <LucideEye />
             </span>
         </div>
-        <p class="help is-warning" v-if="hasCapsLockOn" v-html="$t('message.caps_lock_is_on')" />
+        <p class="help is-warning" v-if="hasCapsLockOn">{{ $t('message.caps_lock_is_on') }}</p>
         <FormFieldError v-if="errorMessage != undefined" :error="errorMessage" :field="fieldName" />
-        <p class="help" v-html="$t(help)" v-if="help" />
+        <p class="help" v-if="help">{{ $t(help) }}</p>
         <div v-if="showRules" :id="legendId" class="columns is-mobile is-size-7 mt-0">
             <div class="column is-one-third">
                 <span class="has-text-weight-semibold">{{ $t('message.mandatory_rules') }}</span><br />

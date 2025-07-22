@@ -23,7 +23,8 @@
     <div role="alert">
         <p :id="valErrorId"
             class="help"
-            :class="alertType"
-            v-html="error" />
+            :class="alertType">
+            {{ error }}
+        </p>
     </div>
 </template>

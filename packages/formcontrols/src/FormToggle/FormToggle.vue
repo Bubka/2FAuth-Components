@@ -78,7 +78,7 @@
                     :value="choice.value"
                     :disabled="isDisabled || isLocked"
                 />
-                <span v-if="choice.legend" v-html="$t(choice.legend)" class="is-block is-size-7" />
+                <span v-if="choice.legend" class="is-block is-size-7">{{ $t(choice.legend) }}</span>
                 <!-- <FontAwesomeIcon :icon="['fas',choice.icon]" v-if="choice.icon" class="mr-2" /> -->
                     <LucideGenericIcon :name="choice.icon" v-if="choice.icon" class="mr-2" />
                 <label :for="useIdGenerator('button',fieldName+choice.value).inputId" class="is-clickable">

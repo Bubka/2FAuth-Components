@@ -149,7 +149,7 @@
             </div>
             <FormFieldError v-if="hasBeenTrimmed" :error="$t('error.spaces_are_ignored')" :field="'spaces'" :alertType="'is-warning'" />
             <FormFieldError v-if="errorMessage != undefined" :error="errorMessage" :field="fieldName" />
-            <p :id="legendId" class="help" v-html="$t(help)" v-if="help"></p>
+            <p :id="legendId" class="help" v-if="help">{{ $t(help) }}</p>
         </div>
     </div>
 </template>
