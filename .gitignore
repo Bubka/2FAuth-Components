@@ -11,6 +11,7 @@ node_modules
 stats.html
 *.local
 histoire/dist/*
+resources
 
 # Editor directories and files
 .idea
