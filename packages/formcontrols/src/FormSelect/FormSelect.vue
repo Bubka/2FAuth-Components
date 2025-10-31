@@ -56,11 +56,12 @@
                         :aria-invalid="errorMessage != undefined"
                         :aria-errormessage="errorMessage != undefined ? valErrorId : undefined" 
                     >
-                        <option v-for="option in options" v-bind:key="option.value" :value="option.value">
+                        <option v-for="option in options" :key="option.value" :value="option.value">
                             {{ $t(option.text) }}
                         </option>
                     </select>
                 </div>
+                <slot></slot>
             </div>
             <FormFieldError v-if="errorMessage != undefined" :error="errorMessage" :field="fieldName" />
             <p :id="legendId" class="help" v-if="help">{{ $t(help) }}</p>
