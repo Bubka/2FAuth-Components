@@ -317,6 +317,10 @@ img.qrcode {
   cursor: grab;
 }
 
+.is-draggable {
+  cursor: grab;
+}
+
 .tfa-grid .is-checkradio[type="checkbox"]+label,
 .tfa-grid .is-checkradio[type="radio"]+label {
   padding-left: 0 !important;
@@ -423,7 +427,6 @@ img.qrcode {
 .add-icon-button {
   height: 64px;
   width: 64px;
-  padding-top: calc(32px - 1rem);
   position: absolute;
   margin-left: -32px;
   z-index: 40;
@@ -1506,7 +1509,7 @@ footer.menu {
   position: absolute;
   border-radius: 50%;
   border: 2px solid $danger;
-  left: 25px;
+  left: 35px;
   top: 4px;
   width: 29px;
   height: 29px;
@@ -1538,6 +1541,12 @@ footer.menu {
   width: 1rem;
   height: 1rem;
 }
+
+.icon-size-1-15 {
+  width: 1.15rem;
+  height: 1.15rem;
+}
+
 .icon-size-2 {
   width: 2rem;
   height: 2rem;
@@ -1549,4 +1558,31 @@ footer.menu {
 
 .rotate-135 {
   transform: rotate(135deg);
+}
+
+.log-icon-bg {
+  width: 3em;
+  height: 3em;
+}
+
+.log-icon-mark {
+  position: absolute;
+  margin: auto;
+  margin-top: 0.65em;
+  width: 1.25em;
+  height: 1.25em;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+}
+
+.log-icon-wrapper {
+  display: inline-block;
+  position: relative;
+  text-align: center;
+}
+
+a > svg.lucide, svg.lucide.inline {
+  vertical-align: text-bottom;
 }
