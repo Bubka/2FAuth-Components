@@ -1,6 +1,7 @@
 {
     "workbench.colorCustomizations": {
         "tab.inactiveBackground": "#0000004f",
+        "tab.activeBorder": "#007FD4"
     },
     "i18n-ally.localesPaths": [
         "resources/lang"
