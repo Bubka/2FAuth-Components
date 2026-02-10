@@ -1,4 +1,4 @@
-import { ref as _, computed as P, onMounted as H, createElementBlock as n, openBlock as s, normalizeClass as x, Fragment as Z, renderList as ee, onUnmounted as te, resolveComponent as se, createBlock as O, withCtx as b, createCommentVNode as k, renderSlot as B, toDisplayString as g, inject as Q, unref as y, createElementVNode as r, createVNode as $, createTextVNode as L, mergeModels as V, useModel as U, watch as ve, resolveDynamicComponent as we, withModifiers as D, toValue as z, useTemplateRef as K, withDirectives as Y, withKeys as q, vShow as ce, nextTick as de, vModelText as be } from "vue";
+import { ref as k, computed as P, onMounted as j, createElementBlock as n, openBlock as t, normalizeClass as S, Fragment as U, renderList as ee, onUnmounted as te, resolveComponent as se, createBlock as O, withCtx as b, createCommentVNode as g, renderSlot as B, toDisplayString as y, inject as Y, unref as _, createElementVNode as l, createVNode as $, createTextVNode as L, mergeModels as V, useModel as q, watch as ve, resolveDynamicComponent as we, withModifiers as D, toValue as z, useTemplateRef as K, withDirectives as Z, withKeys as H, vShow as ce, nextTick as de, vModelText as be } from "vue";
 import { UseColorMode as oe } from "@vueuse/components";
 import { NavigationButton as fe } from "@2fauth/formcontrols";
 import { LucideMenu as Se, LucideX as xe, Slash as Ce, MonitorCheck as Te, List as Oe, Grid3X3 as Pe, Moon as Be, Sun as Ae, LucideLoaderCircle as W, LucideEye as Ne, LucideEyeOff as Le, LucideSearch as Me } from "lucide-vue-next";
@@ -25,26 +25,26 @@ const Ee = ["data-is-active"], Ie = {
       type: Boolean
     }
   },
-  setup(t, { expose: p }) {
-    const u = t, a = _(0), m = P(() => a.value == -1);
+  setup(s, { expose: p }) {
+    const c = s, i = k(0), m = P(() => i.value == -1);
     function v(e) {
-      a.value = e < u.stepCount ? e + 1 : 1;
+      i.value = e < c.stepCount ? e + 1 : 1;
     }
-    function d() {
-      a.value = -1;
+    function u() {
+      i.value = -1;
     }
-    return H(() => {
-      isNaN(u.initialIndex) || v(u.initialIndex);
+    return j(() => {
+      isNaN(c.initialIndex) || v(c.initialIndex);
     }), p({
       turnOn: v,
-      turnOff: d,
-      props: u
-    }), (e, o) => (s(), n("ul", {
-      class: x(["dots", { off: m.value, condensed: t.isCondensed }])
+      turnOff: u,
+      props: c
+    }), (e, o) => (t(), n("ul", {
+      class: S(["dots", { off: m.value, condensed: s.isCondensed }])
     }, [
-      (s(!0), n(Z, null, ee(t.stepCount, (i) => (s(), n("li", {
-        key: i,
-        "data-is-active": i == a.value ? !0 : null
+      (t(!0), n(U, null, ee(s.stepCount, (a) => (t(), n("li", {
+        key: a,
+        "data-is-active": a == i.value ? !0 : null
       }, null, 8, Ee))), 128))
     ], 2));
   }
@@ -66,32 +66,32 @@ const Ee = ["data-is-active"], Ie = {
     }
   },
   emits: ["stepping-started", "stepping-ended", "stepped-up"],
-  setup(t, { expose: p, emit: u }) {
-    const a = t, m = _(null), v = _(null), d = _(null), e = _(null), o = _(null), i = P(() => m.value % a.period), h = P(() => a.period - i.value), l = P(() => a.period / a.step_count), C = P(() => {
-      let A = i.value * a.step_count / a.period;
+  setup(s, { expose: p, emit: c }) {
+    const i = s, m = k(null), v = k(null), u = k(null), e = k(null), o = k(null), a = P(() => m.value % i.period), h = P(() => i.period - a.value), r = P(() => i.period / i.step_count), C = P(() => {
+      let A = a.value * i.step_count / i.period;
       return Math.floor(A) + 0;
-    }), T = u, E = (A = 0) => {
-      w(), m.value = A != 0 ? A : a.generated_at, T("stepping-started", C.value), o.value = C.value, v.value = setTimeout(function() {
+    }), T = c, E = (A = 0) => {
+      w(), m.value = A != 0 ? A : i.generated_at, T("stepping-started", C.value), o.value = C.value, v.value = setTimeout(function() {
         w(), T("stepping-ended");
       }, h.value * 1e3);
-      let N = Math.ceil(i.value / l.value) * l.value - i.value;
-      d.value = setTimeout(function() {
+      let N = Math.ceil(a.value / r.value) * r.value - a.value;
+      u.value = setTimeout(function() {
         N > 0 && (o.value += 1, T("stepped-up", o.value)), e.value = setInterval(function() {
           o.value += 1, T("stepped-up", o.value);
-        }, l.value * 1e3);
+        }, r.value * 1e3);
       }, N * 1e3);
     }, w = () => {
-      clearTimeout(v.value), clearTimeout(d.value), clearInterval(e.value), o.value = m.value = null;
+      clearTimeout(v.value), clearTimeout(u.value), clearInterval(e.value), o.value = m.value = null;
     };
-    return H(() => {
-      a.autostart == !0 && E();
+    return j(() => {
+      i.autostart == !0 && E();
     }), te(() => {
       w();
     }), p({
       startStepping: E,
       reset: w,
-      props: a
-    }), (A, N) => (s(), n("div"));
+      props: i
+    }), (A, N) => (t(), n("div"));
   }
 }, Re = {
   key: 0,
@@ -100,7 +100,7 @@ const Ee = ["data-is-active"], Ie = {
   key: 1,
   id: "punchline",
   class: "block"
-}, vs = {
+}, ys = {
   __name: "FormWrapper",
   props: {
     title: {
@@ -112,13 +112,13 @@ const Ee = ["data-is-active"], Ie = {
       default: ""
     }
   },
-  setup(t) {
-    return (p, u) => {
-      const a = se("ResponsiveWidthWrapper");
-      return s(), O(a, null, {
+  setup(s) {
+    return (p, c) => {
+      const i = se("ResponsiveWidthWrapper");
+      return t(), O(i, null, {
         default: b(() => [
-          t.title ? (s(), n("h1", Re, g(p.$t(t.title)), 1)) : k("", !0),
-          t.punchline ? (s(), n("div", Ge, g(p.$t(t.punchline)), 1)) : k("", !0),
+          s.title ? (t(), n("h1", Re, y(p.$t(s.title)), 1)) : g("", !0),
+          s.punchline ? (t(), n("div", Ge, y(p.$t(s.punchline)), 1)) : g("", !0),
           B(p.$slots, "default")
         ]),
         _: 3
@@ -163,11 +163,11 @@ const Ee = ["data-is-active"], Ie = {
   class: "release-flag"
 }, vt = { class: "mx-2 has-ellipsis" }, me = {
   __name: "VueFooter",
-  setup(t) {
-    const p = Q("appSettingsStore", {
+  setup(s) {
+    const p = Y("appSettingsStore", {
       latestRelease: null,
       checkForUpdate: !0
-    }), u = Q("userStore", {
+    }), c = Y("userStore", {
       isAdmin: !1,
       isAuthenticated: !1,
       email: null,
@@ -176,140 +176,140 @@ const Ee = ["data-is-active"], Ie = {
       },
       logout: function() {
       }
-    }), a = Q("2fauth", {
+    }), i = Y("2fauth", {
       context: "webapp",
       version: "x.y.z",
       config: {
         proxyAuth: !1,
         proxyLogoutUrl: null
       }
-    }), m = _(!1), v = P(() => p.latestRelease && p.checkForUpdate), d = P(() => !a.config.proxyAuth || a.config.proxyAuth && a.config.proxyLogoutUrl);
+    }), m = k(!1), v = P(() => p.latestRelease && p.checkForUpdate), u = P(() => !i.config.proxyAuth || i.config.proxyAuth && i.config.proxyLogoutUrl);
     function e(o) {
-      confirm(o) && u.logout();
+      confirm(o) && c.logout();
     }
-    return (o, i) => {
+    return (o, a) => {
       const h = se("router-link");
-      return y(a).context == "webext" ? (s(), n("footer", We, [
-        o.$slots.default ? (s(), n("div", Ke, [
-          r("div", Ue, [
-            r("div", qe, [
+      return _(i).context == "webext" ? (t(), n("footer", We, [
+        o.$slots.default ? (t(), n("div", Ke, [
+          l("div", Ue, [
+            l("div", qe, [
               B(o.$slots, "default")
             ])
           ])
-        ])) : (s(), n("div", He, [
+        ])) : (t(), n("div", He, [
           B(o.$slots, "default")
         ]))
-      ])) : y(a).context == "webapp" ? (s(), n("footer", {
+      ])) : _(i).context == "webapp" ? (t(), n("footer", {
         key: 1,
-        class: x(["main", { menu: m.value }])
+        class: S(["main", { menu: m.value }])
       }, [
-        o.$slots.default && !m.value ? (s(), n("div", je, [
-          r("div", Xe, [
-            r("div", Je, [
+        o.$slots.default && !m.value ? (t(), n("div", je, [
+          l("div", Xe, [
+            l("div", Je, [
               B(o.$slots, "default")
             ])
           ])
-        ])) : k("", !0),
-        r("div", Qe, [
+        ])) : g("", !0),
+        l("div", Qe, [
           B(o.$slots, "subpart", {}, () => [
-            o.$route.meta.showAbout === !0 ? (s(), n("div", Ye, [
-              o.$route.name != "about" ? (s(), O(h, {
+            o.$route.meta.showAbout === !0 ? (t(), n("div", Ye, [
+              o.$route.name != "about" ? (t(), O(h, {
                 key: 0,
                 id: "lnkAbout",
                 to: { name: "about" },
                 class: "has-text-grey"
               }, {
                 default: b(() => [
-                  y(u).isAuthenticated && o.$route.meta.watchedByKicker ? (s(), n("span", Ze, "2FAuth – v" + g(y(a).version), 1)) : (s(), n("span", et, g(o.$t("message.about")), 1))
+                  _(c).isAuthenticated && o.$route.meta.watchedByKicker ? (t(), n("span", Ze, "2FAuth – v" + y(_(i).version), 1)) : (t(), n("span", et, y(o.$t("link.about")), 1))
                 ]),
                 _: 1
-              })) : (s(), n("span", tt, " "))
-            ])) : y(u).preferences.showEmailInFooter == !1 ? (s(), n("div", st, [
+              })) : (t(), n("span", tt, " "))
+            ])) : _(c).preferences.showEmailInFooter == !1 ? (t(), n("div", st, [
               $(h, {
                 id: "lnkSettings",
                 to: { name: "settings.options" },
                 class: "has-text-grey"
               }, {
                 default: b(() => [
-                  L(g(o.$t("message.settings.settings")), 1)
+                  L(y(o.$t("link.settings")), 1)
                 ]),
                 _: 1
               }),
-              y(u).isAdmin ? (s(), n("span", ot, [
-                i[3] || (i[3] = L(" - ")),
+              _(c).isAdmin ? (t(), n("span", ot, [
+                a[3] || (a[3] = L(" - ")),
                 $(h, {
                   id: "lnkAdmin",
                   to: { name: "admin.appSetup" },
                   class: "has-text-grey"
                 }, {
                   default: b(() => [
-                    L(g(o.$t("message.admin.admin")), 1),
-                    v.value ? (s(), n("span", nt)) : k("", !0)
+                    L(y(o.$t("link.admin_panel")), 1),
+                    v.value ? (t(), n("span", nt)) : g("", !0)
                   ]),
                   _: 1
                 })
-              ])) : k("", !0),
-              d.value ? (s(), n("span", at, [
-                i[4] || (i[4] = L(" - ")),
-                r("button", {
+              ])) : g("", !0),
+              u.value ? (t(), n("span", at, [
+                a[4] || (a[4] = L(" - ")),
+                l("button", {
                   type: "button",
                   id: "lnkSignOut",
                   class: "button is-text is-like-text has-text-grey",
-                  onClick: i[0] || (i[0] = (l) => e(o.$t("message.auth.confirm.logout")))
-                }, g(o.$t("message.auth.sign_out")), 1)
-              ])) : k("", !0)
-            ])) : (s(), n("div", it, [
-              m.value == !0 ? (s(), n("ul", lt, [
-                r("li", rt, [
+                  onClick: a[0] || (a[0] = (r) => e(o.$t("confirmation.logout")))
+                }, y(o.$t("label.sign_out")), 1)
+              ])) : g("", !0)
+            ])) : (t(), n("div", it, [
+              m.value == !0 ? (t(), n("ul", lt, [
+                l("li", rt, [
                   $(h, {
                     id: "lnkSettings",
                     to: { name: "settings.options" }
                   }, {
                     default: b(() => [
-                      L(g(o.$t("message.settings.settings")), 1)
+                      L(y(o.$t("link.settings")), 1)
                     ]),
                     _: 1
                   })
                 ]),
-                y(u).isAdmin ? (s(), n("li", ut, [
+                _(c).isAdmin ? (t(), n("li", ut, [
                   $(h, {
                     id: "lnkAdmin",
                     to: { name: "admin.appSetup" }
                   }, {
                     default: b(() => [
-                      v.value ? (s(), n("span", ct)) : k("", !0),
-                      L(" " + g(o.$t("message.admin.admin_panel")), 1)
+                      v.value ? (t(), n("span", ct)) : g("", !0),
+                      L(" " + y(o.$t("link.admin_panel")), 1)
                     ]),
                     _: 1
                   })
-                ])) : k("", !0),
-                d.value ? (s(), n("li", dt, [
-                  $(y(oe), null, {
-                    default: b(({ mode: l }) => [
-                      r("button", {
+                ])) : g("", !0),
+                u.value ? (t(), n("li", dt, [
+                  $(_(oe), null, {
+                    default: b(({ mode: r }) => [
+                      l("button", {
                         type: "button",
                         id: "lnkSignOut",
-                        class: x(["button is-text is-like-text", l == "dark" ? "has-text-grey-lighter" : "has-text-grey-darker"]),
-                        onClick: i[1] || (i[1] = (C) => e(o.$t("message.auth.confirm.logout")))
-                      }, g(o.$t("message.auth.sign_out")), 3)
+                        class: S(["button is-text is-like-text", r == "dark" ? "has-text-grey-lighter" : "has-text-grey-darker"]),
+                        onClick: a[1] || (a[1] = (C) => e(o.$t("confirmation.logout")))
+                      }, y(o.$t("label.sign_out")), 3)
                     ]),
                     _: 1
                   })
-                ])) : k("", !0)
-              ])) : k("", !0),
-              r("button", {
+                ])) : g("", !0)
+              ])) : g("", !0),
+              l("button", {
                 type: "button",
                 id: "btnEmailMenu",
-                onClick: i[2] || (i[2] = (l) => m.value = !m.value),
+                onClick: a[2] || (a[2] = (r) => m.value = !m.value),
                 class: "button is-text is-like-text has-text-grey",
                 style: { width: "100%" }
               }, [
-                y(u).isAdmin && v.value ? (s(), n("span", pt)) : k("", !0),
-                r("span", vt, g(y(u).email), 1),
-                m.value ? (s(), O(y(xe), {
+                _(c).isAdmin && v.value ? (t(), n("span", pt)) : g("", !0),
+                l("span", vt, y(_(c).email), 1),
+                m.value ? (t(), O(_(xe), {
                   key: 2,
                   class: "mr-2"
-                })) : (s(), O(y(Se), {
+                })) : (t(), O(_(Se), {
                   key: 1,
                   class: "mr-2"
                 }))
@@ -317,17 +317,20 @@ const Ee = ["data-is-active"], Ie = {
             ]))
           ])
         ])
-      ], 2)) : k("", !0);
+      ], 2)) : g("", !0);
     };
   }
 }, ft = {
   key: 0,
   id: "groupSwitch",
   class: "container groups"
-}, mt = { class: "columns is-centered" }, ht = { class: "column is-one-third-tablet is-one-quarter-desktop is-one-quarter-widescreen is-one-quarter-fullhd" }, yt = { class: "columns is-multiline" }, gt = ["onClick"], _t = {
+}, mt = { class: "columns is-centered" }, ht = { class: "column is-one-third-tablet is-one-quarter-desktop is-one-quarter-widescreen is-one-quarter-fullhd" }, yt = { class: "columns is-multiline" }, _t = { class: "column is-full" }, gt = { class: "column is-full" }, kt = { class: "column has-text-centered" }, $t = {
+  key: 0,
+  class: "column is-full"
+}, wt = ["onClick"], bt = {
   key: 0,
   class: "columns is-centered"
-}, kt = { class: "column has-text-centered" }, fs = {
+}, St = { class: "column has-text-centered" }, _s = {
   __name: "GroupSwitch",
   props: /* @__PURE__ */ V({
     groups: Array
@@ -338,51 +341,67 @@ const Ee = ["data-is-active"], Ie = {
     isVisibleModifiers: {}
   }),
   emits: /* @__PURE__ */ V(["active-group-changed"], ["update:activeGroup", "update:isVisible"]),
-  setup(t, { emit: p }) {
-    const u = U(t, "activeGroup"), a = U(t, "isVisible"), m = p;
-    function v(d) {
-      u.value = d, a.value = !1, m("active-group-changed", d);
+  setup(s, { emit: p }) {
+    const c = q(s, "activeGroup"), i = q(s, "isVisible"), m = p;
+    function v(u) {
+      i.value = !1, u > -1 ? (c.value = u, m("active-group-changed", u)) : m("show-group-less", u);
     }
-    return (d, e) => a.value ? (s(), n("div", ft, [
-      r("div", mt, [
-        r("div", ht, [
-          r("div", yt, [
-            $(y(oe), null, {
+    return (u, e) => i.value ? (t(), n("div", ft, [
+      l("div", mt, [
+        l("div", ht, [
+          l("div", yt, [
+            $(_(oe), null, {
               default: b(({ mode: o }) => [
-                (s(!0), n(Z, null, ee(t.groups, (i) => (s(), n("div", {
-                  class: "column is-full",
-                  key: i.id
-                }, [
-                  r("button", {
+                l("div", _t, [
+                  l("button", {
                     type: "button",
-                    class: x(["button is-fullwidth", { "is-dark has-text-light is-outlined": o == "dark" }]),
-                    onClick: (h) => v(i.id)
-                  }, g(i.id == 0 ? d.$t("message.all") : i.name), 11, gt)
-                ]))), 128))
+                    class: S(["button is-fullwidth", { "is-dark has-text-light is-outlined": o == "dark" }]),
+                    onClick: e[0] || (e[0] = (a) => v(0))
+                  }, y(u.$t("label.all_accounts")), 3)
+                ]),
+                l("div", gt, [
+                  l("button", {
+                    type: "button",
+                    class: S(["button is-fullwidth", { "is-dark has-text-light is-outlined": o == "dark" }]),
+                    onClick: e[1] || (e[1] = (a) => v(-1))
+                  }, y(u.$t("label.group_less_accounts")), 3)
+                ]),
+                l("div", kt, y(u.$t("message.or_filter_by_group")), 1),
+                (t(!0), n(U, null, ee(s.groups, (a) => (t(), n(U, {
+                  key: a.id
+                }, [
+                  a.id > 0 ? (t(), n("div", $t, [
+                    l("button", {
+                      type: "button",
+                      class: S(["button is-fullwidth", { "is-dark has-text-light is-outlined": o == "dark" }]),
+                      onClick: (h) => v(a.id)
+                    }, y(a.name), 11, wt)
+                  ])) : g("", !0)
+                ], 64))), 128))
               ]),
               _: 1
             })
           ]),
-          d.$slots.default ? (s(), n("div", _t, [
-            r("div", kt, [
-              B(d.$slots, "default")
+          u.$slots.default ? (t(), n("div", bt, [
+            l("div", St, [
+              B(u.$slots, "default")
             ])
-          ])) : k("", !0)
+          ])) : g("", !0)
         ])
       ]),
       $(me, { "show-buttons": !0 }, {
         default: b(() => [
-          $(y(fe), {
+          $(_(fe), {
             action: "close",
             "use-link-tag": !1,
-            onClosed: e[0] || (e[0] = (o) => a.value = !1)
+            onClosed: e[2] || (e[2] = (o) => i.value = !1)
           })
         ]),
         _: 1
       })
-    ])) : k("", !0);
+    ])) : g("", !0);
   }
-}, ms = {
+}, gs = {
   __name: "Kicker",
   props: {
     kickAfter: {
@@ -391,38 +410,38 @@ const Ee = ["data-is-active"], Ie = {
     }
   },
   emits: ["kicked"],
-  setup(t, { emit: p }) {
-    const u = p, a = _(["mousedown", "scroll", "keypress"]), m = _(null), v = t;
+  setup(s, { emit: p }) {
+    const c = p, i = k(["mousedown", "scroll", "keypress"]), m = k(null), v = s;
     ve(
       () => v.kickAfter,
       () => {
         o();
       }
-    ), H(() => {
-      a.value.forEach(function(h) {
+    ), j(() => {
+      i.value.forEach(function(h) {
         window.addEventListener(h, o);
-      }, this), d();
+      }, this), u();
     }), te(() => {
-      a.value.forEach(function(h) {
+      i.value.forEach(function(h) {
         window.removeEventListener(h, o);
-      }, this), i();
+      }, this), a();
     });
-    function d() {
+    function u() {
       m.value = setTimeout(e, v.kickAfter * 60 * 1e3);
     }
     async function e() {
-      clearTimeout(m.value), u("kicked");
+      clearTimeout(m.value), c("kicked");
     }
     function o() {
-      i(), d();
+      a(), u();
     }
-    function i() {
+    function a() {
       clearTimeout(m.value);
     }
     return () => {
     };
   }
-}, hs = {
+}, ks = {
   __name: "LucideGenericIcon",
   props: {
     name: {
@@ -434,44 +453,44 @@ const Ee = ["data-is-active"], Ie = {
     strokeWidth: Number,
     defaultClass: String
   },
-  setup(t) {
-    const p = { Sun: Ae, Moon: Be, Grid3X3: Pe, List: Oe, MonitorCheck: Te, Slash: Ce }, u = t, a = P(() => p[u.name]);
-    return (m, v) => (s(), O(we(a.value), {
-      size: t.size,
-      color: t.color,
-      "stroke-width": t.strokeWidth,
-      "default-class": t.defaultClass
+  setup(s) {
+    const p = { Sun: Ae, Moon: Be, Grid3X3: Pe, List: Oe, MonitorCheck: Te, Slash: Ce }, c = s, i = P(() => p[c.name]);
+    return (m, v) => (t(), O(we(i.value), {
+      size: s.size,
+      color: s.color,
+      "stroke-width": s.strokeWidth,
+      "default-class": s.defaultClass
     }, null, 8, ["size", "color", "stroke-width", "default-class"]));
   }
-}, $t = () => {
-  const { notify: t } = ze();
+}, xt = () => {
+  const { notify: s } = ze();
   return {
     info: (e) => {
-      t({ type: "is-info", ...e });
+      s({ type: "is-info", ...e });
     },
     success: (e) => {
-      t({ type: "is-success", ...e });
+      s({ type: "is-success", ...e });
     },
     warn: (e) => {
-      t({ type: "is-warning", ...e });
+      s({ type: "is-warning", ...e });
     },
     alert: (e) => {
-      t({ type: "is-danger", ...e });
+      s({ type: "is-danger", ...e });
     },
     action: (e) => {
-      t({ type: "is-dark", ...e });
+      s({ type: "is-dark", ...e });
     },
     clear: () => {
-      t({ clean: !0 });
+      s({ clean: !0 });
     }
   };
-}, wt = {
+}, Ct = {
   key: 0,
   class: "modal-content modal-with-footer"
-}, bt = { class: "modal-slot p-4 has-text-centered" }, St = {
+}, Tt = { class: "modal-slot p-4 has-text-centered" }, Ot = {
   key: 1,
   class: "modal-content modal-with-footer"
-}, xt = { class: "section" }, Ct = { class: "columns is-centered" }, Tt = { class: "column is-three-quarters" }, Ot = { class: "modal-slot has-text-centered is-shadowless" }, Pt = { key: 1 }, ys = {
+}, Pt = { class: "section" }, Bt = { class: "columns is-centered" }, At = { class: "column is-three-quarters" }, Nt = { class: "modal-slot has-text-centered is-shadowless" }, Lt = { key: 1 }, $s = {
   __name: "Modal",
   props: /* @__PURE__ */ V({
     modelValue: Boolean,
@@ -484,97 +503,97 @@ const Ee = ["data-is-active"], Ie = {
     modelModifiers: {}
   }),
   emits: ["update:modelValue"],
-  setup(t) {
-    const p = U(t, "modelValue");
-    function u(a) {
-      $t().clear(), p.value = !1;
+  setup(s) {
+    const p = q(s, "modelValue");
+    function c(i) {
+      xt().clear(), p.value = !1;
     }
-    return (a, m) => {
+    return (i, m) => {
       const v = se("router-link");
-      return s(), n("div", {
-        class: x(["modal modal-otp", { "is-active": p.value }])
+      return t(), n("div", {
+        class: S(["modal modal-otp", { "is-active": p.value }])
       }, [
-        r("div", {
+        l("div", {
           class: "modal-background",
-          onClick: D(u, ["stop"])
+          onClick: D(c, ["stop"])
         }),
-        t.isFullHeight ? (s(), n("div", wt, [
-          r("div", bt, [
-            B(a.$slots, "default")
+        s.isFullHeight ? (t(), n("div", Ct, [
+          l("div", Tt, [
+            B(i.$slots, "default")
           ])
-        ])) : (s(), n("div", St, [
-          r("section", xt, [
-            r("div", Ct, [
-              r("div", Tt, [
-                r("div", Ot, [
-                  B(a.$slots, "default")
+        ])) : (t(), n("div", Ot, [
+          l("section", Pt, [
+            l("div", Bt, [
+              l("div", At, [
+                l("div", Nt, [
+                  B(i.$slots, "default")
                 ])
               ])
             ])
           ])
         ])),
-        $(y(me), null, {
+        $(_(me), null, {
           default: b(() => [
-            $(y(fe), {
+            $(_(fe), {
               action: "close",
               useLinkTag: !1,
-              onClosed: u
+              onClosed: c
             })
           ]),
           subpart: b(() => [
-            a.$route.name != "accounts" ? (s(), O(v, {
+            i.$route.name != "accounts" ? (t(), O(v, {
               key: 0,
               id: "lnkBackToHome",
               to: { name: "accounts" },
               class: "has-text-grey"
             }, {
               default: b(() => [
-                L(g(a.$t("message.back_to_home")), 1)
+                L(y(i.$t("link.back_to_home")), 1)
               ]),
               _: 1
-            })) : (s(), n("span", Pt, " "))
+            })) : (t(), n("span", Lt, " "))
           ]),
           _: 1
         })
       ], 2);
     };
   }
-}, Bt = Ve({
+}, Mt = Ve({
   legacy: !1,
   locale: "en",
   fallbackLocale: "en",
   globalInjection: !0
 });
-function pe(t, p, u, a, m) {
-  t || (t = "");
-  var v = String(z(t));
-  const d = () => {
-    const o = z(u);
+function pe(s, p, c, i, m) {
+  s || (s = "");
+  var v = String(z(s));
+  const u = () => {
+    const o = z(c);
     if (v.length > 0) {
-      const i = Math.ceil(o < 1 ? v.length * o : o), h = v.match(new RegExp(`.{1,${i}}`, "g"));
+      const a = Math.ceil(o < 1 ? v.length * o : o), h = v.match(new RegExp(`.{1,${a}}`, "g"));
       h && (v = h.join(" "));
     }
   }, e = () => {
     v.length > 0 && !z(m) && (v = v.replace(/[0-9]/g, "●"));
   };
-  return z(p) == !0 && d(), z(a) && e(), v;
+  return z(p) == !0 && u(), z(i) && e(), v;
 }
-const At = { key: 0 }, Nt = {
+const zt = { key: 0 }, Dt = {
   key: 0,
   class: "spinner-container"
-}, Lt = { class: "spinner-wrapper" }, Mt = {
+}, Vt = { class: "spinner-wrapper" }, Et = {
   id: "icnSpinnerFull",
   class: "is-size-1 spinner"
-}, zt = {
+}, It = {
   key: 1,
   class: "spinner-overlay-container"
-}, Dt = { class: "spinner-wrapper" }, Vt = {
+}, Ft = { class: "spinner-wrapper" }, Rt = {
   id: "icnSpinnerFull",
   class: "is-size-1 spinner"
-}, Et = {
+}, Gt = {
   key: 3,
   class: "has-text-centered mt-6"
-}, It = { id: "icnSpinner" }, Ft = {
+}, Wt = { id: "icnSpinner" }, Kt = {
   __name: "Spinner",
   props: {
     isVisible: Boolean,
@@ -582,8 +601,8 @@ const At = { key: 0 }, Nt = {
       type: String,
       default: "raw",
       required: !0,
-      validator(t, p) {
-        return ["raw", "list-loading", "fullscreen", "fullscreen-overlay"].includes(t);
+      validator(s, p) {
+        return ["raw", "list-loading", "fullscreen", "fullscreen-overlay"].includes(s);
       }
     },
     message: {
@@ -595,44 +614,44 @@ const At = { key: 0 }, Nt = {
       default: 24
     }
   },
-  setup(t) {
-    return (p, u) => t.isVisible ? (s(), n("div", At, [
-      t.type == "fullscreen" ? (s(), n("div", Nt, [
-        r("div", Lt, [
-          r("span", Mt, [
-            $(y(W), { class: "spinning icon-size-3" })
+  setup(s) {
+    return (p, c) => s.isVisible ? (t(), n("div", zt, [
+      s.type == "fullscreen" ? (t(), n("div", Dt, [
+        l("div", Vt, [
+          l("span", Et, [
+            $(_(W), { class: "spinning icon-size-3" })
           ]),
-          r("span", null, g(p.$t(t.message)), 1)
+          l("span", null, y(p.$t(s.message)), 1)
         ])
-      ])) : t.type == "fullscreen-overlay" ? (s(), n("div", zt, [
-        r("div", Dt, [
-          r("span", Vt, [
-            $(y(W), { class: "spinning icon-size-3" })
+      ])) : s.type == "fullscreen-overlay" ? (t(), n("div", It, [
+        l("div", Ft, [
+          l("span", Rt, [
+            $(_(W), { class: "spinning icon-size-3" })
           ]),
-          r("span", null, g(p.$t(t.message)), 1)
+          l("span", null, y(p.$t(s.message)), 1)
         ])
-      ])) : t.type == "raw" ? (s(), O(y(W), {
+      ])) : s.type == "raw" ? (t(), O(_(W), {
         key: 2,
         class: "spinning lucide-default-size",
-        size: t.rawSize
-      }, null, 8, ["size"])) : t.type == "list-loading" ? (s(), n("div", Et, [
-        r("span", It, [
-          $(y(W), { class: "spinning icon-size-2" })
+        size: s.rawSize
+      }, null, 8, ["size"])) : s.type == "list-loading" ? (t(), n("div", Gt, [
+        l("span", Wt, [
+          $(_(W), { class: "spinning icon-size-2" })
         ])
-      ])) : k("", !0)
-    ])) : k("", !0);
+      ])) : g("", !0)
+    ])) : g("", !0);
   }
-}, Rt = ["src", "alt"], Gt = ["title"], Wt = {
+}, Ut = ["src", "alt"], qt = ["title"], Ht = {
   key: 1,
   tabindex: "0",
   class: "otp is-size-1"
-}, Kt = {
+}, jt = {
   key: 0,
   class: "mt-3 is-size-4"
-}, Ut = ["title"], qt = { key: 1 }, Ht = {
+}, Xt = ["title"], Jt = { key: 1 }, Qt = {
   key: 1,
   class: "mt-3"
-}, gs = {
+}, ws = {
   __name: "OtpDisplay",
   props: {
     twofaccountService: {
@@ -653,7 +672,7 @@ const At = { key: 0 }, Nt = {
     iconPathPrefix: String,
     accountParams: {
       type: Object,
-      default(t) {
+      default(s) {
         return {
           otp_type: "",
           account: "",
@@ -680,8 +699,8 @@ const At = { key: 0 }, Nt = {
     "validation-error",
     "otp-copied-to-clipboard"
   ],
-  setup(t, { expose: p, emit: u }) {
-    const { t: a } = Bt.global, { copy: m, copied: v } = De({ legacy: !0 }), d = u, e = t, o = e.twofaccountService, i = _(null), h = _(null), l = _({
+  setup(s, { expose: p, emit: c }) {
+    const { t: i } = Mt.global, { copy: m, copied: v } = De({ legacy: !0 }), u = c, e = s, o = e.twofaccountService, a = k(null), h = k(null), r = k({
       otp_type: "",
       account: "",
       service: "",
@@ -692,75 +711,75 @@ const At = { key: 0 }, Nt = {
       period: null,
       counter: null,
       image: ""
-    }), C = _(!1), T = _(""), E = P(() => pe(
+    }), C = k(!1), T = k(""), E = P(() => pe(
       T,
       e.preferences.formatPassword,
       e.preferences.formatPasswordBy,
       e.preferences.showOtpAsDot,
       C
-    )), w = _(""), A = P(() => pe(
+    )), w = k(""), A = P(() => pe(
       w,
       e.preferences.formatPassword,
       e.preferences.formatPasswordBy,
       e.preferences.showOtpAsDot,
       C
-    )), N = _(null), I = _(!1), F = _(!1), ne = _("0"), ae = _(null), ie = K("dotsController"), j = K("dots"), he = K("otpSpanTag");
+    )), N = k(null), I = k(!1), F = k(!1), ne = k("0"), ae = k(null), ie = K("dotsController"), X = K("dots"), he = K("otpSpanTag");
     ve(
       () => e.accountParams.icon,
       (f) => {
-        f != null && (l.value.icon = f);
+        f != null && (r.value.icon = f);
       }
     );
     const ye = async (f) => {
-      if (C.value = !1, l.value.otp_type = e.accountParams.otp_type, l.value.account = e.accountParams.account, l.value.service = e.accountParams.service, l.value.icon = e.accountParams.icon, l.value.secret = e.accountParams.secret, l.value.digits = e.accountParams.digits, l.value.algorithm = e.accountParams.algorithm, l.value.period = e.accountParams.period, l.value.counter = e.accountParams.counter, re(), f) {
-        i.value = f;
-        const { data: c } = await o.get(i.value);
-        l.value.service = c.service, l.value.account = c.account, l.value.icon = c.icon, l.value.otp_type = c.otp_type, G(c.otp_type) && c.counter && (l.value.counter = c.counter);
-      } else e.uri ? (h.value = e.uri, l.value.otp_type = e.uri.slice(0, 15).toLowerCase() === "otpauth://totp/" ? "totp" : "hotp") : (e.accountParams.secret ? !R(l.value.otp_type) && !G(l.value.otp_type) && d("error", new Error(a("error.not_a_supported_otp_type"))) : d("error", new Error(a("error.cannot_create_otp_without_secret"))), R(l.value.otp_type) && (I.value = !0));
+      if (C.value = !1, r.value.otp_type = e.accountParams.otp_type, r.value.account = e.accountParams.account, r.value.service = e.accountParams.service, r.value.icon = e.accountParams.icon, r.value.secret = e.accountParams.secret, r.value.digits = e.accountParams.digits, r.value.algorithm = e.accountParams.algorithm, r.value.period = e.accountParams.period, r.value.counter = e.accountParams.counter, re(), f) {
+        a.value = f;
+        const { data: d } = await o.get(a.value);
+        r.value.service = d.service, r.value.account = d.account, r.value.icon = d.icon, r.value.otp_type = d.otp_type, G(d.otp_type) && d.counter && (r.value.counter = d.counter);
+      } else e.uri ? (h.value = e.uri, r.value.otp_type = e.uri.slice(0, 15).toLowerCase() === "otpauth://totp/" ? "totp" : "hotp") : (e.accountParams.secret ? !R(r.value.otp_type) && !G(r.value.otp_type) && u("error", new Error(i("error.not_a_supported_otp_type"))) : u("error", new Error(i("error.cannot_create_otp_without_secret"))), R(r.value.otp_type) && (I.value = !0));
       try {
-        await le(), _e(), e.preferences.getOtpOnRequest && e.can_autoCloseTimeout && parseInt(e.preferences.autoCloseTimeout) > 0 && ke();
+        await le(), ge(), e.preferences.getOtpOnRequest && e.can_autoCloseTimeout && parseInt(e.preferences.autoCloseTimeout) > 0 && ke();
       } catch {
-        X();
+        J();
       }
     };
     async function le() {
-      e.can_showNextOtp && w.value ? (T.value = w.value, w.value = "", j.value.turnOff(), J(0)) : re(), await ge().then((f) => {
-        let c = f.data;
-        T.value = c.password, w.value = e.can_showNextOtp && Object.prototype.hasOwnProperty.call(c, "next_password") ? c.next_password : "", e.preferences.copyOtpOnDisplay && M(c.password), R(c.otp_type) ? (N.value = c.generated_at, l.value.period = c.period, I.value = !0, de().then(() => {
+      e.can_showNextOtp && w.value ? (T.value = w.value, w.value = "", X.value.turnOff(), Q(0)) : re(), await _e().then((f) => {
+        let d = f.data;
+        T.value = d.password, w.value = e.can_showNextOtp && Object.prototype.hasOwnProperty.call(d, "next_password") ? d.next_password : "", e.preferences.copyOtpOnDisplay && M(d.password), R(d.otp_type) ? (N.value = d.generated_at, r.value.period = d.period, I.value = !0, de().then(() => {
           ie.value.startStepping();
-        })) : G(c.otp_type) && (l.value.counter = c.counter, d("increment-hotp", { nextHotpCounter: c.counter, nextUri: c.uri }));
+        })) : G(d.otp_type) && (r.value.counter = d.counter, u("increment-hotp", { nextHotpCounter: d.counter, nextUri: d.uri }));
       }).catch((f) => {
-        f.response.status === 422 && d("validation-error", f.response);
+        f.response.status === 422 && u("validation-error", f.response);
       }).finally(() => {
         F.value = !1;
       });
     }
     function re() {
-      F.value = !0, j.value.turnOff();
-    }
-    function ge() {
-      return i.value ? o.getOtpById(i.value) : h.value ? o.getOtpByUri(h.value) : o.getOtpByParams(l.value);
-    }
-    function ue() {
-      d("please-close-me"), C.value = !1, X();
-    }
-    function X() {
-      var f;
-      i.value = l.value.counter = N.value = null, l.value.service = l.value.account = l.value.icon = l.value.otp_type = l.value.secret = "", T.value = "... ...", w.value = "", I.value = !1, clearTimeout(ae.value), (f = ie.value) == null || f.reset();
+      F.value = !0, X.value.turnOff();
     }
     function _e() {
+      return a.value ? o.getOtpById(a.value) : h.value ? o.getOtpByUri(h.value) : o.getOtpByParams(r.value);
+    }
+    function ue() {
+      u("please-close-me"), C.value = !1, J();
+    }
+    function J() {
+      var f;
+      a.value = r.value.counter = N.value = null, r.value.service = r.value.account = r.value.icon = r.value.otp_type = r.value.secret = "", T.value = "... ...", w.value = "", I.value = !1, clearTimeout(ae.value), (f = ie.value) == null || f.reset();
+    }
+    function ge() {
       de().then(() => {
         var f;
         (f = he.value) == null || f.focus();
       });
     }
-    function M(f, c) {
+    function M(f, d) {
       if (m(f.replace(/ /g, "")), v) {
-        if (e.preferences.kickUserAfter == -1 && (c || !1) === !0 ? d("kickme") : e.preferences.closeOtpOnCopy && (c || !1) === !0 && ue(), e.preferences.clearSearchOnCopy && d("please-clear-search"), e.preferences.viewDefaultGroupOnCopy) {
-          const S = e.preferences.defaultGroup == -1 ? e.preferences.activeGroup : e.preferences.defaultGroup;
-          d("please-update-active-group", S);
+        if (e.preferences.kickUserAfter == -1 && (d || !1) === !0 ? u("kickme") : e.preferences.closeOtpOnCopy && (d || !1) === !0 && ue(), e.preferences.clearSearchOnCopy && u("please-clear-search"), e.preferences.viewDefaultGroupOnCopy) {
+          const x = e.preferences.defaultGroup == -1 ? e.preferences.activeGroup : e.preferences.defaultGroup;
+          u("please-update-active-group", x);
         }
-        d("otp-copied-to-clipboard");
+        u("otp-copied-to-clipboard");
       }
     }
     function R(f) {
@@ -769,12 +788,12 @@ const At = { key: 0 }, Nt = {
     function G(f) {
       return f === "hotp";
     }
-    function J(f) {
-      j.value.turnOn(f), ne.value = "is-opacity-" + f;
+    function Q(f) {
+      X.value.turnOn(f), ne.value = "is-opacity-" + f;
     }
     p({
       show: ye,
-      clearOTP: X
+      clearOTP: J
     });
     function ke() {
       let f = parseInt(e.preferences.autoCloseTimeout);
@@ -782,86 +801,86 @@ const At = { key: 0 }, Nt = {
         ue();
       }, f * 60 * 1e3);
     }
-    return (f, c) => (s(), n("div", null, [
-      r("figure", {
-        class: x(["image is-64x64", { "no-icon": !l.value.icon }]),
+    return (f, d) => (t(), n("div", null, [
+      l("figure", {
+        class: S(["image is-64x64", { "no-icon": !r.value.icon }]),
         style: { display: "inline-flex" }
       }, [
-        l.value.icon ? (s(), n("img", {
+        r.value.icon ? (t(), n("img", {
           key: 0,
-          src: t.iconPathPrefix + "/storage/icons/" + l.value.icon,
+          src: s.iconPathPrefix + "/storage/icons/" + r.value.icon,
           alt: f.$t("alttext.icon_to_illustrate_the_account")
-        }, null, 8, Rt)) : k("", !0)
+        }, null, 8, Ut)) : g("", !0)
       ], 2),
-      $(y(oe), null, {
-        default: b(({ mode: S }) => [
-          r("p", {
-            class: x(["is-size-4 has-ellipsis", S == "dark" ? "has-text-grey-light" : "has-text-grey"])
-          }, g(l.value.service), 3),
-          r("p", {
-            class: x(["is-size-6 has-ellipsis", S == "dark" ? "has-text-grey" : "has-text-grey-light"])
-          }, g(l.value.account), 3),
-          r("p", null, [
-            F.value ? (s(), n("span", Wt, [
-              $(Ft, {
+      $(_(oe), null, {
+        default: b(({ mode: x }) => [
+          l("p", {
+            class: S(["is-size-4 has-ellipsis", x == "dark" ? "has-text-grey-light" : "has-text-grey"])
+          }, y(r.value.service), 3),
+          l("p", {
+            class: S(["is-size-6 has-ellipsis", x == "dark" ? "has-text-grey" : "has-text-grey-light"])
+          }, y(r.value.account), 3),
+          l("p", null, [
+            F.value ? (t(), n("span", Ht, [
+              $(Kt, {
                 isVisible: F.value,
                 type: "raw"
               }, null, 8, ["isVisible"])
-            ])) : (s(), n("span", {
+            ])) : (t(), n("span", {
               key: 0,
               id: "otp",
               role: "log",
               ref: "otpSpanTag",
               tabindex: "0",
-              class: x(["otp is-size-1 is-clickable px-3", S == "dark" ? "has-text-white" : "has-text-grey-dark"]),
-              onClick: c[0] || (c[0] = ($e) => M(T.value, !0)),
-              onKeyup: c[1] || (c[1] = q(($e) => M(T.value, !0), ["enter"])),
-              title: f.$t("message.copy_to_clipboard")
-            }, g(E.value), 43, Gt))
+              class: S(["otp is-size-1 is-clickable px-3", x == "dark" ? "has-text-white" : "has-text-grey-dark"]),
+              onClick: d[0] || (d[0] = ($e) => M(T.value, !0)),
+              onKeyup: d[1] || (d[1] = H(($e) => M(T.value, !0), ["enter"])),
+              title: f.$t("tooltip.copy_to_clipboard")
+            }, y(E.value), 43, qt))
           ])
         ]),
         _: 1
       }),
-      Y($(Ie, { ref: "dots" }, null, 512), [
-        [ce, R(l.value.otp_type)]
+      Z($(Ie, { ref: "dots" }, null, 512), [
+        [ce, R(r.value.otp_type)]
       ]),
-      Y(r("p", null, g(f.$t("message.counter")) + ": " + g(l.value.counter), 513), [
-        [ce, G(l.value.otp_type)]
+      Z(l("p", null, y(f.$t("field.counter")) + ": " + y(r.value.counter), 513), [
+        [ce, G(r.value.otp_type)]
       ]),
-      e.can_showNextOtp && e.preferences.showNextOtp ? (s(), n("p", Kt, [
-        w.value ? (s(), n("span", {
+      e.can_showNextOtp && e.preferences.showNextOtp ? (t(), n("p", jt, [
+        w.value ? (t(), n("span", {
           key: 0,
-          class: x(["is-clickable", ne.value]),
-          onClick: c[2] || (c[2] = (S) => M(w.value, !0)),
-          onKeyup: c[3] || (c[3] = q((S) => M(w.value, !0), ["enter"])),
-          title: f.$t("message.copy_next_password")
-        }, g(A.value), 43, Ut)) : (s(), n("span", qt, " "))
-      ])) : k("", !0),
-      e.preferences.showOtpAsDot && e.preferences.revealDottedOTP ? (s(), n("p", Ht, [
-        r("button", {
+          class: S(["is-clickable", ne.value]),
+          onClick: d[2] || (d[2] = (x) => M(w.value, !0)),
+          onKeyup: d[3] || (d[3] = H((x) => M(w.value, !0), ["enter"])),
+          title: f.$t("tooltip.copy_next_password")
+        }, y(A.value), 43, Xt)) : (t(), n("span", Jt, " "))
+      ])) : g("", !0),
+      e.preferences.showOtpAsDot && e.preferences.revealDottedOTP ? (t(), n("p", Qt, [
+        l("button", {
           type: "button",
           class: "button is-ghost has-text-grey-dark",
-          onClick: c[4] || (c[4] = D((S) => C.value = !C.value, ["stop"]))
+          onClick: d[4] || (d[4] = D((x) => C.value = !C.value, ["stop"]))
         }, [
-          C.value ? (s(), O(y(Ne), { key: 0 })) : (s(), O(y(Le), { key: 1 }))
+          C.value ? (t(), O(_(Ne), { key: 0 })) : (t(), O(_(Le), { key: 1 }))
         ])
-      ])) : k("", !0),
-      I.value ? (s(), O(Fe, {
+      ])) : g("", !0),
+      I.value ? (t(), O(Fe, {
         key: 2,
-        period: l.value.period,
+        period: r.value.period,
         generated_at: N.value,
         autostart: !1,
-        onSteppingEnded: c[5] || (c[5] = (S) => le()),
-        onSteppingStarted: c[6] || (c[6] = (S) => J(S)),
-        onSteppedUp: c[7] || (c[7] = (S) => J(S)),
+        onSteppingEnded: d[5] || (d[5] = (x) => le()),
+        onSteppingStarted: d[6] || (d[6] = (x) => Q(x)),
+        onSteppedUp: d[7] || (d[7] = (x) => Q(x)),
         ref: "dotsController"
-      }, null, 8, ["period", "generated_at"])) : k("", !0)
+      }, null, 8, ["period", "generated_at"])) : g("", !0)
     ]));
   }
-}, jt = {
+}, Yt = {
   key: 0,
   class: "columns is-centered"
-}, Xt = { class: "form-column column is-two-thirds-tablet is-half-desktop is-half-widescreen is-one-third-fullhd" }, Jt = {
+}, Zt = { class: "form-column column is-two-thirds-tablet is-half-desktop is-half-widescreen is-one-third-fullhd" }, es = {
   __name: "ResponsiveWidthWrapper",
   props: {
     isActive: {
@@ -869,17 +888,17 @@ const At = { key: 0 }, Nt = {
       default: !0
     }
   },
-  setup(t) {
-    return (p, u) => t.isActive ? (s(), n("div", jt, [
-      r("div", Xt, [
+  setup(s) {
+    return (p, c) => s.isActive ? (t(), n("div", Yt, [
+      l("div", Zt, [
         B(p.$slots, "default")
       ])
     ])) : B(p.$slots, "default", { key: 1 });
   }
-}, Qt = {
+}, ts = {
   role: "search",
   class: "field"
-}, Yt = { class: "control has-icons-right" }, Zt = ["aria-label", "title", "placeholder"], es = { class: "icon is-small is-right" }, ts = ["title"], _s = {
+}, ss = { class: "control has-icons-right" }, os = ["aria-label", "title", "placeholder"], ns = { class: "icon is-small is-right" }, as = ["title"], bs = {
   __name: "SearchBox",
   props: /* @__PURE__ */ V({
     hasNoBackground: {
@@ -896,57 +915,57 @@ const At = { key: 0 }, Nt = {
     keywordModifiers: {}
   }),
   emits: /* @__PURE__ */ V(["cleared"], ["update:keyword"]),
-  setup(t, { emit: p }) {
-    const u = U(t, "keyword"), a = K("searchInput"), m = p;
-    H(() => {
+  setup(s, { emit: p }) {
+    const c = q(s, "keyword"), i = K("searchInput"), m = p;
+    j(() => {
       document.addEventListener("keydown", v), document.addEventListener("keypress", e);
     }), te(() => {
       document.removeEventListener("keydown", v), document.removeEventListener("keypress", e);
     });
     function v(o) {
-      var i;
-      o.key === "f" && (o.ctrlKey || o.metaKey) && (o.preventDefault(), (i = a.value) == null || i.focus());
+      var a;
+      o.key === "f" && (o.ctrlKey || o.metaKey) && (o.preventDefault(), (a = i.value) == null || a.focus());
     }
-    function d() {
-      u.value = "", m("cleared");
+    function u() {
+      c.value = "", m("cleared");
     }
     function e(o) {
-      var i, h;
-      o.key !== "Enter" && (u.value = o.key, (i = a.value) == null || i.setSelectionRange(1, 1), (h = a.value) == null || h.focus(), o.preventDefault());
+      var a, h;
+      o.key !== "Enter" && (c.value = o.key, (a = i.value) == null || a.setSelectionRange(1, 1), (h = i.value) == null || h.focus(), o.preventDefault());
     }
-    return (o, i) => (s(), n("div", Qt, [
-      r("div", Yt, [
-        Y(r("input", {
-          "onUpdate:modelValue": i[0] || (i[0] = (h) => u.value = h),
+    return (o, a) => (t(), n("div", ts, [
+      l("div", ss, [
+        Z(l("input", {
+          "onUpdate:modelValue": a[0] || (a[0] = (h) => c.value = h),
           onKeyup: [
-            i[1] || (i[1] = q(D((h) => {
-              d(), h.target.blur();
+            a[1] || (a[1] = H(D((h) => {
+              u(), h.target.blur();
             }, ["prevent"]), ["esc"])),
-            i[2] || (i[2] = q(D((h) => h.target.blur(), ["prevent"]), ["enter"]))
+            a[2] || (a[2] = H(D((h) => h.target.blur(), ["prevent"]), ["enter"]))
           ],
-          onKeypress: i[3] || (i[3] = D(() => {
+          onKeypress: a[3] || (a[3] = D(() => {
           }, ["stop"])),
           ref: "searchInput",
           id: "txtSearch",
           type: "search",
           tabindex: "1",
-          "aria-label": o.$t("message.search"),
-          title: o.$t("message.search"),
-          placeholder: t.placeholder,
-          class: x(["input is-rounded is-search", { "has-no-background": t.hasNoBackground, "is-small": t.isSmall }])
-        }, null, 42, Zt), [
-          [be, u.value]
+          "aria-label": o.$t("label.search"),
+          title: o.$t("tooltip.search"),
+          placeholder: s.placeholder,
+          class: S(["input is-rounded is-search", { "has-no-background": s.hasNoBackground, "is-small": s.isSmall }])
+        }, null, 42, os), [
+          [be, c.value]
         ]),
-        r("span", es, [
-          u.value != "" ? (s(), n("button", {
+        l("span", ns, [
+          c.value != "" ? (t(), n("button", {
             key: 0,
             type: "button",
             id: "btnClearSearch",
             tabindex: "1",
-            title: o.$t("message.clear_search"),
+            title: o.$t("tooltip.clear_search"),
             class: "clear-selection delete",
-            onClick: d
-          }, null, 8, ts)) : (s(), O(y(Me), {
+            onClick: u
+          }, null, 8, as)) : (t(), O(_(Me), {
             key: 1,
             class: "mr-2 icon-size-1"
           }))
@@ -954,7 +973,7 @@ const At = { key: 0 }, Nt = {
       ])
     ]));
   }
-}, ss = { class: "options-header" }, os = { class: "tabs is-centered is-fullwidth" }, ns = { role: "menubar" }, as = ["id", "onClick"], ks = {
+}, is = { class: "options-header" }, ls = { class: "tabs is-centered is-fullwidth" }, rs = { role: "menubar" }, us = ["id", "onClick"], Ss = {
   __name: "TabBar",
   props: {
     tabs: {
@@ -970,21 +989,21 @@ const At = { key: 0 }, Nt = {
     }
   },
   emits: ["tab-selected"],
-  setup(t, { emit: p }) {
-    const u = t, a = p;
-    return (m, v) => (s(), n("div", ss, [
-      $(Jt, { "is-active": t.isResponsive }, {
+  setup(s, { emit: p }) {
+    const c = s, i = p;
+    return (m, v) => (t(), n("div", is, [
+      $(es, { "is-active": s.isResponsive }, {
         default: b(() => [
-          r("nav", os, [
-            r("ul", ns, [
-              (s(!0), n(Z, null, ee(u.tabs, (d) => (s(), n("li", {
-                key: d.view,
-                class: x({ "is-active": d.view === u.activeTab })
+          l("nav", ls, [
+            l("ul", rs, [
+              (t(!0), n(U, null, ee(c.tabs, (u) => (t(), n("li", {
+                key: u.view,
+                class: S({ "is-active": u.view === c.activeTab })
               }, [
-                r("a", {
-                  id: d.id,
-                  onClick: (e) => a("tab-selected", d.view)
-                }, g(m.$t(d.name)), 9, as)
+                l("a", {
+                  id: u.id,
+                  onClick: (e) => i("tab-selected", u.view)
+                }, y(m.$t(u.name)), 9, us)
               ], 2))), 128))
             ])
           ])
@@ -997,17 +1016,17 @@ const At = { key: 0 }, Nt = {
 export {
   Ie as Dots,
   Fe as DotsController,
-  vs as FormWrapper,
-  fs as GroupSwitch,
-  ms as Kicker,
-  hs as LucideGenericIcon,
-  ys as Modal,
-  gs as OtpDisplay,
-  Jt as ResponsiveWidthWrapper,
-  _s as SearchBox,
-  Ft as Spinner,
-  ks as TabBar,
+  ys as FormWrapper,
+  _s as GroupSwitch,
+  gs as Kicker,
+  ks as LucideGenericIcon,
+  $s as Modal,
+  ws as OtpDisplay,
+  es as ResponsiveWidthWrapper,
+  bs as SearchBox,
+  Kt as Spinner,
+  Ss as TabBar,
   me as VueFooter,
-  $t as useNotify,
+  xt as useNotify,
   pe as useVisiblePassword
 };
