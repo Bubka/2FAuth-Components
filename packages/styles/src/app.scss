@@ -1,5 +1,65 @@
-@use 'bulma/bulma.scss';
-@use 'hnc-bulma-checkradio/dist/css/hnc-bulma-checkradio.min.css';
+@use '../node_modules/bulma/sass' as bulma with (
+  $black: hsl(0, 0%, 4%),
+  $black-bis: hsl(0, 0%, 7%),
+  $black-ter: hsl(0, 0%, 14%),
+  $grey-darker: hsl(0, 0%, 21%),
+  $grey-dark: hsl(0, 0%, 29%),
+  $grey: hsl(0, 0%, 48%),
+  $grey-light: hsl(0, 0%, 71%),
+  $grey-lighter: hsl(0, 0%, 86%),
+  $grey-lightest: hsl(0, 0%, 93%),
+  $white-ter: hsl(0, 0%, 96%),
+  $white-bis: hsl(0, 0%, 98%),
+  $white: hsl(0, 0%, 100%),
+  $title-weight: 600,
+  $orange: hsl(14, 100%, 53%),
+  $yellow: hsl(44, 100%, 77%),
+  $green: hsl(153, 53%, 53%),
+  $turquoise: hsl(171, 100%, 41%),
+  $cyan: hsl(204, 86%, 53%),
+  $blue: hsl(217, 71%, 53%),
+  $purple: hsl(271, 100%, 71%),
+  $red: hsl(348, 86%, 61%),
+  $duration: 50ms,
+);
+
+@use '../node_modules/bulma/sass/utilities' as bulma-utils;
+@use '../node_modules/bulma/sass/elements' as bulma-elements;
+@use '../node_modules/bulma/sass/form' as bulma-form;
+@use '../node_modules/bulma-checkradio/dist/css/bulma-checkradio.min.css';
+
+:root {
+  --bulma-link-h: 229deg;
+  --bulma-link-s: 53%;
+  --bulma-link-l: 53%;
+  --bulma-link-on-scheme-l: 53%;
+  --bulma-info-h: 204deg;
+  --bulma-info-s: 86%;
+  --bulma-info-l: 53%;
+  --bulma-success-h: 153deg;
+  --bulma-warning-h: 44deg;
+  --bulma-warning-l: 77%;
+  --bulma-danger-s: 86%;
+  --bulma-danger-l: 61%;
+  --bulma-scheme-h: 0;
+  --bulma-scheme-s: 0%;
+  --bulma-dark-l: 21%;
+  --bulma-family-primary: BlinkMacSystemFont,-apple-system,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,Helvetica,Arial,sans-serif;
+  --bulma-family-secondary: BlinkMacSystemFont,-apple-system,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,Helvetica,Arial,sans-serif;
+  --bulma-family-code: monospace;
+  --bulma-body-color: hsl(0,0%,29%);
+  --bulma-code-family: monospace;
+  --bulma-title-weight: 600,
+}
+
+.notification.is-primary,
+.notification.is-link,
+.notification.is-info,
+.notification.is-success,
+.notification.is-danger
+ {
+  --bulma-notification-color-l: 100%;
+}
 
 :root,
 footer,
@@ -7,7 +67,7 @@ footer,
 .modal-background,
 .modal-slot,
 .options-header {
-  background-color: $white-ter;
+  background-color: bulma-utils.$white-ter;
 }
 
 :root.dark,
@@ -16,15 +76,33 @@ footer,
 :root.dark .modal-background,
 :root.dark .modal-slot,
 :root.dark .options-header {
-  background-color: $black-ter;
+  background-color: bulma-utils.$black-ter;
 }
 
 :root.dark .about-debug {
-  background-color: $black-bis;
+  background-color: bulma-utils.$black-bis;
 }
 
-a:hover {
-  color: hsl(204, 86%, 53%);
+a.is-link:hover {
+  // color: hsl(204, 86%, 53%);
+  color: bulma-utils.$cyan;
+}
+
+:root {
+  --bulma-hover-background-l-delta: 5%;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bulma-hover-background-l-delta: -3%;
+  }
+}
+
+a.tag:hover {
+  text-decoration: underline;
+}
+
+.buttons {
+  gap: 0.5rem;
 }
 
 #app {
@@ -77,31 +155,31 @@ a:hover {
 }
 
 .toolbar button {
-  background-color: $white-ter;
+  background-color: bulma-utils.$white-ter;
 }
 
 :root.dark .toolbar button {
-  background-color: $black-ter;
+  background-color: bulma-utils.$black-ter;
 }
 
 .toolbar button.delete {
-  background-color: $grey;
+  background-color: bulma-utils.$grey;
 }
 .toolbar button.delete::before, .toolbar button.delete::after {
-  background-color: $white;
+  background-color: bulma-utils.$white;
 }
 .toolbar button.delete:hover, .toolbar button.delete:focus {
-  background-color: $grey;
+  background-color: bulma-utils.$grey;
 }
 :root.dark .toolbar button.delete::before, :root.dark .toolbar button.delete::after {
-  background-color: $white;
+  background-color: bulma-utils.$white;
 }
 :root.dark .toolbar button.delete:hover, :root.dark .toolbar button.delete:focus {
   background-color: rgba(10, 10, 10, 0.3);
 }
 @media (prefers-color-scheme: dark) {
   :root.dark .toolbar button.delete::before, :root.dark .toolbar button.delete::after {
-    background-color: $white;
+    background-color: bulma-utils.$white;
   }
 }
 
@@ -118,26 +196,26 @@ a:hover {
 
 .otp:focus-visible {
   outline-offset: 3px;
-  outline: 2px dotted $dark;
-  border-radius: $radius-large;
+  outline: 2px dotted bulma-utils.$dark;
+  border-radius: bulma-utils.$radius-large;
 }
 
 .otp:focus:not(:focus-visible) {
   outline: none;
 }
 
-// has-text-weight-semibold / $weight-semibold
+// has-text-weight-semibold / bulma-utils.$weight-semibold
 .group-item, .list-item {
-  border-bottom: 1px solid $grey-lighter;
+  border-bottom: 1px solid bulma-utils.$grey-lighter;
   padding: 0.75rem;
 }
 :root.dark .group-item,
 :root.dark .list-item {
-  border-color: $grey-darker;
-  color: $light;
+  border-color: bulma-utils.$grey-darker;
+  color: bulma-utils.$light;
 }
 :root.dark .list-item {
-  color: $grey-lighter;
+  color: bulma-utils.$grey-lighter;
 }
 
 .group-item:first-of-type {
@@ -192,7 +270,7 @@ a:hover {
 }
 
 .pull-down-header {
-  background-color: $grey-darker !important;
+  background-color: bulma-utils.$grey-darker !important;
 }
 
 img.qrcode {
@@ -207,7 +285,7 @@ img.qrcode {
 .tfa-grid {
   border-radius: 6px;
   text-align: center;
-  background-color: $white;
+  background-color: bulma-utils.$white;
   padding: 0.75rem 3rem;
   margin: 0.5rem;
 }
@@ -217,14 +295,14 @@ img.qrcode {
 
 .tfa-list {
   text-align: inherit;
-  border-bottom: 1px solid $grey-lighter;
+  border-bottom: 1px solid bulma-utils.$grey-lighter;
   margin: 0 1%;
   padding: 0.5rem 0.5rem 0.5rem 0.5rem;
   width: 31.3% !important;
 }
 :root.dark .tfa-list {
-  background-color: $black-ter;
-  border-bottom: 1px solid $grey-darker;
+  background-color: bulma-utils.$black-ter;
+  border-bottom: 1px solid bulma-utils.$grey-darker;
 }
 
 @media screen and (max-width: 1217px) {
@@ -299,7 +377,7 @@ img.qrcode {
 }
 
 .tfa-content:focus-visible {
-  outline: 1px solid $grey;
+  outline: 1px solid bulma-utils.$grey;
   border: none;
   outline-offset: 7px;
   border-radius: 3px;
@@ -334,7 +412,7 @@ img.qrcode {
   cursor: pointer;
 }
 :root.dark .tfa-text {
-  color: $white;
+  color: bulma-utils.$white;
 }
 
 .tfa-container img {
@@ -412,16 +490,16 @@ img.qrcode {
   border: none;
   border-left-style: solid;
   border-left-width: 3px;
-  padding-left: $size-normal;
+  padding-left: bulma-utils.$size-normal;
 }
 .is-left-bordered-link {
-  border-left-color: $link;
+  border-left-color: bulma-utils.$link;
 }
 .is-left-bordered-warning {
-  border-left-color: $warning;
+  border-left-color: bulma-utils.$warning;
 }
 .is-left-bordered-danger {
-  border-left-color: $danger;
+  border-left-color: bulma-utils.$danger;
 }
 
 .add-icon-button {
@@ -439,7 +517,7 @@ img.qrcode {
   outline-offset: 3px;
   outline-style: solid;
   outline-width: 2px;
-  outline-color: $black;
+  outline-color: bulma-utils.$black;
 }
 
 .delete-icon-button {
@@ -448,7 +526,7 @@ img.qrcode {
 }
 
 figure.no-icon {
-  border: 1px dashed $black-bis;
+  border: 1px dashed bulma-utils.$black-bis;
 }
 
 .file-input {
@@ -457,7 +535,7 @@ figure.no-icon {
 
 :root.dark .add-icon-button,
 :root.dark .add-icon-button:hover {
-    color: $black-bis;
+    color: bulma-utils.$black-bis;
 }
 
 .dots {
@@ -485,10 +563,10 @@ figure.no-icon {
 }
 
 .dots li[data-is-active]~li {
-  background: $grey-light;
+  background: bulma-utils.$grey-light;
 }
 :root.dark .dots li[data-is-active]~li {
-  background: $black-bis;
+  background: bulma-utils.$black-bis;
 }
 
 .dots li:nth-child(-n+9) {
@@ -502,10 +580,10 @@ figure.no-icon {
 }
 
 .dots.off li {
-  background: $grey-light;
+  background: bulma-utils.$grey-light;
 }
 :root.dark .dots.off li {
-  background: $black-bis;
+  background: bulma-utils.$black-bis;
 }
 
 // .dots li:nth-child(3n+2), .dots li:nth-child(3n+3) {
@@ -515,8 +593,8 @@ figure.no-icon {
 :root.dark .input,
 :root.dark .select select,
 :root.dark .textarea {
-  background-color: $grey-darker;
-  border-color: $grey-dark;
+  background-color: bulma-utils.$grey-darker;
+  border-color: bulma-utils.$grey-dark;
   color: hsl(0, 0%, 100%);
 }
 
@@ -533,8 +611,8 @@ fieldset[disabled] .select select,
 .select fieldset[disabled] select,
 fieldset[disabled] .textarea,
 fieldset[disabled] .input {
-  border-color: $grey-lighter;
-  background-color: $white;
+  border-color: bulma-utils.$grey-lighter;
+  background-color: bulma-utils.$white;
   opacity: 0.5;
 }
 :root.dark .select select[disabled],
@@ -545,9 +623,9 @@ fieldset[disabled] .input {
 :root.dark fieldset[disabled] .textarea,
 :root.dark fieldset[disabled] .input {
   background-color: hsl(0, 0%, 10%);
-  border-color: $grey-darker;
+  border-color: bulma-utils.$grey-darker;
   box-shadow: none;
-  color: $grey-darker;
+  color: bulma-utils.$grey-darker;
 }
 
 :root.dark .select select[disabled]::placeholder,
@@ -557,7 +635,7 @@ fieldset[disabled] .input {
 :root.dark .select fieldset[disabled] select::placeholder,
 :root.dark fieldset[disabled] .textarea::placeholder,
 :root.dark fieldset[disabled] .input::placeholder {
-  color: $grey-darker;
+  color: bulma-utils.$grey-darker;
 }
 
 .button.has-line-height {
@@ -576,10 +654,10 @@ fieldset[disabled] .input {
   flex-direction: column;
 }
 .button.is-multiline span {
-  color: $grey;
+  color: bulma-utils.$grey;
 }
 .button.is-link.is-multiline span {
-  color: $grey-lighter;
+  color: bulma-utils.$grey-lighter;
 }
 
 .button.is-dark.field-lock,
@@ -590,6 +668,9 @@ fieldset[disabled] .input {
 .button.is-dark.field-unlock {
   border-color: hsl(0, 0%, 29%);
   border-left: none;
+  border-width: var(--bulma-control-border-width);
+  padding-top: calc(var(--bulma-button-padding-vertical) - #{bulma-elements.$button-border-width});
+  padding-bottom: calc(var(--bulma-button-padding-vertical) - #{bulma-elements.$button-border-width});
 }
 
 .button.is-like-text {
@@ -657,16 +738,28 @@ fieldset[disabled] .input {
   box-shadow: none;
 }
 
+.button.is-link.is-outlined:hover
+{
+  background-color: hsl(229, 53%, 53%);
+  border-color: hsl(229, 53%, 53%);
+  color: bulma-utils.$white;
+}
+.button.is-dark.is-outlined:hover
+{
+  background-color: bulma-utils.$grey-darker;
+  border-color: bulma-utils.$grey-darker;
+}
+
 .button.is-white:focus,
 .button.is-white:focus-visible,
 .button.is-white.is-focused {
-  outline-color: $white;
+  outline-color: bulma-utils.$white;
 }
 
 .button.is-light:focus,
 .button.is-light:focus-visible,
 .button.is-light.is-focused {
-  outline-color: $grey-lightest;
+  outline-color: bulma-utils.$grey-lightest;
 }
 
 .button.is-dark:focus,
@@ -674,7 +767,7 @@ fieldset[disabled] .input {
 .button.is-dark.is-focused,
 .file[role=button].is-dark:focus,
 .file[role=button].is-dark:focus-visible {
-  outline-color: $dark;
+  outline-color: bulma-utils.$dark;
 }
 
 .button.is-black:focus,
@@ -682,71 +775,71 @@ fieldset[disabled] .input {
 .button.is-black.is-focused,
 .file[role=button].is-black:focus,
 .file[role=button].is-black:focus-visible {
-  outline-color: $black;
+  outline-color: bulma-utils.$black;
 }
 
 .button.is-text:focus,
 .button.is-text:focus-visible,
 .button.is-text.is-focused {
-  outline-color: $text;
+  outline-color: bulma-utils.$text;
 }
 
 .button.is-ghost:focus,
 .button.is-ghost:focus-visible,
 .button.is-ghost.is-focused {
-  outline-color: $text;
+  outline-color: bulma-utils.$text;
 }
 
 .button.is-primary:focus,
 .button.is-primary:focus-visible,
 .button.is-primary.is-focused {
-  outline-color: $primary;
+  outline-color: bulma-utils.$primary;
 }
 
 .button.is-link:focus,
 .button.is-link:focus-visible,
 .button.is-link.is-focused {
-  outline-color: $link;
+  outline-color: bulma-utils.$link;
 }
 
 .button.is-info:focus,
 .button.is-info:focus-visible,
 .button.is-info.is-focused {
-  outline-color: $info;
+  outline-color: bulma-utils.$info;
 }
 
 .button.is-success:focus,
 .button.is-success:focus-visible,
 .button.is-success.is-focused {
-  outline-color: $success;
+  outline-color: bulma-utils.$success;
 }
 
 .button.is-warning:focus,
 .button.is-warning:focus-visible,
 .button.is-warning.is-focused {
-  outline-color: $warning;
+  outline-color: bulma-utils.$warning;
 }
 
 .button.is-danger:focus,
 .button.is-danger:focus-visible,
 .button.is-danger.is-focused {
-  outline-color: $danger;
+  outline-color: bulma-utils.$danger;
 }
 
 button.is-main {
-  box-shadow: $button-focus-box-shadow-size $button-focus-box-shadow-color;
+  box-shadow: bulma-elements.$button-focus-box-shadow-size bulma-elements.$button-focus-box-shadow-color;
 }
 
 .button.has-normal-radius {
-  border-radius: $radius !important;
+  border-radius: bulma-utils.$radius !important;
 }
 
 .file[role=button]:focus-visible {
-  border-radius: $radius;
+  border-radius: bulma-utils.$radius;
 }
 
 .file[role=button].is-small:focus-visible {
-  border-radius: $radius-small;
+  border-radius: bulma-utils.$radius-small;
 }
 
 .tag-button:focus-visible {
@@ -762,11 +855,11 @@ button.is-main {
 }
 
 .tag-button-link:focus-visible {
-  outline-color: $link;
+  outline-color: bulma-utils.$link;
 }
 
 .tag-button-danger:focus-visible {
-  outline-color: $danger;
+  outline-color: bulma-utils.$danger;
 }
 
 .clear-selection {
@@ -777,7 +870,7 @@ button.is-main {
 .clear-selection:focus-visible {
   border-color: transparent;
   outline-offset: 1px;
-  outline: 2px solid $text;
+  outline: 2px solid bulma-utils.$text;
 }
 
 .clear-selection:focus:not(:focus-visible) {
@@ -787,7 +880,7 @@ button.is-main {
 a:focus-visible {
   outline-offset: 2px;
   border-radius: 3px;
-  outline: 1px dashed $link;
+  outline: 1px dashed bulma-utils.$link;
 }
 
 a:focus:not(:focus-visible) {
@@ -796,52 +889,52 @@ a:focus:not(:focus-visible) {
 
 a.has-text-black-bis:focus,
 a.has-text-black-bis:focus-visible {
-  outline-color: $black-bis;
+  outline-color: bulma-utils.$black-bis;
 }
 
 a.has-text-black-ter:focus,
 a.has-text-black-ter:focus-visible {
-  outline-color: $black-ter;
+  outline-color: bulma-utils.$black-ter;
 }
 
 a.has-text-grey-darker:focus,
 a.has-text-grey-darker:focus-visible {
-  outline-color: $grey-darker;
+  outline-color: bulma-utils.$grey-darker;
 }
 
 a.has-text-grey-dark:focus,
 a.has-text-grey-dark:focus-visible {
-  outline-color: $grey-dark;
+  outline-color: bulma-utils.$grey-dark;
 }
 
 a.has-text-grey:focus,
 a.has-text-grey:focus-visible {
-  outline-color: $grey;
+  outline-color: bulma-utils.$grey;
 }
 
 a.has-text-grey-light:focus,
 a.has-text-grey-light:focus-visible {
-  outline-color: $grey-light;
+  outline-color: bulma-utils.$grey-light;
 }
 
 a.has-text-grey-lighter:focus,
 a.has-text-grey-lighter:focus-visible {
-  outline-color: $grey-lighter;
+  outline-color: bulma-utils.$grey-lighter;
 }
 
 a.has-text-white-ter:focus,
 a.has-text-white-ter:focus-visible {
-  outline-color: $white-ter;
+  outline-color: bulma-utils.$white-ter;
 }
 
 a.has-text-white-bis:focus,
 a.has-text-white-bis:focus-visible {
-  outline-color: $white-bis;
+  outline-color: bulma-utils.$white-bis;
 }
 
 a.tag.is-dark.is-rounded:focus-visible {
   outline-offset: 1px;
-  outline: 1px solid $grey;
+  outline: 1px solid bulma-utils.$grey;
 }
 
 a.tag.is-dark.is-rounded:focus:not(:focus-visible) {
@@ -850,11 +943,11 @@ a.tag.is-dark.is-rounded:focus:not(:focus-visible) {
 
 button.button.tag.is-white,
 .tfa-cell .tag.is-white {
-  border-color: $input-border-color;
+  border-color: bulma-form.$input-border-color;
 }
 .tfa-cell .tag.is-white {
   border-style: solid;
-  border-width: $control-border-width;
+  border-width: bulma-utils.$control-border-width;
 }
 
 .tabs a:focus-visible {
@@ -868,8 +961,7 @@ button.button.tag.is-white,
 .control.has-icons-right>span.icon:focus-visible,
 .control.has-icons-left>span.icon:focus-visible {
   outline: none;
-  border: 1px solid $input-focus-border-color;
-  box-shadow: $input-focus-box-shadow-size $input-focus-box-shadow-color;
+  box-shadow: bulma-form.$input-focus-shadow-size bulma-form.$input-focus-shadow-alpha;
 }
 
 .control.has-icons-right>span.icon:focus:not(:focus-visible),
@@ -886,32 +978,32 @@ button.button.tag.is-white,
 .is-checkradio[type="checkbox"]+label:focus::before,
 .is-checkradio[type="checkbox"]+label:focus-visible::before {
   outline-offset: 2px;
-  outline: 1px solid $dark;
+  outline: 1px solid bulma-utils.$dark;
 }
 
 :root.dark .is-checkradio[type="checkbox"]+label:focus::before,
 :root.dark .is-checkradio[type="checkbox"]+label:focus-visible::before {
-  outline: 1px solid $grey-light;
+  outline: 1px solid bulma-utils.$grey-light;
 }
 
 .is-checkradio[type="checkbox"]+label::before {
-  border-color: $grey-light;
+  border-color: bulma-utils.$grey-light;
   border-width: 1px !important;
-  background-color: $white;
+  background-color: bulma-utils.$white;
 }
 .tfa-checkbox .is-checkradio[type="checkbox"]+label::before {
-  border-color: $grey;
+  border-color: bulma-utils.$grey;
 }
 :root.dark .is-checkradio[type="checkbox"]+label::before {
-  border-color: $grey;
+  border-color: bulma-utils.$grey;
   background: none;
 }
 
 .is-checkradio[type="checkbox"]:checked + label::before {
-  border-color: $grey;
+  border-color: bulma-utils.$grey;
 }
 :root.dark .is-checkradio[type="checkbox"]:checked + label::before {
-  border-color: $grey-lighter;
+  border-color: bulma-utils.$grey-lighter;
 }
 
 .label {
@@ -920,14 +1012,14 @@ button.button.tag.is-white,
 
 .select select:focus,
 .select select:focus-visible {
-  outline: 2px solid $grey-dark;
+  outline: 2px solid bulma-utils.$grey-dark;
   outline-offset: 3px;
   box-shadow: none;
 }
 
 :root.dark .select select:focus,
 :root.dark .select select:focus-visible {
-  outline: 2px solid $grey-dark;
+  outline: 2px solid bulma-utils.$grey-dark;
 }
 
 .is-underscored {
@@ -941,11 +1033,11 @@ button.button.tag.is-white,
 .is-underscored.is-dot {
   border: none;
   border-radius: 50%;
-  background-color: $success;
+  background-color: bulma-utils.$success;
 }
 
 :root.dark .is-underscored.is-dot {
-  background-color: $success-dark;
+  background-color: hsl(153, 53%, 31%);
 }
 
 .is-mid-width-field {
@@ -975,7 +1067,7 @@ button.button.tag.is-white,
 }
 
 :root.dark.is-search {
-  border-color: $grey-darker;
+  border-color: bulma-utils.$grey-darker;
 }
 
 .modal .field.is-grouped:last-child {
@@ -1165,13 +1257,13 @@ footer.menu {
   display: inline-block;
   border: none;
   border-radius: 50%;
-  background-color: $warning;
+  background-color: bulma-utils.$warning;
   vertical-align: middle;
   margin: 0 5px;
   box-shadow: 0px 0px 2px black;
 }
 :root.dark .release-flag {
-  background-color: $warning;
+  background-color: bulma-utils.$warning;
   box-shadow: none;
 }
 
@@ -1208,15 +1300,15 @@ footer.menu {
 }
 
 .spinner-container {
-  background-color: $white-ter;
+  background-color: bulma-utils.$white-ter;
   .spinner {
-    color: $grey-light;
+    color: bulma-utils.$grey-light;
   }
 }
 :root.dark .spinner-container {
-  background-color: $black-ter;
+  background-color: bulma-utils.$black-ter;
   .spinner {
-    color: $grey-dark;
+    color: bulma-utils.$grey-dark;
   }
 }
 .spinner-overlay-container {
@@ -1454,52 +1546,52 @@ footer.menu {
 }
 
 :root.dark .table {
-	background-color: $black-ter;
-	color: $white-bis;
+	background-color: bulma-utils.$black-ter;
+	color: bulma-utils.$white-bis;
 }
 :root.dark .table th,
 :root.dark .table thead th {
-	color: $grey;
+	color: bulma-utils.$grey;
 }
 :root.dark .table td,
 :root.dark .table th {
-	border: 1px solid $grey-darker;
+	border: 1px solid bulma-utils.$grey-darker;
 	border-width: 0 0 1px;
 }
 
 .card {
 	background-color: none;
-	border: 1px solid $grey-lighter;
+	border: 1px solid bulma-utils.$grey-lighter;
   box-shadow: none;
 }
 :root.dark .card {
-	background-color: $black-ter;
-	border: 1px solid $grey-darker;
+	background-color: bulma-utils.$black-ter;
+	border: 1px solid bulma-utils.$grey-darker;
 }
 
 .card-footer {
-	border-top: 1px solid $grey-lighter;
+	border-top: 1px solid bulma-utils.$grey-lighter;
 }
 :root.dark .card-footer {
-	border-top: 1px solid $grey-darker;
+	border-top: 1px solid bulma-utils.$grey-darker;
 }
 
 .card-footer-item:not(:last-child) {
-	border-right: 1px solid $grey-lighter;
+	border-right: 1px solid bulma-utils.$grey-lighter;
 }
 :root.dark .card-footer-item:not(:last-child) {
-	border-right: 1px solid $grey-darker;
+	border-right: 1px solid bulma-utils.$grey-darker;
 }
 
 .addressbar {
   padding: 6px;
-  border: 1px solid $grey-light;
-  background-color: $white;
-  border-radius: $radius;
+  border: 1px solid bulma-utils.$grey-light;
+  background-color: bulma-utils.$white;
+  border-radius: bulma-utils.$radius;
   position: relative;
 }
 :root.dark .addressbar {
-  background-color: $black-bis;
+  background-color: bulma-utils.$black-bis;
   border: none;
 }
 
@@ -1508,7 +1600,7 @@ footer.menu {
   content: "";
   position: absolute;
   border-radius: 50%;
-  border: 2px solid $danger;
+  border: 2px solid bulma-utils.$danger;
   left: 35px;
   top: 4px;
   width: 29px;
@@ -1516,10 +1608,10 @@ footer.menu {
 }
 
 .light-or-darker {
-  color: $grey-darker;
+  color: bulma-utils.$grey-darker;
 }
 :root.dark .light-or-darker {
-  color: $grey-light;
+  color: bulma-utils.$grey-light;
 }
 
 .width-1-5x {

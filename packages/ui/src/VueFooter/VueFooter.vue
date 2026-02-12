@@ -98,13 +98,13 @@
                     <ul v-if="showMenu == true" class="ml-0 mt-1">
                         <!-- settings link -->
                         <li class="column">
-                            <router-link id="lnkSettings" :to="{ name: 'settings.options' }">
+                            <router-link id="lnkSettings" :to="{ name: 'settings.options' }" class="is-link">
                                 {{ $t('link.settings') }}
                             </router-link>
                         </li>
                         <!-- admin link -->
                         <li v-if="user.isAdmin" class="column">
-                            <router-link id="lnkAdmin" :to="{ name: 'admin.appSetup' }" >
+                            <router-link id="lnkAdmin" :to="{ name: 'admin.appSetup' }" class="is-link">
                                 <span v-if="showReleaseFlag" class="release-flag"></span>
                                 {{ $t('link.admin_panel') }}
                             </router-link>

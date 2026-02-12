@@ -66,7 +66,7 @@
                 :disabled="isDisabled || isLocked"
                 :class="{
                     'is-link': modelValue===choice.value,
-                    'is-dark': mode == 'dark',
+                    'is-dark': mode == 'dark' && modelValue!==choice.value,
                     'is-multiline': choice.legend,
                 }"
                 v-on:click.stop="setRadio(choice.value)">
