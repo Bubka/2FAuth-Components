@@ -7,17 +7,17 @@
         "preview": "histoire preview"
     },
     "dependencies": {
-        "@2fauth/styles": "link:../packages/styles",
-        "@2fauth/ui": "link:../packages/ui"
+        "@2fauth/styles": "link:..\\packages\\styles",
+        "@2fauth/ui": "link:..\\packages\\ui"
     },
     "devDependencies": {
-        "@histoire/plugin-vue": "1.0.0-alpha.2",
-        "@intlify/unplugin-vue-i18n": "^6.0.8",
-        "@kyvg/vue3-notification": "^3.4.1",
-        "@vitejs/plugin-vue": "^5.2.3",
-        "histoire": "1.0.0-alpha.2",
-        "sass": "1.97.3",
-        "vue": "^3.5.13",
-        "vue-router": "^4.5.0"
+        "@histoire/plugin-vue": "1.0.0-beta.1",
+        "@intlify/unplugin-vue-i18n": "^11.0.3",
+        "@kyvg/vue3-notification": "^3.4.2",
+        "@vitejs/plugin-vue": "^6.0.4",
+        "histoire": "1.0.0-beta.1",
+        "sass": "^1.97.3",
+        "vue": "^3.5.28",
+        "vue-router": "^5.0.2"
     }
 }
