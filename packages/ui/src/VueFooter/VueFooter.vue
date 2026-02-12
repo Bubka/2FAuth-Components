@@ -44,16 +44,16 @@
 <template>
     <footer v-if="$2fauth.context == 'webext'" class="main">
         <!-- action buttons -->
-        <div v-if="$slots.default" class="columns is-gapless">
+        <div v-if="$slots.default" class="columns is-gapless mb-3">
             <div class="column has-text-centered">
-                <div class="field is-grouped">
+                <div class="field is-grouped pt-0">
                     <slot name="default" />
                 </div>
             </div>
         </div>
         <!-- sub-links -->
-        <div v-else class="content has-text-centered">
-            <slot name="default" />
+        <div class="content has-text-centered">
+            <slot name="subpart" />
         </div>
     </footer>
     <footer v-else-if="$2fauth.context == 'webapp'" class="main" :class="{ 'menu' : showMenu }">
