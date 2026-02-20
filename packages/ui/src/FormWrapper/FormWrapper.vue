@@ -13,7 +13,7 @@
 
 <template>
     <ResponsiveWidthWrapper>
-        <h1 v-if="title" class="title has-text-grey-dark">
+        <h1 v-if="title" class="title">
             {{ $t(title) }}
         </h1>
         <div v-if="punchline" id="punchline" class="block">

@@ -1,26 +1,47 @@
+$black: hsl(0, 0%, 4%);
+$black-bis: hsl(0, 0%, 7%);
+$black-ter: hsl(0, 0%, 14%);
+$grey-darker: hsl(0, 0%, 21%);
+$grey-dark: hsl(0, 0%, 29%);
+$grey: hsl(0, 0%, 48%);
+$grey-light: hsl(0, 0%, 71%);
+$grey-lighter: hsl(0, 0%, 86%);
+$grey-lightest: hsl(0, 0%, 93%);
+$white-ter: hsl(0, 0%, 96%);
+$white-bis: hsl(0, 0%, 98%);
+$white: hsl(0, 0%, 100%);
+$orange: hsl(14, 100%, 53%);
+$yellow: hsl(44, 100%, 77%);
+$green: hsl(153, 53%, 53%);
+$turquoise: hsl(171, 100%, 41%);
+$cyan: hsl(204, 86%, 53%);
+$blue: hsl(217, 71%, 53%);
+$purple: hsl(271, 100%, 71%);
+$red: hsl(348, 86%, 61%);
+
 @use '../node_modules/bulma/sass' as bulma with (
-  $black: hsl(0, 0%, 4%),
-  $black-bis: hsl(0, 0%, 7%),
-  $black-ter: hsl(0, 0%, 14%),
-  $grey-darker: hsl(0, 0%, 21%),
-  $grey-dark: hsl(0, 0%, 29%),
-  $grey: hsl(0, 0%, 48%),
-  $grey-light: hsl(0, 0%, 71%),
-  $grey-lighter: hsl(0, 0%, 86%),
-  $grey-lightest: hsl(0, 0%, 93%),
-  $white-ter: hsl(0, 0%, 96%),
-  $white-bis: hsl(0, 0%, 98%),
-  $white: hsl(0, 0%, 100%),
-  $title-weight: 600,
-  $orange: hsl(14, 100%, 53%),
-  $yellow: hsl(44, 100%, 77%),
-  $green: hsl(153, 53%, 53%),
-  $turquoise: hsl(171, 100%, 41%),
-  $cyan: hsl(204, 86%, 53%),
-  $blue: hsl(217, 71%, 53%),
-  $purple: hsl(271, 100%, 71%),
-  $red: hsl(348, 86%, 61%),
+  $black: $black,
+  $black-bis: $black-bis,
+  $black-ter: $black-ter,
+  $grey-darker: $grey-darker,
+  $grey-dark: $grey-dark,
+  $grey: $grey,
+  $grey-light: $grey-light,
+  $grey-lighter: $grey-lighter,
+  $grey-lightest: $grey-lightest,
+  $white-ter: $white-ter,
+  $white-bis: $white-bis,
+  $white: $white,
+  $orange: $orange,
+  $yellow: $yellow,
+  $green: $green,
+  $turquoise: $turquoise,
+  $cyan: $cyan,
+  $blue: $blue,
+  $purple: $purple,
+  $red: $red,
   $duration: 50ms,
+  $title-weight: 600,
 );
 
 @use '../node_modules/bulma/sass/utilities' as bulma-utils;
@@ -50,6 +71,17 @@
   --bulma-body-color: hsl(0,0%,29%);
   --bulma-code-family: monospace;
   --bulma-title-weight: 600,
+}
+
+:root .title {
+  color: $grey-dark;
+}
+
+:root.dark .title {
+  color: $grey-light;
+}
+:root.dark h1.title {
+  color: $grey-dark;
 }
 
 .notification.is-primary,
@@ -121,23 +153,13 @@ a.tag:hover {
 }
 
 .main-section {
-  padding: 1.5rem 1rem 9rem 1rem;
-}
-
-@media screen and (max-width: 768px) {
-  .main-section {
-    padding-top: 0.75rem;
-  }
+  padding: 0;
 }
 
 .header {
-  position: fixed;
-  top: 0;
-  left: 0;
   padding-top: 1rem;
   padding-bottom: 1rem;
   width: 100%;
-  z-index: 1000;
 }
 
 @supports (padding-top: env(safe-area-inset-top)) {
@@ -230,26 +252,8 @@ a.tag:hover {
   display: block;
 }
 
-.accounts {
-  margin-top: 75px;
-}
-
-.groups {
-  margin-top: 110px;
-}
-
-.group-selector {
-  margin-top: 55px;
-}
-
 .group-item .tags:not(:last-child) {
   margin-bottom: inherit;
-}
-
-@media screen and (min-width: 769px) {
-  .accounts {
-    margin-top: 99px;
-  }
 }
 
 .search {
@@ -938,8 +942,9 @@ a.tag.is-dark.is-rounded:focus:not(:focus-visible) {
 
 button.button.tag.is-white,
 .tfa-cell .tag.is-white {
-  border-color: bulma-form.$input-border-color;
+  border-color: bulma-utils.$grey-lighter;
 }
+button.button.tag.is-white,
 .tfa-cell .tag.is-white {
   border-style: solid;
   border-width: bulma-utils.$control-border-width;
@@ -1067,7 +1072,7 @@ button.button.tag.is-white,
 
 .modal .field.is-grouped:last-child {
   justify-content: center;
-  padding-top: 40px;
+  // padding-top: 40px;
 }
 
 footer.main {
@@ -1117,10 +1122,6 @@ footer.menu {
 }
 
 .options-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
   padding: 0 1rem 0.5rem;
   z-index: 1000;
 }
@@ -1135,10 +1136,6 @@ footer.menu {
   .options-header {
     padding-top: constant(safe-area-inset-top);
   }
-}
-
-.options-tabs {
-  margin-top: 80px;
 }
 
 .file .tag {
@@ -1167,48 +1164,34 @@ footer.menu {
   margin-bottom: 0.5rem;
 }
 
-.quick-uploader {
-  flex-direction: column
-}
-
-.quick-uploader-header {
-  padding-top: 7vh;
-  padding-bottom: 7vh;
-}
-
 .preview {
   margin-top: 20vh;
 }
 
-.quick-uploader-button {
-  height: 256px;
-  padding-top: 0;
-  padding-bottom: 0;
-  margin-bottom: 2rem;
+.quick-uploader-wrapper {
+
+position: relative;
 }
 
-.quick-uploader-centerer {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-  height: 256px;
-  width: 100%;
-}
-
-.quick-uploader-button::before {
+.quick-uploader-background {
   content: "";
   position: absolute;
   left: 0;
+  top: 0;
   width: 100%;
-  opacity: 0.1;
   height: 256px;
+  opacity: 0.1;
   background-repeat: no-repeat;
   background-position: top left 50%;
   background-image: url('data:image/png;base64,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');
 }
-:root.dark quick-uploader-button::before {
+:root.dark quick-uploader-background {
   opacity: 0.05;
+}
+
+.quick-uploader-button {
+  height: 256px;
+  opacity: 1;
 }
 
 .error-404,
