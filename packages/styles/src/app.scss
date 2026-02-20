@@ -183,6 +183,10 @@ a.tag:hover {
   }
 }
 
+.modal-card {
+  max-height: 100vh;
+}
+
 .modal-otp {
   z-index: 2000;
 }
@@ -459,15 +463,6 @@ img.qrcode {
   left: 0;
   width: 100%;
   padding: 0.75rem;
-}
-
-.fullscreen-footer {
-  position: fixed;
-  // top: calc(100vh - 8rem);
-  bottom: 68px;
-  left: 0;
-  width: 100%;
-  text-align: center;
 }
 
 .has-ellipsis {
@@ -1673,4 +1668,29 @@ footer.menu {
 
 a > svg.lucide, svg.lucide.inline {
   vertical-align: text-bottom;
+}
+
+.stack-subheader {
+  min-height: 30px;
+}
+.stack.is-max-height {
+  height: 100vh;
+}
+.stack-content-wrapper {
+  overflow-y: scroll;
+}
+.stack-content {
+  padding: 0;
+}
+@media screen and (max-width: 1023px) {
+  .stack-content {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+}
+@media screen and (max-width: 768px) {
+  .stack-content {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
 }
