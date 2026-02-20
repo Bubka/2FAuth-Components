@@ -1076,11 +1076,7 @@ button.button.tag.is-white,
 }
 
 footer.main {
-  padding: 5px 0 25px 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  position: fixed;
+  padding: 0 0 25px 0;
   z-index: 30;
 }
 @supports (-webkit-touch-callout: none) {
