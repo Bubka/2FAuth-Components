@@ -49,7 +49,7 @@
         <!-- action buttons -->
         <div v-if="$slots.default" class="columns is-gapless mb-3">
             <div class="column has-text-centered">
-                <div class="field is-grouped pt-0">
+                <div class="field is-grouped">
                     <slot name="default" />
                 </div>
             </div>

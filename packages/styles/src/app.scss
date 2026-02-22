@@ -1657,7 +1657,7 @@ a > svg.lucide, svg.lucide.inline {
   min-height: 30px;
 }
 .stack.is-max-height {
-  height: 100vh;
+  height: 100vh !important;
 }
 .stack-content-wrapper {
   overflow-y: scroll;
