@@ -1267,7 +1267,6 @@ position: relative;
   align-items: center;
   justify-content: center;
 }
-.spinner-container,
 .spinner-overlay-container {
   top: 25%;
   height: 50%;
@@ -1286,7 +1285,7 @@ position: relative;
   }
 }
 .spinner-overlay-container {
-  background-color: none;
+  background: none;
 }
 
 .spinning {
