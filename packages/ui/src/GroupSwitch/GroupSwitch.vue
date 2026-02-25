@@ -1,7 +1,5 @@
 <script setup>
     import { UseColorMode } from '@vueuse/components'
-    import { NavigationButton } from '@2fauth/formcontrols'
-    import VueFooter from '../VueFooter/VueFooter.vue'
     
     const activeGroup = defineModel('activeGroup')
     const isVisible = defineModel('isVisible')
@@ -10,7 +8,7 @@
         groups: Array,
     })
 
-    const emit = defineEmits(['active-group-changed'])
+    const emit = defineEmits(['active-group-changed', 'show-group-less'])
 
     /**
      * Sets the selected group
