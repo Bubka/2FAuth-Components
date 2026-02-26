@@ -42,6 +42,8 @@ $red: hsl(348, 86%, 61%);
   $red: $red,
   $duration: 50ms,
   $title-weight: 600,
+  $container-max-width: 1013px,
+  $container-offset: 400px,
 );
 
 @use '../node_modules/bulma/sass/utilities' as bulma-utils;
@@ -70,7 +72,7 @@ $red: hsl(348, 86%, 61%);
   --bulma-family-code: monospace;
   --bulma-body-color: hsl(0,0%,29%);
   --bulma-code-family: monospace;
-  --bulma-title-weight: 600,
+  --bulma-title-weight: 600;
 }
 
 :root .title {
@@ -82,6 +84,16 @@ $red: hsl(348, 86%, 61%);
 }
 :root.dark h1.title {
   color: $grey-dark;
+}
+
+* {
+  scrollbar-width: thin;
+}
+
+@media (prefers-color-scheme: dark) {
+  * {
+      scrollbar-color: hsl(0, 0%, 29%) hsl(0, 0%, 14%);
+  }
 }
 
 .notification.is-primary,
@@ -265,14 +277,14 @@ a.tag:hover {
 }
 
 .form-column {
-  padding-top: 3rem;
+  padding-top: 3.75rem;
 }
 
-.form-column>div.nav-links {
+.nav-links {
   padding-top: 1.5rem;
 }
 
-.form-column>div.nav-links p {
+.nav-links p {
   margin-bottom: 0.25rem;
   padding-top: 0.25rem;
 }
@@ -1659,20 +1671,57 @@ a > svg.lucide, svg.lucide.inline {
   height: 100vh !important;
 }
 .stack-content-wrapper {
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 .stack-content {
   padding: 0;
 }
+// @media screen and (max-width: 1023px) {
+//   .stack-content {
+//     padding-left: 0.5rem;
+//     padding-right: 0.5rem;
+//   }
+// }
 @media screen and (max-width: 1023px) {
-  .stack-content {
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
-  }
-}
-@media screen and (max-width: 768px) {
   .stack-content {
     padding-left: 1rem;
     padding-right: 1rem;
+  }
+}
+
+// raw copy of .container rules from bulma to restore its native defintition
+// as the .container width has been customized with $container-max-width: 1013px
+.accounts-container {
+  flex-grow:1;
+  margin:0 auto;
+  position:relative;
+  width:100%
+}
+.accounts-container.is-max-tablet {
+  max-width:705px
+}
+@media screen and (min-width:1024px) {
+  .accounts-container {
+    max-width:960px
+  }
+}
+@media screen and (max-width:1215px) {
+  .accounts-container.is-widescreen:not(.is-max-tablet):not(.is-max-desktop) {
+    max-width:1152px
+  }
+}
+@media screen and (max-width:1407px) {
+  .accounts-container.is-fullhd:not(.is-max-tablet):not(.is-max-desktop):not(.is-max-widescreen) {
+    max-width:1344px
+  }
+}
+@media screen and (min-width:1216px) {
+  .accounts-container:not(.is-max-tablet):not(.is-max-desktop) {
+    max-width:1152px
+  }
+}
+@media screen and (min-width:1408px) {
+  .accounts-container:not(.is-max-tablet):not(.is-max-desktop):not(.is-max-widescreen) {
+    max-width:1344px
   }
 }
