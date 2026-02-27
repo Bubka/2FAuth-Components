@@ -1725,3 +1725,16 @@ a > svg.lucide, svg.lucide.inline {
     max-width:1344px
   }
 }
+
+.vue-notification-template.is-info  {
+    background-color: $cyan !important;
+}
+.vue-notification-template.is-success  {
+    background-color: $green !important;
+}
+.vue-notification-template.is-warning  {
+    background-color: $yellow !important;
+}
+.vue-notification-template.is-danger  {
+    background-color: $red !important;
+}
