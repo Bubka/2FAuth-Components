@@ -58,7 +58,7 @@
                                 </template>
                             </UseColorMode>
                         </div>
-                        <div v-if="$slots.default" class="columns is-centered">
+                        <div v-if="$slots.default" class="columns is-centered mt-0">
                             <div class="column has-text-centered">
                                 <slot />
                             </div>
