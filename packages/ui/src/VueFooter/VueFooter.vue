@@ -22,6 +22,9 @@
             <template #default>
                 <slot name="default" />
             </template>
+            <template #submenu>
+                <slot name="submenu" />
+            </template>
             <template #subpart>
                 <slot name="subpart" />
             </template>
@@ -31,6 +34,9 @@
         <VueFooterContent v-model:show-menu="showMenu">
             <template #default>
                 <slot name="default" />
+            </template>
+            <template #submenu>
+                <slot name="submenu" />
             </template>
             <template #subpart>
                 <slot name="subpart" />

@@ -107,6 +107,7 @@ $red: hsl(348, 86%, 61%);
 
 :root,
 footer,
+footer .submenu,
 .header,
 .modal-background,
 .modal-slot,
@@ -116,6 +117,7 @@ footer,
 
 :root.dark,
 :root.dark footer,
+:root.dark footer .submenu,
 :root.dark .header,
 :root.dark .modal-background,
 :root.dark .modal-slot,
@@ -1109,6 +1111,15 @@ footer.menu {
 
 :root.dark footer.menu {
   box-shadow: 0px 3px 10px 5px rgba(0,0,0,0.25);
+}
+
+footer .submenu {
+	position: fixed;
+	left: 0;
+	bottom: -16px;
+	width: 100%;
+	box-shadow: 0px 3px 10px 5px rgba(0,0,0,0.25);
+	padding-bottom: 70px;
 }
 
 .notification {
