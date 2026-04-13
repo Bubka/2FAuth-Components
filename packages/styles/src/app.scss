@@ -247,7 +247,7 @@ a.tag:hover {
 // has-text-weight-semibold / bulma-utils.$weight-semibold
 .group-item, .list-item {
   border-bottom: 1px solid bulma-utils.$grey-lighter;
-  padding: 0.75rem;
+  padding: 0.75rem 0;
 }
 :root.dark .group-item,
 :root.dark .list-item {
