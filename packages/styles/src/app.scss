@@ -1541,6 +1541,10 @@ position: relative;
   opacity: 1;
 }
 
+.p-1-5 {
+  padding: 0.375rem !important;
+}
+
 :root.dark .table {
 	background-color: bulma-utils.$black-ter;
 	color: bulma-utils.$white-bis;
@@ -1646,6 +1650,9 @@ position: relative;
 
 .rotate-135 {
   transform: rotate(135deg);
+}
+.rotate-90 {
+  transform: rotate(90deg);
 }
 
 .log-icon-bg {
