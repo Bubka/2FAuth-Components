@@ -50,7 +50,7 @@
      * without having to ctrl+F
      */
     function anyPrintableKeyHandler(e) {
-        if (e.key === 'Enter') {
+        if (e.key === 'Enter' || e.code === 'Space' || e.key === " ") {
             return
         }
 
