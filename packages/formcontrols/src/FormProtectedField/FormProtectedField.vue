@@ -2,7 +2,7 @@
     import { ref, computed } from 'vue'
     import { UseColorMode } from '@vueuse/components'
     import { useIdGenerator, useValidationErrorIdGenerator } from '../helpers'
-    import { LucideChevronRight, LucideLock, LucideLockOpen } from 'lucide-vue-next'
+    import { LucideChevronRight, LucideLock, LucideLockOpen } from '@lucide/vue'
     import { FormFieldError } from '../FormFieldError'
 
     defineOptions({

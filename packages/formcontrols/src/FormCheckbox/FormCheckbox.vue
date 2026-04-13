@@ -1,7 +1,7 @@
 <script setup>
     import { useAttrs, computed } from 'vue'
     import { useIdGenerator } from '../helpers'
-    import { LucideChevronRight, LucideLock } from 'lucide-vue-next'
+    import { LucideChevronRight, LucideLock } from '@lucide/vue'
 
     defineOptions({
         inheritAttrs: false

@@ -1,5 +1,5 @@
 <script setup>
-    import { LucideLoaderCircle } from 'lucide-vue-next';
+    import { LucideLoaderCircle } from '@lucide/vue';
 
     const props = defineProps({
         isVisible: Boolean,

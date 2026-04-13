@@ -1,6 +1,6 @@
 <script setup>
     import { useTemplateRef, onMounted, onUnmounted } from 'vue'
-    import { LucideSearch } from 'lucide-vue-next'
+    import { LucideSearch } from '@lucide/vue'
 
     const keyword = defineModel('keyword')
     const props = defineProps({

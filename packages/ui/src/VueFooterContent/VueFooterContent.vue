@@ -1,7 +1,7 @@
 <script setup>
     import { inject, computed } from 'vue'
     import { UseColorMode } from '@vueuse/components'
-    import { LucideMenu, LucideX } from 'lucide-vue-next'
+    import { LucideMenu, LucideX } from '@lucide/vue'
 
     const showMenu = defineModel('showMenu')
     showMenu.value = false

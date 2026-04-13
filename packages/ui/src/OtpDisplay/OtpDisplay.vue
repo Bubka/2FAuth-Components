@@ -3,7 +3,7 @@
     import { ref, watch, nextTick, computed, useTemplateRef } from 'vue'
     import { useClipboard } from '@vueuse/core'
     import { UseColorMode } from '@vueuse/components'
-    import { LucideEye, LucideEyeOff } from 'lucide-vue-next'
+    import { LucideEye, LucideEyeOff } from '@lucide/vue'
 
     // Internal package dependencies
     import i18n from '../i18n'

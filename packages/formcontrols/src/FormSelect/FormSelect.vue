@@ -1,7 +1,7 @@
 <script setup>
     import { FormFieldError } from '../FormFieldError'
     import { useIdGenerator, useValidationErrorIdGenerator } from '../helpers'
-    import { LucideChevronRight, LucideLock } from 'lucide-vue-next'
+    import { LucideChevronRight, LucideLock } from '@lucide/vue'
 
     const model = defineModel()
     const props = defineProps({

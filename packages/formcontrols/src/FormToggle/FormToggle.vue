@@ -2,7 +2,7 @@
     import { UseColorMode } from '@vueuse/components'
     import { useIdGenerator, useValidationErrorIdGenerator } from '../helpers'
     import { FormFieldError } from '../FormFieldError'
-    import { LucideLock } from 'lucide-vue-next'
+    import { LucideLock } from '@lucide/vue'
     import { LucideGenericIcon } from '@2fauth/ui'
 
     const props = defineProps({
