@@ -76,6 +76,7 @@
             <div class="control" :class="{ 'has-icons-left' : leftIcon, 'has-icons-right': rightIcon }">
                 <textarea 
                     :disabled="isDisabled || isLocked" 
+                    :name="fieldName"
                     :id="inputId"
                     class="textarea has-fixed-size" 
                     :class="fontSize"

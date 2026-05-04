@@ -95,6 +95,7 @@
                 <input 
                     :disabled="isDisabled || isLocked" 
                     :id="inputId" 
+                    :name="fieldName"
                     :type="inputType" 
                     class="input" 
                     :value="modelValue" 

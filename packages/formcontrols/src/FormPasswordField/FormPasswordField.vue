@@ -99,6 +99,7 @@
         <div class="control has-icons-right">
             <input
                 :disabled="isDisabled || isLocked"
+                :name="fieldName"
                 :id="inputId"
                 :type="currentType" 
                 class="input" 
