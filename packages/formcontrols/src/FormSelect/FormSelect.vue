@@ -26,6 +26,10 @@
         isIndented: Boolean,
         isDisabled: Boolean,
         isLocked: Boolean,
+        isLoading: {
+            type: Boolean,
+            default: false
+        },
         idSuffix: {
             type: String,
             default: ''
