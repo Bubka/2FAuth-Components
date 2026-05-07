@@ -26,6 +26,7 @@
             <section class="modal-card-body modal-slot py-0 is-align-content-center has-text-centered">
                 <slot name="default" />
             </section>
+            <div @click="showFooterMenu = false" v-if="showFooterMenu == true" class="footer-overlay"></div>
             <footer class="modal-card-foot is-flex-direction-column main toto">
                 <VueFooterContent v-model:show-menu="showFooterMenu">
                     <template #default>

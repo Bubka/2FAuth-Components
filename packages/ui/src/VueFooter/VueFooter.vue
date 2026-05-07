@@ -17,6 +17,7 @@
 </script>
 
 <template>
+    <div @click="showMenu = false" v-if="showMenu == true" class="footer-overlay"></div>
     <footer v-if="$2fauth.context == 'webext'" class="main">
         <VueFooterContent>
             <template #default>
