@@ -1,8 +1,8 @@
 <script setup>
     import { computed } from 'vue';
-    import { Sun, Moon, Grid3X3, List, MonitorCheck, Slash } from "lucide-vue-next";
+    import { Sun, Moon, Grid3X3, List, MonitorCheck, Slash, SlidersHorizontal, CircleUser, KeySquare, ScanFace, Settings, UsersRound, ShieldUser } from "lucide-vue-next";
 
-    const icons = { Sun, Moon, Grid3X3, List, MonitorCheck, Slash }
+    const icons = { Sun, Moon, Grid3X3, List, MonitorCheck, Slash, SlidersHorizontal, CircleUser, KeySquare, ScanFace, Settings, UsersRound, ShieldUser }
 
     const props = defineProps({
         name: {

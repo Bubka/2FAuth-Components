@@ -4,11 +4,15 @@
             type: Boolean,
             default: true
         },
+        isCompact: {
+            type: Boolean,
+            default: false
+        },
     })
 </script>
 
 <template>
-    <div v-if="isActive" class="container form-column">
+    <div v-if="isActive" class="container" :class="isCompact ? 'pt-3' : 'form-column'">
         <slot />
     </div>
     <slot v-else /> 
