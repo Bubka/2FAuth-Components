@@ -1785,6 +1785,7 @@ a > svg.lucide, svg.lucide.inline {
   height: 100%;
   z-index: 2;
   transition: transform 0.3s ease;
+  box-shadow: 0px 0px 3px 0px rgba(0,0,0,0.3);
 }
 
 .toggle-active .button {
