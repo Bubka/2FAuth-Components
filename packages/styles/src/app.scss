@@ -107,6 +107,7 @@ $red: hsl(348, 86%, 61%);
 
 :root,
 footer,
+footer .submenu,
 .header,
 .modal-background,
 .modal-slot,
@@ -116,6 +117,7 @@ footer,
 
 :root.dark,
 :root.dark footer,
+:root.dark footer .submenu,
 :root.dark .header,
 :root.dark .modal-background,
 :root.dark .modal-slot,
@@ -245,7 +247,7 @@ a.tag:hover {
 // has-text-weight-semibold / bulma-utils.$weight-semibold
 .group-item, .list-item {
   border-bottom: 1px solid bulma-utils.$grey-lighter;
-  padding: 0.75rem;
+  padding: 0.75rem 0;
 }
 :root.dark .group-item,
 :root.dark .list-item {
@@ -388,7 +390,7 @@ img.qrcode {
 }
 
 .tfa-list .tfa-dots {
-  margin-left: 1.5rem;
+  margin-left: 1rem;
 }
 
 .tfa-content {
@@ -428,8 +430,6 @@ img.qrcode {
 
 .tfa-text {
   display: block;
-  // max-width: 300px;
-  cursor: pointer;
 }
 :root.dark .tfa-text {
   color: bulma-utils.$white;
@@ -1111,6 +1111,15 @@ footer.menu {
   box-shadow: 0px 3px 10px 5px rgba(0,0,0,0.25);
 }
 
+footer .submenu {
+	position: fixed;
+	left: 0;
+	bottom: -16px;
+	width: 100%;
+	box-shadow: 0px 3px 10px 5px rgba(0,0,0,0.25);
+	padding-bottom: 70px;
+}
+
 .notification {
   padding: 0.4rem 1.5rem;
 }
@@ -1530,6 +1539,10 @@ position: relative;
   opacity: 1;
 }
 
+.p-1-5 {
+  padding: 0.375rem !important;
+}
+
 :root.dark .table {
 	background-color: bulma-utils.$black-ter;
 	color: bulma-utils.$white-bis;
@@ -1614,6 +1627,11 @@ position: relative;
   height: auto;
 }
 
+.icon-size-0-75 {
+  width: 0.75rem;
+  height: 0.75rem;
+}
+
 .icon-size-1 {
   width: 1rem;
   height: 1rem;
@@ -1635,6 +1653,9 @@ position: relative;
 
 .rotate-135 {
   transform: rotate(135deg);
+}
+.rotate-90 {
+  transform: rotate(90deg);
 }
 
 .log-icon-bg {
@@ -1737,4 +1758,37 @@ a > svg.lucide, svg.lucide.inline {
 }
 .vue-notification-template.is-danger  {
     background-color: $red !important;
+}
+
+.toggle-wrapper {
+  border-radius: 9px;
+}   
+.toggle {
+  position: relative;
+}
+
+.toggle-buttons {
+  display: flex;
+  gap: .25rem;
+}
+
+.toggle-buttons .button {
+  flex: 1;
+  text-align: center;
+  z-index: 1;
+}
+
+.toggle-active {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  z-index: 2;
+  transition: transform 0.3s ease;
+  box-shadow: 0px 0px 3px 0px rgba(0,0,0,0.3);
+}
+
+.toggle-active .button {
+  width: 100%;
+  height: 100%;
 }

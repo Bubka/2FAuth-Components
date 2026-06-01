@@ -2,7 +2,7 @@
     import { ref, computed } from 'vue'
     import { FormFieldError } from '../FormFieldError'
     import { useIdGenerator, useValidationErrorIdGenerator } from '../helpers'
-    import { LucideEye, LucideEyeOff, LucideLock } from 'lucide-vue-next'
+    import { LucideEye, LucideEyeOff, LucideLock } from '@lucide/vue'
 
     defineOptions({
         inheritAttrs: true
@@ -99,6 +99,7 @@
         <div class="control has-icons-right">
             <input
                 :disabled="isDisabled || isLocked"
+                :name="fieldName"
                 :id="inputId"
                 :type="currentType" 
                 class="input" 

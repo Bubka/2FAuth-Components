@@ -1,6 +1,6 @@
 <script setup>
     import { useIdGenerator, useValidationErrorIdGenerator } from '../helpers'
-    import { LucideChevronRight, LucideLock } from 'lucide-vue-next'
+    import { LucideChevronRight, LucideLock } from '@lucide/vue'
     import { FormFieldError } from '../FormFieldError'
     import { LucideGenericIcon } from '@2fauth/ui'
 
@@ -95,6 +95,7 @@
                 <input 
                     :disabled="isDisabled || isLocked" 
                     :id="inputId" 
+                    :name="fieldName"
                     :type="inputType" 
                     class="input" 
                     :value="modelValue" 

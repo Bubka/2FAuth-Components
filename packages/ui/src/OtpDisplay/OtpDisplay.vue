@@ -3,7 +3,7 @@
     import { ref, watch, nextTick, computed, useTemplateRef } from 'vue'
     import { useClipboard } from '@vueuse/core'
     import { UseColorMode } from '@vueuse/components'
-    import { LucideEye, LucideEyeOff } from 'lucide-vue-next'
+    import { LucideEye, LucideEyeOff } from '@lucide/vue'
 
     // Internal package dependencies
     import i18n from '../i18n'
@@ -151,7 +151,7 @@
         // Case 1
         if (accountId) {
             id.value = accountId
-            const { data } = await twofaccountService.get(id.value)
+            const { data } = await twofaccountService.getWithoutSecret(id.value)
 
             otpauthParams.value.service = data.service
             otpauthParams.value.account = data.account

@@ -1,7 +1,7 @@
 <script setup>
     import { inject, computed } from 'vue'
     import { UseColorMode } from '@vueuse/components'
-    import { LucideMenu, LucideX } from 'lucide-vue-next'
+    import { LucideMenu, LucideX } from '@lucide/vue'
 
     const showMenu = defineModel('showMenu')
     showMenu.value = false
@@ -61,12 +61,40 @@
     </template>
     <template v-else-if="$2fauth.context == 'webapp'">
         <!-- action buttons -->
-        <div class="columns is-gapless" v-if="$slots.default && ! showMenu">
+        <div class="columns is-gapless" v-if="$slots.default">
             <div class="column has-text-centered">
-                <div class="field is-grouped">
+                <div class="field is-grouped" :inert="showMenu">
                     <slot name="default" />
                 </div>
             </div>
+        </div>
+        <!-- sub menu -->
+        <div class="submenu content has-text-centered mb-4" v-if="showMenu">
+            <slot name="submenu">
+                <ul class="ml-0 mt-1">
+                    <!-- settings link -->
+                    <li class="column">
+                        <router-link id="lnkSettings" :to="{ name: 'settings.options' }" class="is-link">
+                            {{ $t('link.settings') }}
+                        </router-link>
+                    </li>
+                    <!-- admin link -->
+                    <li v-if="user.isAdmin" class="column">
+                        <router-link id="lnkAdmin" :to="{ name: 'admin.appSetup' }" class="is-link">
+                            <span v-if="showReleaseFlag" class="release-flag"></span>
+                            {{ $t('link.admin_panel') }}
+                        </router-link>
+                    </li>
+                    <!-- sign-out button -->
+                    <li v-if="showLogout" class="column">
+                        <UseColorMode v-slot="{ mode }">
+                            <button type="button" id="lnkSignOut" class="button is-text is-like-text" :class="mode == 'dark' ? 'has-text-grey-lighter' : 'has-text-grey-darker'" @click="logout($t('confirmation.logout'))">
+                                {{ $t('label.sign_out') }}
+                            </button>
+                        </UseColorMode>
+                    </li>
+                </ul>
+            </slot>
         </div>
         <!-- sub part -->
         <div class="content has-text-centered">
@@ -98,35 +126,11 @@
                 </div>
                 <!-- email + menu links -->
                 <div v-else>
-                    <ul v-if="showMenu == true" class="ml-0 mt-1">
-                        <!-- settings link -->
-                        <li class="column">
-                            <router-link id="lnkSettings" :to="{ name: 'settings.options' }" class="is-link">
-                                {{ $t('link.settings') }}
-                            </router-link>
-                        </li>
-                        <!-- admin link -->
-                        <li v-if="user.isAdmin" class="column">
-                            <router-link id="lnkAdmin" :to="{ name: 'admin.appSetup' }" class="is-link">
-                                <span v-if="showReleaseFlag" class="release-flag"></span>
-                                {{ $t('link.admin_panel') }}
-                            </router-link>
-                        </li>
-                        <!-- sign-out button -->
-                        <li v-if="showLogout" class="column">
-                            <UseColorMode v-slot="{ mode }">
-                                <button type="button" id="lnkSignOut" class="button is-text is-like-text" :class="mode == 'dark' ? 'has-text-grey-lighter' : 'has-text-grey-darker'" @click="logout($t('confirmation.logout'))">
-                                    {{ $t('label.sign_out') }}
-                                </button>
-                            </UseColorMode>
-                        </li>
-                    </ul>
                     <!-- email call to action -->
                     <button type="button" id="btnEmailMenu" @click="showMenu = !showMenu" class="button is-text is-like-text has-text-grey" style="width: 100%;">
-                        <span v-if="user.isAdmin && showReleaseFlag" class="release-flag"></span>
-                        <span class="mx-2 has-ellipsis">{{ user.email }}</span>
-                        <LucideMenu v-if="!showMenu" class="mr-2" />
-                        <LucideX v-else class="mr-2" />
+                        <span class="mr-2 has-ellipsis">{{ user.email }}</span>
+                        <LucideMenu v-if="!showMenu" />
+                        <LucideX v-else />
                     </button>
                 </div>
             </slot>

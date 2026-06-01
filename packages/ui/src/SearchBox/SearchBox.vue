@@ -1,6 +1,6 @@
 <script setup>
     import { useTemplateRef, onMounted, onUnmounted } from 'vue'
-    import { LucideSearch } from 'lucide-vue-next'
+    import { LucideSearch } from '@lucide/vue'
 
     const keyword = defineModel('keyword')
     const props = defineProps({
@@ -50,7 +50,7 @@
      * without having to ctrl+F
      */
     function anyPrintableKeyHandler(e) {
-        if (e.key === 'Enter') {
+        if (e.key === 'Enter' || e.code === 'Space' || e.key === " ") {
             return
         }
 

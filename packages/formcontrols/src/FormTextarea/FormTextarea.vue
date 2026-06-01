@@ -1,7 +1,7 @@
 <script setup>
     import { FormFieldError } from '../FormFieldError'
     import { useIdGenerator, useValidationErrorIdGenerator } from '../helpers'
-    import { LucideChevronRight, LucideLock } from 'lucide-vue-next'
+    import { LucideChevronRight, LucideLock } from '@lucide/vue'
 
     defineOptions({
         inheritAttrs: false
@@ -76,6 +76,7 @@
             <div class="control" :class="{ 'has-icons-left' : leftIcon, 'has-icons-right': rightIcon }">
                 <textarea 
                     :disabled="isDisabled || isLocked" 
+                    :name="fieldName"
                     :id="inputId"
                     class="textarea has-fixed-size" 
                     :class="fontSize"

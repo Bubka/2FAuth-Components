@@ -6,24 +6,21 @@
 
     const props = defineProps({
         groups: Array,
+        useShare: {
+            type: Boolean,
+            default: false
+        },
     })
 
-    const emit = defineEmits(['active-group-changed', 'show-group-less'])
+    const emit = defineEmits(['active-group-changed'])
 
     /**
      * Sets the selected group
      */
     function setActiveGroup(id) {
         isVisible.value = false
-
-        if (id > -1) {
-            activeGroup.value = id
-            emit('active-group-changed', id)
-        }
-        else {
-            emit('show-group-less', id)
-        }
-
+        activeGroup.value = id
+        emit('active-group-changed', id)
     }
 
 </script>
@@ -44,6 +41,16 @@
                                 <div class="column is-full">
                                     <button type="button" class="button is-fullwidth" :class="{'is-dark has-text-light is-outlined': mode == 'dark'}" @click="setActiveGroup(-1)">
                                         {{ $t('label.group_less_accounts') }}
+                                    </button>
+                                </div>
+                                <div v-if="useShare" class="column is-full">
+                                    <button type="button" class="button is-fullwidth" :class="{'is-dark has-text-light is-outlined': mode == 'dark'}" @click="setActiveGroup(-2)">
+                                        {{ $t('label.accounts_I_m_sharing') }}
+                                    </button>
+                                </div>
+                                <div v-if="useShare" class="column is-full">
+                                    <button type="button" class="button is-fullwidth" :class="{'is-dark has-text-light is-outlined': mode == 'dark'}" @click="setActiveGroup(-3)">
+                                        {{ $t('label.accounts_shared_with_me') }}
                                     </button>
                                 </div>
                                 <div class="column has-text-centered">

@@ -1,7 +1,7 @@
 <script setup>
     // Peer dependencies
     import { useClipboard } from '@vueuse/core'
-    import { LucideExternalLink } from 'lucide-vue-next'
+    import { LucideExternalLink } from '@lucide/vue'
     
     // Internal package dependencies
     import { useNotify } from '../Notify'

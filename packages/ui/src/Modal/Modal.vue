@@ -3,7 +3,8 @@
     import { useNotify } from '../Notify'
     import { VueFooterContent } from '../VueFooterContent'
 
-    const isActive = defineModel()
+    const isActive = defineModel('isActive')
+    const showFooterMenu = defineModel('showFooterMenu')
     const props = defineProps({
         modelValue: Boolean,
         isFullHeight:  {
@@ -23,16 +24,21 @@
         <div class="modal-background" @click.stop="closeModal"></div>
         <div class="modal-card is-flex-grow-1">
             <section class="modal-card-body modal-slot py-0 is-align-content-center has-text-centered">
-                <slot></slot>
+                <slot name="default" />
             </section>
-            <footer class="modal-card-foot is-flex-direction-column main">
-                <VueFooterContent>
+            <footer class="modal-card-foot is-flex-direction-column main toto">
+                <VueFooterContent v-model:show-menu="showFooterMenu">
                     <template #default>
                         <NavigationButton action="close" :useLinkTag="false" @closed="closeModal" />
                     </template>
+                    <template #submenu>
+                        <slot name="footer-submenu" />
+                    </template>
                     <template #subpart>
-                        <router-link v-if="$route.name != 'accounts'" id="lnkBackToHome" :to="{ name: 'accounts' }" class="has-text-grey">{{ $t('link.back_to_home') }}</router-link>
-                        <span v-else>&nbsp;</span>
+                        <slot name="footer-subpart">
+                            <router-link v-if="$route.name != 'accounts'" id="lnkBackToHome" :to="{ name: 'accounts' }" class="has-text-grey">{{ $t('link.back_to_home') }}</router-link>
+                            <span v-else>&nbsp;</span>
+                        </slot>
                     </template>
                 </VueFooterContent>
             </footer>

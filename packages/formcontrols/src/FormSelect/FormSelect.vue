@@ -1,7 +1,7 @@
 <script setup>
     import { FormFieldError } from '../FormFieldError'
     import { useIdGenerator, useValidationErrorIdGenerator } from '../helpers'
-    import { LucideChevronRight, LucideLock } from 'lucide-vue-next'
+    import { LucideChevronRight, LucideLock } from '@lucide/vue'
 
     const model = defineModel()
     const props = defineProps({
@@ -26,6 +26,10 @@
         isIndented: Boolean,
         isDisabled: Boolean,
         isLocked: Boolean,
+        isLoading: {
+            type: Boolean,
+            default: false
+        },
         idSuffix: {
             type: String,
             default: ''
@@ -47,9 +51,10 @@
                 {{ $t(props.label) }}<LucideLock v-if="isLocked" class="ml-2 icon-size-1" />
             </label>
             <div class="control">
-                <div class="select">
+                <div class="select" :class="{ 'is-loading': isLoading == true }">
                     <select
                         :id="inputId"
+                        :name="fieldName"
                         v-model="model"
                         :disabled="isDisabled || isLocked"
                         :aria-describedby="help ? legendId : undefined"
