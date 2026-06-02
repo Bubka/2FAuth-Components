@@ -1,8 +1,8 @@
 <script setup>
     import { computed } from 'vue';
-    import { Sun, Moon, Grid3X3, List, MonitorCheck, Slash, SlidersHorizontal, CircleUser, KeySquare, ScanFace, Settings, UsersRound, ShieldUser } from "lucide-vue-next";
+    import { Sun, Moon, Grid3X3, List, MonitorCheck, Slash, SlidersHorizontal, CircleUser, KeySquare, ScanFace, Settings, UsersRound, ShieldUser, Info } from "@lucide/vue";
 
-    const icons = { Sun, Moon, Grid3X3, List, MonitorCheck, Slash, SlidersHorizontal, CircleUser, KeySquare, ScanFace, Settings, UsersRound, ShieldUser }
+    const icons = { Sun, Moon, Grid3X3, List, MonitorCheck, Slash, SlidersHorizontal, CircleUser, KeySquare, ScanFace, Settings, UsersRound, ShieldUser, Info }
 
     const props = defineProps({
         name: {
