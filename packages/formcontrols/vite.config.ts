@@ -27,7 +27,7 @@ export default defineConfig({
                 '@vueuse/core',
                 '@vueuse/components',
                 '@2fauth/ui',
-                'lucide-vue-next',
+                '@lucide/vue',
             ],
         },
     },

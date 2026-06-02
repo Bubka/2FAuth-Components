@@ -29,7 +29,7 @@ export default defineConfig({
                 'vue-i18n',
                 '@vueuse/core',
                 '@vueuse/components',
-                'lucide-vue-next',
+                '@lucide/vue',
                 '@kyvg/vue3-notification'
             ],
         },
