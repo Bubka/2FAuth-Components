@@ -151,7 +151,7 @@
         // Case 1
         if (accountId) {
             id.value = accountId
-            const { data } = await twofaccountService.getWithoutSecret(id.value)
+            const { data } = await twofaccountService.get(id.value)
 
             otpauthParams.value.service = data.service
             otpauthParams.value.account = data.account
