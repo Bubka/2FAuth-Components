@@ -396,6 +396,7 @@ img.qrcode {
 .tfa-content {
   flex-grow: 1;
   overflow: hidden;
+  min-height: 60px;
 }
 
 .tfa-content:focus-visible {
@@ -426,6 +427,15 @@ img.qrcode {
   padding-left: 0 !important;
   margin-top: 0 !important;
   margin-bottom: 0 !important;
+}
+
+.action-container {
+	min-width: 86px;
+	text-align: right;
+}
+
+.tfa-grid .action-container {
+	text-align: center;
 }
 
 .tfa-text {
@@ -1336,7 +1346,6 @@ position: relative;
 }
 // end Spinner
 
-
 .fadeInOut-enter-active {
   animation: fadeIn 500ms
 }
@@ -1651,6 +1660,16 @@ position: relative;
 .icon-size-1-15 {
   width: 1.15rem;
   height: 1.15rem;
+}
+
+.icon-size-1-35 {
+  width: 1.35rem;
+  height: 1.35rem;
+}
+
+.icon-size-1-5 {
+  width: 1.5rem;
+  height: 1.5rem;
 }
 
 .icon-size-2 {
