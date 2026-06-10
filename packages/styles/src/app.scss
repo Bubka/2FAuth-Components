@@ -270,6 +270,19 @@ a.tag:hover {
   margin-bottom: inherit;
 }
 
+#groupSwitch button.is-fullwidth {
+  white-space: wrap !important;
+}
+
+#groupChips button {
+  max-width: 120px;
+}
+
+#groupChips .chip-label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 .search {
   margin-bottom: 0 !important;
 }
@@ -1650,6 +1663,11 @@ position: relative;
 .icon-size-0-75 {
   width: 0.75rem;
   height: 0.75rem;
+}
+
+.icon-size-0-9 {
+  width: 0.9rem;
+  height: 0.9rem;
 }
 
 .icon-size-1 {
