@@ -12,7 +12,7 @@
 </script>
 
 <template>
-    <div v-if="isActive" class="container" :class="isCompact ? 'pt-3' : 'form-column'">
+    <div v-if="isActive" class="container" :class="isCompact ? 'pt-3' : 'pt-6'">
         <slot />
     </div>
     <slot v-else /> 
