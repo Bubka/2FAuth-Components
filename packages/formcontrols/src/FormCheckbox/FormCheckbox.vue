@@ -29,6 +29,8 @@
         isIndented: Boolean,
         isDisabled: Boolean,
         isLocked: Boolean,
+        isWarning: Boolean,
+        isDanger: Boolean,
     })
 
     const emit = defineEmits(['update:modelValue'])
@@ -51,7 +53,7 @@
 </script>
 
 <template>
-    <div class="field is-flex">
+    <div class="field is-flex" :class="{ 'is-left-bordered-warning' : isWarning, 'is-left-bordered-danger' : isDanger  }">
         <div v-if="isIndented" class="pr-1" :class="{ 'is-opacity-5' : isDisabled || isLocked }">
             <LucideChevronRight class="has-text-grey rotate-135" />
         </div>
