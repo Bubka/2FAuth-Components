@@ -1,5 +1,6 @@
 <script setup>
-    import { UseColorMode } from '@vueuse/components'
+    import { LucideAtSign, LucideSquareSlash, LucideUserCheck, LucideUsers } from '@lucide/vue'
+import { UseColorMode } from '@vueuse/components'
     
     const activeGroup = defineModel('activeGroup')
     const isVisible = defineModel('isVisible')
@@ -40,17 +41,17 @@
                                 </div>
                                 <div class="column is-full">
                                     <button type="button" class="button is-fullwidth" :class="{'is-dark has-text-light is-outlined': mode == 'dark'}" @click="setActiveGroup(-1)">
-                                        {{ $t('label.group_less_accounts') }}
+                                        {{ $t('label.group_less_accounts') }}<span class="ml-2 button tag"><LucideSquareSlash class="icon-size-1 has-text-grey" /></span>
                                     </button>
                                 </div>
                                 <div v-if="useShare" class="column is-full">
                                     <button type="button" class="button is-fullwidth" :class="{'is-dark has-text-light is-outlined': mode == 'dark'}" @click="setActiveGroup(-2)">
-                                        {{ $t('label.accounts_I_m_sharing') }}
+                                        {{ $t('label.accounts_I_m_sharing') }}<span class="ml-2 button tag"><LucideUsers class="icon-size-1 mr-1 has-text-grey" />|<LucideUserCheck class="ml-1 icon-size-1 has-text-grey" /></span>
                                     </button>
                                 </div>
                                 <div v-if="useShare" class="column is-full">
                                     <button type="button" class="button is-fullwidth" :class="{'is-dark has-text-light is-outlined': mode == 'dark'}" @click="setActiveGroup(-3)">
-                                        {{ $t('label.accounts_shared_with_me') }}
+                                        {{ $t('label.accounts_shared_with_me') }}<span class="ml-2 button tag"><LucideAtSign class="icon-size-1 has-text-grey" /></span>
                                     </button>
                                 </div>
                                 <div class="column has-text-centered">
