@@ -223,6 +223,30 @@ a.tag:hover {
   max-height: 100vh;
 }
 
+.menu-list a:hover,
+.menu-list button:hover,
+.menu-list .menu-item:hover {
+	color: $blue;
+}
+
+.menu-list a,
+.menu-list button,
+.menu-list .menu-item {
+	background-color: $white-ter;
+}
+
+:root.dark .menu-list a,
+:root.dark .menu-list button,
+:root.dark .menu-list .menu-item {
+	background-color: $black-ter;
+}
+
+.settings-menu {
+  position: fixed;
+  margin-left: -200px;
+  width: 200px;
+}
+
 .modal-otp {
   z-index: 2000;
 }
