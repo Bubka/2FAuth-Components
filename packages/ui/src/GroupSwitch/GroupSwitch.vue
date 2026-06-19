@@ -30,7 +30,7 @@
         <StackLayout :should-grow="false">
             <template #content>
                 <div class="columns is-centered m-0">
-                    <div class="column is-one-third-tablet is-one-quarter-desktop is-one-quarter-widescreen is-one-quarter-fullhd">
+                    <div class="column is-half-tablet is-one-third-desktop is-one-quarter-widescreen is-one-quarter-fullhd">
                         <div class="columns is-multiline m-0">
                             <UseColorMode v-slot="{ mode }">
                                 <div class="column is-full">
