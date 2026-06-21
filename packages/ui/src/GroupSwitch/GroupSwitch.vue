@@ -1,6 +1,6 @@
 <script setup>
     import { LucideAtSign, LucideSquareSlash, LucideUserCheck, LucideUsers } from '@lucide/vue'
-import { UseColorMode } from '@vueuse/components'
+    import { UseColorMode } from '@vueuse/components'
     
     const activeGroup = defineModel('activeGroup')
     const isVisible = defineModel('isVisible')
@@ -8,6 +8,10 @@ import { UseColorMode } from '@vueuse/components'
     const props = defineProps({
         groups: Array,
         useShare: {
+            type: Boolean,
+            default: false
+        },
+        useShareAllScope: {
             type: Boolean,
             default: false
         },
@@ -46,7 +50,11 @@ import { UseColorMode } from '@vueuse/components'
                                 </div>
                                 <div v-if="useShare" class="column is-full">
                                     <button type="button" class="button is-fullwidth" :class="{'is-dark has-text-light is-outlined': mode == 'dark'}" @click="setActiveGroup(-2)">
-                                        {{ $t('label.accounts_I_m_sharing') }}<span class="ml-2 button tag"><LucideUsers class="icon-size-1 mr-1 has-text-grey" />|<LucideUserCheck class="ml-1 icon-size-1 has-text-grey" /></span>
+                                        {{ $t('label.accounts_I_m_sharing') }}<span class="ml-2 button tag">
+                                        <template v-if="useShareAllScope">
+                                            <LucideUsers class="icon-size-1 mr-1 has-text-grey" />|
+                                        </template>
+                                        <LucideUserCheck class=" icon-size-1 has-text-grey" :class="{'ml-1' : useShareAllScope }" /></span>
                                     </button>
                                 </div>
                                 <div v-if="useShare" class="column is-full">
