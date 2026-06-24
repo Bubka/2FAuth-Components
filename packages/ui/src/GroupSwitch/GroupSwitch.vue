@@ -43,7 +43,7 @@
                                         {{ $t('label.all_accounts') }}
                                     </button>
                                 </div>
-                                <div class="column is-full">
+                                <div v-if="groups.length > 1" class="column is-full">
                                     <button type="button" class="button is-fullwidth" :class="{'is-dark has-text-light is-outlined': mode == 'dark'}" @click="setActiveGroup(-1)">
                                         {{ $t('label.group_less_accounts') }}<span class="ml-2 button tag"><LucideSquareSlash class="icon-size-1 has-text-grey" /></span>
                                     </button>
@@ -62,7 +62,7 @@
                                         {{ $t('label.accounts_shared_with_me') }}<span class="ml-2 button tag"><LucideAtSign class="icon-size-1 has-text-grey" /></span>
                                     </button>
                                 </div>
-                                <div class="column has-text-centered">
+                                <div v-if="groups.length > 1" class="column has-text-centered">
                                     {{ $t('message.or_filter_by_group') }}
                                 </div>
                                 <template v-for="group in groups" :key="group.id">
