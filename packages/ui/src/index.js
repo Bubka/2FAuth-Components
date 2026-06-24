@@ -1,6 +1,7 @@
 export * from './Dots'
 export * from './DotsController'
 export * from './FormWrapper'
+export * from './GroupChips'
 export * from './GroupSwitch'
 export * from './Kicker'
 export * from './LucideGenericIcon'
