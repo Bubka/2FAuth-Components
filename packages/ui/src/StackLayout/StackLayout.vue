@@ -9,6 +9,10 @@
             type: Boolean,
             default: true
         },
+        shouldShrinkSubheader: {
+            type: Boolean,
+            default: false
+        },
     })
 </script>
 
@@ -17,7 +21,7 @@
         <div v-if="$slots.header" class="stack-header">
             <slot name="header" />
         </div>
-        <div v-if="$slots.subheader" class="stack-subheader">
+        <div v-if="$slots.subheader" class="stack-subheader" :class="{'is-flex-shrink-0' : shouldShrinkSubheader }">
             <slot name="subheader" />
         </div>
         <div v-if="$slots.content" class="stack-content-wrapper" :class="{'is-align-content-center': isVerticalCentered, 'is-flex-grow-1': shouldGrow}">
