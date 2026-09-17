@@ -70,8 +70,8 @@ importers:
         specifier: 1.0.0-beta.1
         version: 1.0.0-beta.1(histoire@1.0.0-beta.1(@types/node@25.2.3)(sass@1.97.3)(vite@7.3.1(@types/node@25.2.3)(jiti@2.6.1)(sass@1.97.3)(yaml@2.8.2))(yaml@2.8.2))(vite@7.3.1(@types/node@25.2.3)(jiti@2.6.1)(sass@1.97.3)(yaml@2.8.2))(vue@3.5.28(typescript@5.9.3))
       '@lucide/vue':
-        specifier: ^1.7.0
-        version: 1.7.0(vue@3.5.28(typescript@5.9.3))
+        specifier: ^1.47.0
+        version: 1.47.0(vue@3.5.28(typescript@5.9.3))
       '@testing-library/vue':
         specifier: ^8.1.0
         version: 8.1.0(@vue/compiler-sfc@3.5.28)(vue@3.5.28(typescript@5.9.3))
@@ -174,8 +174,8 @@ importers:
         specifier: ^3.4.2
         version: 3.4.2(vue@3.5.28(typescript@5.9.3))
       '@lucide/vue':
-        specifier: ^1.17.0
-        version: 1.17.0(vue@3.5.28(typescript@5.9.3))
+        specifier: ^1.47.0
+        version: 1.47.0(vue@3.5.28(typescript@5.9.3))
       '@testing-library/vue':
         specifier: ^8.1.0
         version: 8.1.0(@vue/compiler-sfc@3.5.28)(vue@3.5.28(typescript@5.9.3))
@@ -860,13 +860,8 @@ packages:
   '@lezer/lr@1.4.8':
     resolution: {integrity: sha512-bPWa0Pgx69ylNlMlPvBPryqeLYQjyJjqPx+Aupm5zydLIF3NE+6MMLT8Yi23Bd9cif9VS00aUebn+6fDIGBcDA==}
 
-  '@lucide/vue@1.17.0':
-    resolution: {integrity: sha512-6Q1ZHgr5FbmJzKWe5BxlNdjLj2lbmuH1zwDtVzUJofX0w9UREwKgq4F4jwKqFYyyIS4Rj3FiJvDi2k6djukmmw==}
-    peerDependencies:
-      vue: '>=3.0.1'
-
-  '@lucide/vue@1.7.0':
-    resolution: {integrity: sha512-X3gTarOkNh2ThNK7IaDa4gdjFAtZyoKH/eoScklvmtNTWE5uxkycBQOuchGExY5swCqh1WptEIAWrmbuQcy2fA==}
+  '@lucide/vue@1.47.0':
+    resolution: {integrity: sha512-S0/UX9zra4Z8xmqrA1MH5GiSKA8daAPFwkmORt/u+gUHAkYZoeOcr+DH3scZeyE9bdLWScGK+MJoDYi8rIU5Jg==}
     peerDependencies:
       vue: '>=3.0.1'
 
@@ -3620,11 +3615,7 @@ snapshots:
     dependencies:
       '@lezer/common': 1.5.1
 
-  '@lucide/vue@1.17.0(vue@3.5.28(typescript@5.9.3))':
-    dependencies:
-      vue: 3.5.28(typescript@5.9.3)
-
-  '@lucide/vue@1.7.0(vue@3.5.28(typescript@5.9.3))':
+  '@lucide/vue@1.47.0(vue@3.5.28(typescript@5.9.3))':
     dependencies:
       vue: 3.5.28(typescript@5.9.3)
 
