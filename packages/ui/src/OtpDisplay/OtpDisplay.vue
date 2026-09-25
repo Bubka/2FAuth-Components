@@ -3,7 +3,7 @@
     import { ref, watch, nextTick, computed, useTemplateRef } from 'vue'
     import { useClipboard } from '@vueuse/core'
     import { UseColorMode } from '@vueuse/components'
-    import { LucideEye, LucideEyeOff } from '@lucide/vue'
+    import { LucideEye, LucideEyeOff, LucideStar } from '@lucide/vue'
 
     // Internal package dependencies
     import i18n from '../i18n'
@@ -19,6 +19,7 @@
         'please-close-me',
         'please-clear-search',
         'please-update-active-group',
+        'please-toggle-favorite',
         'kickme',
         'increment-hotp',
         'error',
@@ -56,7 +57,8 @@
                     algorithm : '',
                     period : null,
                     counter : null,
-                    image : ''
+                    image : '',
+                    is_favorite: null
                 }
             }
         },
@@ -77,7 +79,8 @@
         algorithm : '',
         period : null,
         counter : null,
-        image : ''
+        image : '',
+        is_favorite: null
     })
     const discloseDottedPwd = ref(false)
     const password = ref('')
@@ -146,6 +149,7 @@
         otpauthParams.value.algorithm = props.accountParams.algorithm
         otpauthParams.value.period = props.accountParams.period
         otpauthParams.value.counter = props.accountParams.counter
+        otpauthParams.value.is_favorite = props.accountParams.is_favorite
         setLoadingState()
 
         // Case 1
@@ -360,8 +364,17 @@
 
     defineExpose({
         show,
-        clearOTP
+        clearOTP,
+        setFavorite
     })
+
+    /**
+     * Force the favorite status
+     */
+    function setFavorite(is_favorite)
+    {
+        otpauthParams.value.is_favorite = is_favorite
+    }
     
     /**
      * Starts an auto close timer
@@ -382,7 +395,13 @@
             <img :src="iconPathPrefix + '/storage/icons/' + otpauthParams.icon" v-if="otpauthParams.icon" :alt="$t('alttext.icon_to_illustrate_the_account')">
         </figure>
         <UseColorMode v-slot="{ mode }">
-            <p class="is-size-4 has-ellipsis" :class="mode == 'dark' ? 'has-text-grey-light' : 'has-text-grey'">{{ otpauthParams.service }}</p>
+            <p class="is-size-4 has-ellipsis" :class="mode == 'dark' ? 'has-text-grey-light' : 'has-text-grey'">
+                <button v-if="id && props.preferences.enableFavorites && otpauthParams.is_favorite != null" class="p-0 button is-ghost favorite-icon" @click.stop="$emit('please-toggle-favorite', id)" :title="$t('tooltip.remove_from_favorites')">
+                    <LucideStar v-if="otpauthParams.is_favorite" :class="mode == 'dark' ? 'has-text-warning-dark' : 'has-text-warning-dark-invert'" :strokeWidth="1" fill="#ffb400" />
+                    <LucideStar v-else :class="mode == 'dark' ? 'has-text-grey-dark' : 'has-text-grey-light'" :strokeWidth="1" :fill="mode == 'dark' ? '#111' : '#f5f5f5'" :title="$t('tooltip.set_as_favorite')" />
+                </button>
+                {{ otpauthParams.service }}
+            </p>
             <p class="is-size-6 has-ellipsis" :class="mode == 'dark' ? 'has-text-grey' : 'has-text-grey-light'">{{ otpauthParams.account }}</p>
             <p>
                 <span

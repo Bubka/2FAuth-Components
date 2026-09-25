@@ -268,6 +268,12 @@ a.tag:hover {
   outline: none;
 }
 
+.favorite-icon {
+  position: absolute;
+  margin-left: -2rem;
+  margin-top: .5rem;
+}
+
 // has-text-weight-semibold / bulma-utils.$weight-semibold
 .group-item, .list-item {
   border-bottom: 1px solid bulma-utils.$grey-lighter;
@@ -429,6 +435,10 @@ img.qrcode {
 .tfa-content {
   flex-grow: 1;
   overflow: hidden;
+  min-height: 60px;
+}
+
+.tfa-min-height {
   min-height: 60px;
 }
 
@@ -1046,7 +1056,7 @@ button.button.tag.is-white,
   border-width: 1px !important;
   background-color: bulma-utils.$white;
 }
-.tfa-checkbox .is-checkradio[type="checkbox"]+label::before {
+.tfa-checkradio .is-checkradio[type="checkbox"]+label::before {
   border-color: bulma-utils.$grey;
 }
 :root.dark .is-checkradio[type="checkbox"]+label::before {
