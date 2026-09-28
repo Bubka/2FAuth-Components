@@ -1,15 +1,15 @@
 <script setup>
     const props = defineProps({
-        layout: {
-            type: String,
-            default: 'list',
+        useDesktopTableLayout: {
+            type: Boolean,
+            default: false,
         },
     })
 
 </script>
 
 <template>
-    <table v-if="props.layout == 'table'" class="table tfa-table is-fullwidth">
+    <table v-if="props.useDesktopTableLayout" class="table tfa-table is-fullwidth">
         <tbody>
             <slot />
         </tbody>
