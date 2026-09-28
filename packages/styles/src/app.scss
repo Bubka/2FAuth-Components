@@ -488,10 +488,15 @@ img.qrcode {
   color: bulma-utils.$white;
 }
 
-.tfa-container img {
+.tfa-container img,
+.tfa-table img {
   height: 0.75em;
   width: 0.75em;
   margin-right: .1em;
+}
+
+.tfa-table td {
+  vertical-align: middle;
 }
 
 .import-icon {
