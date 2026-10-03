@@ -28,6 +28,10 @@
             type: Boolean,
             default: false
         },
+        isRightAligned: {
+            type: Boolean,
+            default: false
+        },
     })
 
     const emit = defineEmits([
@@ -53,7 +57,7 @@
 </script>
 
 <template>
-    <div id="groupChips" class="mx-3 tags is-justify-content-center">
+    <div id="groupChips" class="mx-3 tags" :class="props.isRightAligned ? 'is-justify-content-right' : 'is-justify-content-center'">
     <UseColorMode v-slot="{ mode }">
         <button class="button tag" :class="{'is-white': mode != 'dark', 'has-text-grey' : activeGroup != 0 }" @click="setActiveGroup(-0)" :title="$t('label.all_accounts')">
             {{ $t('label.all') }}{{ activeGroup == 0 ? ` • ${filteredCount}` : '' }}
