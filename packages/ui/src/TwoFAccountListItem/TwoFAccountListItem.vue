@@ -98,7 +98,8 @@
         'copy-to-clipboard',
         'toggle-is-favorite',
         'show-otp',
-        'get-shares'
+        'get-shares',
+        'delete-account-clicked'
     ])
 
     /**
@@ -435,7 +436,7 @@
                     <LucideHistory class="icon-size-1" />
                 </router-link>
                 <!-- delete button -->
-                <button @click="$emit('delete-account-clicked', )" class="tag is-rounded" :class="buttonColor" :title="$t('tooltip.delete_account')">
+                <button @click="$emit('delete-account-clicked', props.account.id)" class="tag is-rounded" :class="buttonColor" :title="$t('tooltip.delete_account')">
                     <LucideTrash2 class="icon-size-1" />
                 </button>
             </div>
