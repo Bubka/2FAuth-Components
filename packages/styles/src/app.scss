@@ -500,6 +500,14 @@ img.qrcode {
   vertical-align: middle;
 }
 
+:root.dark .shares-list {
+  border-right: 1px solid bulma-utils.$grey-darker;
+}
+
+.shares-list {
+  border-right: 1px solid bulma-utils.$grey-lighter;
+}
+
 .import-icon {
   height: 1em;
   width: 1em;

@@ -1,12 +1,17 @@
 <script setup>
     import { ref, computed } from 'vue'
     import { useVisiblePassword } from '../useVisiblePassword'
-    import { LucideCircleAlert, LucideCircleEllipsis, LucideCircleX, LucideEllipsis, LucideEye, LucideEyeOff, LucideHistory, LucideMenu, LucideQrCode, LucideSquarePen, LucideStar, LucideTrash2, LucideUserCheck, LucideUserPen, LucideUserPlus, LucideUsers } from '@lucide/vue';
+    import { LucideCircleAlert, LucideCircleEllipsis, LucideCircleX, LucideEllipsis, LucideEye, LucideEyeOff, LucideHistory, LucideLoaderCircle, LucideMenu, LucideQrCode, LucideSquarePen, LucideStar, LucideTrash2, LucideUserCheck, LucideUserPen, LucideUserPlus, LucideUsers, LucideX } from '@lucide/vue';
 
     const selectedTwofaccountIds = defineModel('selectedTwofaccountIds')
+    const specificShares = defineModel('specificShares')
 
     const props = defineProps({
         useDesktopTableLayout: {
+            type: Boolean,
+            default: false,
+        },
+        isFetchingShares: {
             type: Boolean,
             default: false,
         },
@@ -82,14 +87,30 @@
         return props.colorScheme == 'dark' ? 'is-dark' : 'is-white'
     })
 
+    const shareTagClass = computed(() => {
+        return props.colorScheme == 'dark' ? 'tag is-black is-opacity-4':'tag is-light is-white'
+    })
+
     const emit = defineEmits([
         'update:selected-twofaccount-ids',
         'show-or-copy',
         'get-and-copy-otp',
         'copy-to-clipboard',
         'toggle-is-favorite',
-        'show-otp'
+        'show-otp',
+        'get-shares'
     ])
+
+    /**
+     * 
+     * @param accountId 
+     */
+    function toggleSharesList(accountId) {
+        if (specificShares.value.length == 0) {
+            emit('get-shares', accountId)
+        }
+        else specificShares.value = []
+    }
 
 </script>
 
@@ -122,13 +143,13 @@
                     <img v-else-if="props.account.icon == null && props.preferences.showAccountsIcons" role="presentation" class="tfa-icon" :src="storageRootPath + '/storage/noicon.svg'" alt="">
                     {{ props.account.service ? props.account.service : $t('message.no_service') }}<LucideCircleAlert class="has-text-danger ml-2" v-if="props.account.account === $t('error.indecipherable')" />
                     <span class="is-block has-ellipsis is-family-primary is-size-6 is-size-7-mobile has-text-grey ">
-                        <span v-if="props.enableSharing && props.account.is_borrowed" :title="$t('tooltip.this_account_is_shared_by_x_with_you', { username: props.account.borrowed_by })" class="tag p-1 mr-1" :class="props.colorScheme == 'dark' ? 'is-black is-opacity-4':'is-light is-white'" >
+                        <span v-if="props.enableSharing && props.account.is_borrowed" :title="$t('tooltip.this_account_is_shared_by_x_with_you', { username: props.account.borrowed_by })" class="p-1 mr-1" :class="shareTagClass" >
                             @{{ props.inManagementMode ? props.account.borrowed_by : '' }}
                         </span>
-                        <span v-else-if="props.enableSharing && props.account.is_shared" :title="$t('tooltip.this_account_is_shared_with_specific_users')" class="tag p-1 mr-1" :class="props.colorScheme == 'dark' ? 'is-black is-opacity-4':'is-light is-white'" >
+                        <span v-else-if="props.enableSharing && props.account.is_shared" :title="$t('tooltip.this_account_is_shared_with_specific_users')" class="p-1 mr-1" :class="shareTagClass" >
                             <LucideUserCheck class="icon-size-0-75" />
                         </span>
-                        <span v-else-if="props.enableSharing && props.enableAllUsersSharingScope && props.account.is_shared_with_all" :title="$t('tooltip.this_account_is_shared_with_all')" class="tag p-1 mr-1" :class="props.colorScheme == 'dark' ? 'is-black is-opacity-4':'is-light is-white'" >
+                        <span v-else-if="props.enableSharing && props.enableAllUsersSharingScope && props.account.is_shared_with_all" :title="$t('tooltip.this_account_is_shared_with_all')" class="p-1 mr-1" :class="shareTagClass" >
                             <LucideUsers class="icon-size-0-75" />
                         </span>
                         {{ props.account.account }}
@@ -277,7 +298,7 @@
             <img v-if="props.account.icon && props.preferences.showAccountsIcons" role="presentation" class="tfa-icon" :src="storageRootPath + '/storage/icons/' + props.account.icon" alt="">
             <img v-else-if="props.account.icon == null && props.preferences.showAccountsIcons" role="presentation" class="tfa-icon" :src="storageRootPath + '/storage/noicon.svg'" alt="">
             {{ props.account.service ? props.account.service : $t('message.no_service') }}<LucideCircleAlert class="has-text-danger ml-2" v-if="props.account.account === $t('error.indecipherable')" />
-            <span v-if="props.account.otp_type == 'hotp'" class="tag ml-2" :class="props.colorScheme == 'dark' ? 'is-black is-opacity-4':'is-light is-white'" :title="$t('tooltip.current_counter')">
+            <span v-if="props.account.otp_type == 'hotp'" class="ml-2" :class="shareTagClass" :title="$t('tooltip.current_counter')">
                 {{  props.account.counter }}
             </span>
         </td>
@@ -349,23 +370,39 @@
         <!-- sharing -->
         <td class="is-narrow has-text-right">
             <template v-if="props.enableSharing">
-                <span v-if="props.account.is_borrowed" :title="$t('tooltip.this_account_is_shared_by_x_with_you', { username: props.account.borrowed_by })" class="tag p-1 mr-1" :class="[{ 'is-black is-opacity-4': props.colorScheme == 'dark' }]" >
+                <span v-if="props.account.is_borrowed" :title="$t('tooltip.this_account_is_shared_by_x_with_you', { username: props.account.borrowed_by })" class="p-1 mr-1" :class="shareTagClass" >
                     @{{ props.account.borrowed_by }}
                 </span>
-                <span v-else-if="props.account.is_shared" :title="$t('tooltip.this_account_is_shared_with_specific_users')" class="tag p-1 mr-1" :class="[{ 'is-black is-opacity-4': props.colorScheme == 'dark' }]" >
-                    <LucideUserCheck class="icon-size-0-75 mr-1" />{{ $t('label.share_with_specific_users') }}
-                </span>
+                <template v-else-if="props.account.is_shared">
+                    <div class="tfa-cell is-flex is-flex-direction-row">
+                        <div>
+                            <span :title="$t('tooltip.this_account_is_shared_with_specific_users')" :class="shareTagClass" >
+                                <LucideUserCheck class="icon-size-0-75 mr-1" />
+                                {{ $t('label.share_with_specific_users') }}
+                            </span>
+                            <ul v-if="specificShares" class="shares-list is-size-7 pr-2">
+                                <li v-for="specific_user in specificShares" :key="specific_user.id" class="my-1 is-block">
+                                    <span :class="shareTagClass">{{ specific_user.name }}</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div>
+                            <button @click="toggleSharesList(account.id)" class="ml-1" :class="shareTagClass" :title="$t('tooltip.share_with_new_users')">
+                                <LucideLoaderCircle v-if="props.isFetchingShares" class="spinning icon-size-0-75" />
+                                <LucideX v-else-if="specificShares.length > 0" class="icon-size-0-75" />
+                                <LucideEllipsis v-else class="icon-size-0-75" />
+                            </button>
+                        </div>
+                    </div>
+                </template>
                 <span v-else-if="props.enableAllUsersSharingScope && props.account.is_shared_with_all" :title="$t('tooltip.this_account_is_shared_with_all')" class="tag p-1 mr-1" :class="[{ 'is-black is-opacity-4': props.colorScheme == 'dark' }]" >
                     <LucideUsers class="icon-size-0-75 mr-1" />{{ $t('label.share_with_all') }}
                 </span>
-                <button v-if="props.account.is_shared" class="tag" :class="[{ 'is-black is-opacity-4': props.colorScheme == 'dark' }]" :title="$t('tooltip.share_with_new_users')">
-                    <LucideEllipsis class="icon-size-0-75" />
-                </button>
             </template>
         </td>
         <!-- action buttons -->
         <td>
-            <div class="tags is-flex-wrap-nowrap">
+            <div class="tags tfa-cell is-flex-wrap-nowrap">
                 <template v-if="props.account.is_shared || props.account.is_shared_with_all">
                     <!-- manage sharing button -->
                     <router-link :to="{ name: 'accountSharing', params: { twofaccountId: props.account.id }}" class="tag is-rounded" :class="buttonColor" :title="$t('tooltip.edit_sharing')">
@@ -384,7 +421,7 @@
         </td>
         <!-- Manage mode buttons -->
         <td class="is-narrow">
-            <div class="tfa-cell tfa-edit has-text-grey" v-if="!props.enableSharing || (props.enableSharing && !props.account.is_borrowed)">
+            <div class="tfa-cell tfa-edit" v-if="!props.enableSharing || (props.enableSharing && !props.account.is_borrowed)">
                 <!-- edit button -->
                 <router-link :to="{ name: 'editAccount', params: { twofaccountId: props.account.id }}" class="tag is-rounded mr-1" :class="buttonColor" :title="$t('tooltip.edit_account')">
                     <LucideSquarePen class="icon-size-1" />
