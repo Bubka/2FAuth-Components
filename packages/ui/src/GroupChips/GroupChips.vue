@@ -65,7 +65,7 @@
         <template v-if="useFavorites">
             <button class="button tag" :class="{ 'has-text-grey' : mode == 'dark', 'is-white has-text-grey' : mode != 'dark' }" @click="showFavoritesOnly = !showFavoritesOnly" :title="$t('tooltip.show_favorites_only')">
                 <LucideStar v-if="showFavoritesOnly" class="icon-size-0-9" :class="mode == 'dark' ? 'has-text-warning-dark-invert' : 'has-text-grey'" fill="#ffb400" />
-                <LucideStar v-else class="icon-size-0-9" :title="$t('tooltip.show_favorited_only')" />
+                <LucideStar v-else class="icon-size-0-9" />
             </button>
         </template>
         <template v-for="group in groups" :key="group.id" >
