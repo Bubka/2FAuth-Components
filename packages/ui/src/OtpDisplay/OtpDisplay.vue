@@ -39,6 +39,10 @@
             type: Boolean,
             default: true,
         },
+        can_showFavorite: {
+            type: Boolean,
+            default: true,
+        },
         can_autoCloseTimeout: {
             type: Boolean,
             default: true,
@@ -396,7 +400,7 @@
         </figure>
         <UseColorMode v-slot="{ mode }">
             <p class="is-size-4 has-ellipsis" :class="mode == 'dark' ? 'has-text-grey-light' : 'has-text-grey'">
-                <button v-if="id && props.preferences.enableFavorites && otpauthParams.is_favorite != null" class="p-0 button is-ghost favorite-icon" @click.stop="$emit('please-toggle-favorite', id)" :title="$t('tooltip.remove_from_favorites')">
+                <button v-if="id && props.can_showFavorite && props.preferences.enableFavorites && otpauthParams.is_favorite != null" class="p-0 button is-ghost favorite-icon" @click.stop="$emit('please-toggle-favorite', id)" :title="$t('tooltip.remove_from_favorites')">
                     <LucideStar v-if="otpauthParams.is_favorite" :class="mode == 'dark' ? 'has-text-warning-dark' : 'has-text-warning-dark-invert'" :strokeWidth="1" fill="#ffb400" />
                     <LucideStar v-else :class="mode == 'dark' ? 'has-text-grey-dark' : 'has-text-grey-light'" :strokeWidth="1" :fill="mode == 'dark' ? '#111' : '#f5f5f5'" :title="$t('tooltip.set_as_favorite')" />
                 </button>
