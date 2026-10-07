@@ -7,3 +7,8 @@ overrides:
   '@intlify/core-base@>=11.0.0 <11.1.10': '>=11.1.10'
   vue-i18n@>=11.0.0 <11.1.10: '>=11.1.10'
   '@eslint/plugin-kit@<0.3.4': '>=0.3.4'
+
+# The workspace uses the hoisted nodeLinker to avoid npm error
+# when its node_modules dir is browsed by 2FAuth/WebExt npm commands.
+# See https://github.com/npm/cli/issues/4411, https://github.com/npm/cli/issues/9079
+nodeLinker: hoisted
