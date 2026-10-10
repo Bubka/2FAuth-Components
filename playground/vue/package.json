@@ -10,16 +10,16 @@
   "dependencies": {
     "@2fauth/formcontrols": "link:..\\..\\packages\\formcontrols",
     "@2fauth/styles": "link:..\\..\\packages\\styles",
-    "vue": "^3.5.28"
+    "vue": "^3.5.43"
   },
   "devDependencies": {
     "@intlify/unplugin-vue-i18n": "^11.0.3",
-    "@vitejs/plugin-vue": "^6.0.4",
-    "@vue/tsconfig": "^0.8.1",
-    "sass": "1.97.3",
+    "@vitejs/plugin-vue": "^6.0.10",
+    "@vue/tsconfig": "^0.9.1",
+    "sass": "1.105.1",
     "typescript": "~5.9.3",
     "vite": "^7.3.1",
-    "vue-i18n": "^11.2.8",
-    "vue-tsc": "^3.2.4"
+    "vue-i18n": "^11.4.14",
+    "vue-tsc": "^3.3.13"
   }
 }

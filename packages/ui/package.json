@@ -20,27 +20,27 @@
     "devDependencies": {
         "@histoire/plugin-vue": "1.0.0-beta.1",
         "@kyvg/vue3-notification": "^3.4.2",
-        "@lucide/vue": "^1.47.0",
+        "@lucide/vue": "^1.55.0",
         "@testing-library/vue": "^8.1.0",
         "@types/node": "^25.2.3",
-        "@vitejs/plugin-vue": "^6.0.4",
-        "@vue/tsconfig": "^0.8.1",
-        "@vueuse/components": "^14.3.0",
-        "@vueuse/core": "^14.3.0",
+        "@vitejs/plugin-vue": "^6.0.10",
+        "@vue/tsconfig": "^0.9.1",
+        "@vueuse/components": "15.0.0",
+        "@vueuse/core": "15.0.0",
         "jsdom": "^28.0.0",
         "typescript": "^5.9.3",
         "vite": "^7.3.1",
         "vitest": "^4.0.18",
-        "vue": "^3.5.28",
-        "vue-tsc": "^3.2.4"
+        "vue": "^3.5.43",
+        "vue-tsc": "^3.3.13"
     },
     "peerDependencies": {
         "@2fauth/formcontrols": "^0.0.0",
         "@kyvg/vue3-notification": "^3.4.2",
-        "@lucide/vue": "^1.47.0",
-        "@vueuse/components": "^14.3.0",
-        "@vueuse/core": "^14.3.0",
-        "vue": "^3.5.13",
-        "vue-i18n": "^11.4.4"
+        "@lucide/vue": "^1.55.0",
+        "@vueuse/components": "15.0.0",
+        "@vueuse/core": "15.0.0",
+        "vue": "^3.5.43",
+        "vue-i18n": "^11.4.14"
     }
 }

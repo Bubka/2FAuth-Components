@@ -12,12 +12,12 @@
     },
     "devDependencies": {
         "@histoire/plugin-vue": "1.0.0-beta.1",
-        "@intlify/unplugin-vue-i18n": "^11.0.3",
+        "@intlify/unplugin-vue-i18n": "^11.2.5",
         "@kyvg/vue3-notification": "^3.4.2",
-        "@vitejs/plugin-vue": "^6.0.4",
+        "@vitejs/plugin-vue": "^6.0.10",
         "histoire": "1.0.0-beta.1",
-        "sass": "^1.97.3",
-        "vue": "^3.5.28",
-        "vue-router": "^5.0.2"
+        "sass": "^1.105.1",
+        "vue": "^3.5.43",
+        "vue-router": "^5.4.0"
     }
 }
